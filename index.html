@@ -50,5 +50,16 @@ a:active {
     <h3><a href="https://linkedin.com/in/ahmadahmad1" >LinkedIn</a></h3>
     <h3><a href="https://docs.google.com/document/d/1FM5lUnUctVfRfaFk0_ymH6oFVq4rdEAz/edit?usp=sharing&ouid=111409500646789383237&rtpof=true&sd=true" >Resume</a></h3>
     <iframe title="mockup" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNjc1MjRkZmItODI1Yy00YTExLWIxMzctMmUzMGMxNGNiYTI0IiwidCI6ImE2YTIwYzIzLTliNmEtNGU2ZC1iYTBiLTlmMjFlM2M3ZWYzNiJ9" frameborder="0" allowFullScreen="true"></iframe>
+
+<hr>
+    <h3>RLS implementation flow for .Net applications:</h3>
+    <h4>Phase 1: The Setup.</h4>
+    <h5>In Power BI we must have security mapping table, for example if i want to have RLS per region the table should have two columns UserName and RegionID. First we define the Roles in PowerBI, DAX command will look like UserEmail=USERPRINCIPALNAME(), then publish it to workspace and grant Azure App read permission to that workspace</h5>
+    <h4>Phase 2: Backend Handshake.</h4>
+    <h5>This is where C# identify loggedin user then send Power BI API token request (pre-filtered) to logged in user. Power BI send Embed Token</h5>
+    <h4>Phase 3: Frontend Handover.</h4>
+    <h5>Javascript SDK takes ReportID, Embed Token and Embed URL from C# and say "hey Power BI, paint this report inside html div tag" </h5>
+    <hr>
+    <h6>Note: in the past, specifially in Canadian Tire, instead of using UserName in Roles we use User groups. So any user is added to that group would get the appropriate RLS automatically. This method need some logic in C# but it works perfectly fine</h6>
 </body>
 </html>
