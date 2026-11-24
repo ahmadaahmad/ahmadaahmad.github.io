@@ -186,6 +186,10 @@ const image = card.querySelector(".preview-art");
 if (optionTwo) {
   card.dataset.layout = "split";
   card.querySelector(".project-text").prepend(image);
+  const walkthrough = ["The pipeline picks up the daily extract.","It stages the batch in Azure SQL.","It merges new and updated records into the target table.","It saves the latest processed timestamp for the next run."];
+  card.querySelectorAll(".diagram .steps li").forEach((step, i) => {
+    if (walkthrough[i]) step.replaceChildren(step.querySelector("b"), document.createTextNode(" " + walkthrough[i]));
+  });
 }
 document.getElementById(optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
 </script></body>
