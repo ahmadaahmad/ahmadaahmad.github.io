@@ -193,7 +193,7 @@ const image = card.querySelector(".preview-art");
 if (optionTwo) {
   card.dataset.layout = "split";
   card.querySelector(".project-text").prepend(image);
-  const walkthrough = ["The pipeline picks up the daily extract.","It stages the batch in Azure SQL.","It merges new and updated records into the target table.","The pipeline keeps track of what it has already processed so it can pick up where it left off."];
+  const walkthrough = ["The pipeline picks up the daily extract.","It stages the batch in Azure SQL.","It merges new and updated records into the target table.","It saves the latest timestamp from the batch so the next run can find records that changed after that point."];
   card.querySelectorAll(".diagram .steps li").forEach((step, i) => {
     if (!walkthrough[i]) return;
     const badge = step.querySelector("b");
