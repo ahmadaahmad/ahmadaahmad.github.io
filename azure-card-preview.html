@@ -65,6 +65,7 @@ footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:
 [data-layout="split"] .preview-art{padding:0;margin:0 0 17px}
 @media(max-width:740px){.preview-body{grid-template-columns:1fr}.preview-body .project-text,.preview-body .diagram{padding:19px 20px}.shared-title{padding:21px 20px 0}.preview-art{padding:20px 20px 0}.preview-controls strong{width:100%}}
 
+.preview-flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;gap:6px;margin:0;padding:0}.flow-node{display:grid;align-content:center;gap:4px;min-width:0;border:1px solid #cdbfd6;border-radius:9px;background:#f4edf6;padding:10px 7px;text-align:center;font-size:.84rem;line-height:1.3}.flow-node:last-child{background:#fae9df;border-color:#e1b7a8}.flow-arrow{align-self:center;color:#963e31;font-size:1.1rem}.flow-cue{font-size:.7rem;color:#674b75}.preview-flow figcaption{grid-column:1/-1}.flow-caption{margin-top:10px;font-size:.8rem;color:#534762}@media(max-width:430px){.preview-flow{grid-template-columns:minmax(0,1fr)}.flow-arrow{justify-self:center;transform:rotate(90deg);line-height:1}.flow-node{padding:8px}}
 </style>
 </head>
 <body>
@@ -179,6 +180,7 @@ footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:
 </div>
 </main>
 <footer><div class="wrap footer-row"><p class="foot-label">Ahmad Ahmad · Portfolio</p><p><a href="https://linkedin.com/in/ahmadahmad1">Connect on LinkedIn<span aria-hidden="true"> ↗</span></a></p></div></footer>
+<template id="azure-flow"><p class="diagram-label">Follow the data</p><div class="preview-flow" role="img" aria-label="Daily source extracts go to SQL staging, where the pipeline identifies new and changed records, then merges them into Azure SQL."><div class="flow-node" aria-hidden="true"><strong>Source data</strong><span class="flow-cue">Daily extracts</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node" aria-hidden="true"><strong>Find changes</strong><span class="flow-cue">New or updated rows</span></div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node" aria-hidden="true"><strong>Load Azure SQL</strong><span class="flow-cue">Merge changed rows</span></div></div><figcaption class="flow-caption">The pipeline saves the latest processed timestamp so the next run knows where to start.</figcaption></template>
 <script>
 const optionTwo = new URLSearchParams(location.search).get("layout") === "2";
 const card = document.querySelector(".preview-feature");
@@ -186,6 +188,7 @@ const image = card.querySelector(".preview-art");
 if (optionTwo) {
   card.dataset.layout = "split";
   card.querySelector(".project-text").prepend(image);
+  card.querySelector(".diagram").replaceChildren(document.getElementById("azure-flow").content.cloneNode(true));
 }
 document.getElementById(optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
 </script></body>
