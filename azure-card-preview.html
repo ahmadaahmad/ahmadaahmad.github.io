@@ -65,7 +65,11 @@ footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:
 [data-layout="split"] .preview-art{padding:0;margin:0 0 17px}
 @media(max-width:740px){.preview-body{grid-template-columns:1fr}.preview-body .project-text,.preview-body .diagram{padding:19px 20px}.shared-title{padding:21px 20px 0}.preview-art{padding:20px 20px 0}.preview-controls strong{width:100%}}
 
-[data-layout="split"] .diagram .steps{padding-inline-end:28px}[data-layout="split"] .diagram .steps li{position:relative}.step-connector{position:absolute;z-index:1;right:-26px;bottom:-17px;width:29px;height:28px;color:#a34d42;pointer-events:none}
+[data-layout="split"] .diagram .steps li{position:relative;isolation:isolate}
+[data-layout="split"] .diagram .steps li b{position:relative;z-index:1;display:grid;place-items:center;width:25px;height:25px;min-width:25px;background:#fffdf8;border:1px solid #d3bed7;border-radius:50%}
+[data-layout="split"] .diagram .steps li:not(:first-child)::before,[data-layout="split"] .diagram .steps li:not(:last-child)::after{content:"";position:absolute;z-index:0;left:22px;width:1px;background:#b79fc0;pointer-events:none}
+[data-layout="split"] .diagram .steps li:not(:first-child)::before{top:-5px;bottom:50%}
+[data-layout="split"] .diagram .steps li:not(:last-child)::after{top:50%;bottom:-5px}
 </style>
 </head>
 <body>
@@ -180,7 +184,6 @@ footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:
 </div>
 </main>
 <footer><div class="wrap footer-row"><p class="foot-label">Ahmad Ahmad · Portfolio</p><p><a href="https://linkedin.com/in/ahmadahmad1">Connect on LinkedIn<span aria-hidden="true"> ↗</span></a></p></div></footer>
-<template id="azure-connector"><svg class="step-connector" viewBox="0 0 30 29" aria-hidden="true" focusable="false"><path d="M2 3h7C30 3 30 25 8 25H3m0 0 5-4m-5 4 5 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></template>
 <script>
 const optionTwo = new URLSearchParams(location.search).get("layout") === "2";
 const card = document.querySelector(".preview-feature");
@@ -191,7 +194,6 @@ if (optionTwo) {
   const walkthrough = ["The pipeline picks up the daily extract.","It stages the batch in Azure SQL.","It merges new and updated records into the target table.","It saves the latest processed timestamp for the next run."];
   card.querySelectorAll(".diagram .steps li").forEach((step, i) => {
     if (walkthrough[i]) step.replaceChildren(step.querySelector("b"), document.createTextNode(" " + walkthrough[i]));
-    if (i < walkthrough.length - 1) step.append(document.getElementById("azure-connector").content.cloneNode(true));
   });
 }
 document.getElementById(optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
