@@ -260,6 +260,22 @@ html:not([data-logos]) .brand>.monogram,html[data-logos] .brand>.insight-brand-m
 html[data-logos] .brand .monogram.insight-sample{background:transparent;width:var(--insight-size);height:var(--insight-size);flex-basis:var(--insight-size)}
 .case-back{display:inline-flex;align-items:center;gap:11px}
 @media(max-width:380px){html[data-catalog] body>.hero .top{flex-direction:row;align-items:center}}
+
+.contact-preview{margin-top:clamp(36px,6vw,72px);scroll-margin-top:24px}
+.contact-panel{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(22px,5vw,60px);padding:clamp(18px,4vw,44px);border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.contact-intro h2{font-size:clamp(2rem,4.2vw,3.15rem);margin-bottom:12px}
+.contact-intro .desc{max-width:36ch;margin-bottom:12px}
+.contact-form fieldset{display:grid;gap:12px;border:0;padding:0;margin:0;min-width:0}
+.contact-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.contact-form label{display:grid;gap:5px;min-width:0;font-size:.87rem;font-weight:690}
+.contact-form :is(input,textarea){width:100%;min-width:0;min-height:44px;padding:9px 10px;border:1px solid var(--muted);border-radius:7px;background:var(--white);color:var(--ink);font:inherit;font-size:1rem;font-weight:400}
+.contact-form textarea{min-height:108px;resize:vertical}
+.contact-form :is(button){justify-self:start;min-height:44px;border:1px solid var(--accent);border-radius:7px;padding:8px 14px;background:var(--accent);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.contact-form button:disabled{cursor:default;opacity:.68}
+.contact-form .contact-note,.contact-status{margin:0;font-size:.84rem;color:var(--muted)}
+.contact-status:not(:empty){padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)}
+@media(max-width:660px){.contact-panel{grid-template-columns:1fr}}
+@media(max-width:425px){.contact-fields{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -301,7 +317,7 @@ html[data-logos] .brand .monogram.insight-sample{background:transparent;width:va
 <div class="wrap">
 <div class="top">
 <a class="brand" href="#top" aria-label="Ahmad Ahmad, portfolio top"><span class="monogram" aria-hidden="true">AA</span> <span class="brand-name">Ahmad Ahmad</span><svg class="insight-brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><g stroke-width="2" stroke-linejoin="round"><path d="m48 7 35 20-35 20-35-20Z" fill="#deefff" stroke="#deefff"/><path d="m13 32 32 18v37L13 69Z" fill="#85acd9" stroke="#85acd9"/><path d="m52 51 32-19v37L52 88Z" fill="#315978" stroke="#315978"/><path d="m58 67 5-3v10l-5 3Zm8-10 5-3v15l-5 3Zm8-10 5-3v21l-5 3Z" fill="#75ddf1"/><path d="m20 44 17 10m-17-2 17 10m-17-2 17 10" stroke="#243e64" stroke-width="3" stroke-linecap="round"/></g></svg></a>
-<nav class="nav" aria-label="Portfolio"><a href="#work">Projects</a><a href="https://github.com/ahmadaahmad">GitHub</a></nav>
+<nav class="nav" aria-label="Portfolio"><a href="#work">Projects</a><a class="catalog-only" href="#contact">Contact</a><a href="https://github.com/ahmadaahmad">GitHub</a></nav>
 </div>
 <div class="hero-copy catalog-hero">
 <div class="catalog-hero-copy">
@@ -446,6 +462,29 @@ html[data-logos] .brand .monogram.insight-sample{background:transparent;width:va
 <p class="note">Architecture note only. The public demo does not enforce this access model.</p>
 </article>
 </div>
+
+<section class="catalog-only contact-preview" id="contact" aria-labelledby="contact-title">
+  <div class="contact-panel">
+    <div class="contact-intro">
+      <p class="kicker">Contact</p>
+      <h2 id="contact-title">Get in touch</h2>
+      <p class="desc">Have a role in mind or a question about a project? I’d like to hear from you.</p>
+      <a class="action" href="https://linkedin.com/in/ahmadahmad1">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+    </div>
+    <form class="contact-form" id="contact-form" method="post" data-formspree-endpoint="" aria-describedby="contact-note">
+      <fieldset disabled>
+        <div class="contact-fields">
+          <label>Name<input name="name" maxlength="100" required></label>
+          <label>Email<input type="email" name="email" maxlength="254" required></label>
+        </div>
+        <label>Message<textarea name="message" maxlength="2000" rows="4" required></textarea></label>
+        <p class="contact-note" id="contact-note">Preview only. Use sample details. Nothing will be sent.</p>
+        <button type="submit" id="contact-submit">Test message</button>
+        <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
+      </fieldset>
+    </form>
+  </div>
+</section>
 </main>
 <footer><div class="wrap footer-row"><p class="foot-label">Ahmad Ahmad · Portfolio</p><p><a href="https://linkedin.com/in/ahmadahmad1">Connect on LinkedIn<span aria-hidden="true"> ↗</span></a></p></div></footer>
 <template id="azure-step-icons"><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4h4M9 12h6m-6 4h6"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="6" rx="6" ry="2.7"/><path d="M6 6v11.5c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7V6M6 12c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h3l6 6h7M4 18h3l6-6m3-4 4 4-4 4"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7.5v4.8l3 2"/></svg></template>
@@ -753,6 +792,56 @@ if (portfolioPreviewView === "catalog") {
     status.textContent = key ? ("Showing " + matches + " of " + cards.length + " projects · " + key) : ("Showing all " + cards.length + " projects");
   }
   setFilter("");
+}
+
+if (portfolioPreviewView === "catalog") {
+  const form = document.getElementById("contact-form");
+  const fields = form.querySelector("fieldset");
+  const button = document.getElementById("contact-submit");
+  const status = document.getElementById("contact-status");
+  const endpoint = form.dataset.formspreeEndpoint;
+  const live = /^https:\/\/formspree\.io\/f\/[a-z0-9]+$/.test(endpoint);
+  form.addEventListener("input", () => {
+    if (!button.disabled) status.textContent = "";
+  });
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (button.disabled) return;
+    const data = new FormData(form);
+    if (!String(data.get("name") || "").trim() || !String(data.get("message") || "").trim()) {
+      status.textContent = "Please enter your name and a message.";
+      return;
+    }
+    if (!live) {
+      status.textContent = "Preview test passed. Nothing was sent.";
+      return;
+    }
+    button.disabled = true;
+    status.textContent = "Sending…";
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(endpoint, {method:"POST",body:data,headers:{Accept:"application/json"},signal:controller.signal});
+      if (!response.ok) throw new Error("The form service did not accept the message.");
+      form.reset();
+      status.textContent = "Message sent. Thanks for reaching out.";
+    } catch {
+      status.textContent = "Couldn’t confirm delivery. Your message is still here. Try again or use LinkedIn.";
+    } finally {
+      clearTimeout(timeout);
+      button.disabled = false;
+    }
+  });
+  if (live) {
+    form.action = endpoint;
+    form.elements.name.autocomplete = "name";
+    form.elements.email.autocomplete = "email";
+    document.getElementById("contact-note").textContent = "Formspree processes your message. Please don’t include sensitive information.";
+    button.textContent = "Send message";
+  } else {
+    form.autocomplete = "off";
+  }
+  fields.disabled = false;
 }
 </script><div id="case-study">
 <header class="hero case-hero"><div class="wrap"><div class="top"><a class="case-back" href="?layout=2#work"><svg class="insight-brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><g stroke-width="2" stroke-linejoin="round"><path d="m48 7 35 20-35 20-35-20Z" fill="#deefff" stroke="#deefff"/><path d="m13 32 32 18v37L13 69Z" fill="#85acd9" stroke="#85acd9"/><path d="m52 51 32-19v37L52 88Z" fill="#315978" stroke="#315978"/><path d="m58 67 5-3v10l-5 3Zm8-10 5-3v15l-5 3Zm8-10 5-3v21l-5 3Z" fill="#75ddf1"/><path d="m20 44 17 10m-17-2 17 10m-17-2 17 10" stroke="#243e64" stroke-width="3" stroke-linecap="round"/></g></svg><span>← Back to portfolio preview</span></a><span class="meta case-preview-label">Case study preview</span></div>
