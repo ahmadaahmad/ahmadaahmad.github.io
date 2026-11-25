@@ -18,6 +18,19 @@ html[data-motion] .stop[data-active] .card,html[data-motion] .stop:focus-within 
 footer{border-top:1px solid var(--edge);padding:18px 0 24px;color:var(--muted);font-size:.85rem}
 @media(max-width:620px){.wrap{width:calc(100% - 30px)}.journey{display:block}.rail{position:static;display:flex;align-items:center;flex-wrap:wrap;gap:5px 12px;margin-bottom:12px}.rail ol{display:flex;gap:6px;flex-wrap:wrap;border:0;margin:0}.rail a{padding:6px 8px;border-left:0;border-bottom:2px solid transparent}.stop{min-height:65svh}.stop:last-child{min-height:72svh}}
 @media(prefers-reduced-motion:reduce){html[data-motion] .stop .card{opacity:1;transform:none;transition:none}.stop,.stop:last-child{min-height:0}}
+
+/* The summary reads as an introduction; experience is structured as a dated timeline. */
+.card.summary-layout,.card.experience-layout{padding:clamp(11px,2vw,24px) 0 0;border:0;border-radius:0;background:none;box-shadow:none}
+.summary-layout .phase::after{content:"";display:block;width:40px;height:2px;margin:12px 0 0;border-radius:2px;background:var(--cyan)}
+.summary-layout .summary-lead{font-size:clamp(1.17rem,2.5vw,1.63rem);line-height:1.53;max-width:44ch;margin:0 0 22px}
+.summary-layout ul.info{padding-left:0;margin-top:0}
+.experience-layout h2{margin-bottom:23px}
+.experience-track{position:relative;padding-left:clamp(19px,4vw,33px);margin-left:6px;border-left:2px solid var(--edge)}
+.experience-track::before{content:"";position:absolute;left:-7px;top:15px;width:12px;height:12px;border-radius:50%;border:2px solid var(--bg);background:var(--cyan);box-shadow:0 0 0 1px var(--cyan)}
+.card .experience-period{display:inline-flex;align-items:center;gap:5px;min-height:28px;padding:3px 9px;border:1px solid var(--edge);border-radius:50px;background:#203e59;color:var(--ink);font-size:.79rem;font-weight:700;letter-spacing:.02em;margin:6px 0 11px}
+.experience-entry{padding:clamp(16px,3vw,26px);border:1px solid var(--edge);border-radius:13px;background:var(--panel)}
+.experience-entry .employer{margin:0;font-size:.9rem}
+.experience-entry ul{border-top:1px solid var(--edge);margin-top:13px;padding-top:13px}
 </style></head><body>
 <div class="wrap">
 <header class="top"><a href="./azure-card-preview.html?layout=2&amp;view=catalog&amp;theme=midnight#top">← Portfolio preview</a><span class="kicker">Résumé motion preview</span></header>
@@ -25,15 +38,15 @@ footer{border-top:1px solid var(--edge);padding:18px 0 24px;color:var(--muted);f
 <main class="journey">
 <nav class="rail" aria-label="Résumé sections"><p class="kicker">On this page</p><ol><li><a href="#career-summary" aria-current="location">01 &nbsp; Career summary</a></li><li><a href="#experience">02 &nbsp; Experience</a></li></ol></nav>
 <div class="stops">
-<section class="stop" id="career-summary" aria-labelledby="summary-title" data-active><div class="card">
+<section class="stop" id="career-summary" aria-labelledby="summary-title" data-active><div class="card summary-layout">
 <p class="phase">01 &nbsp; Overview</p><h2 id="summary-title">Career summary</h2>
-<p>Over 10 years of experience in Microsoft business intelligence. I work on moving on-premises data workflows to Azure and building Power BI reports on top of the resulting data.</p>
+<p class="summary-lead">Over 10 years of experience in Microsoft business intelligence. I work on moving on-premises data workflows to Azure and building Power BI reports on top of the resulting data.</p>
 <ul class="info" aria-label="Key skills"><li>Azure Data Factory</li><li>Databricks and PySpark</li><li>SQL and ETL</li><li>Power BI</li></ul>
 </div></section>
-<section class="stop" id="experience" aria-labelledby="experience-title"><div class="card">
+<section class="stop" id="experience" aria-labelledby="experience-title"><div class="card experience-layout">
 <p class="phase">02 &nbsp; Recent experience</p><h2 id="experience-title">Experience</h2>
-<h3>Data Engineer &amp; BI Solutions Consultant</h3><p>10179906 Canada Inc. · Oct 2021 – Present</p>
-<ul><li>Built data transformations in PySpark and used partitioning to improve processing.</li><li>Designed Power BI dashboards using DAX and star-schema models.</li><li>Implemented incremental loads using watermarks and change data capture.</li></ul>
+<div class="experience-track"><p class="experience-period"><time datetime="2021-10">Oct 2021</time> to present</p><article class="experience-entry"><h3>Data Engineer &amp; BI Solutions Consultant</h3><p class="employer">10179906 Canada Inc.</p>
+<ul><li>Built data transformations in PySpark and used partitioning to improve processing.</li><li>Designed Power BI dashboards using DAX and star-schema models.</li><li>Implemented incremental loads using watermarks and change data capture.</li></ul></article></div>
 </div></section>
 </div>
 </main>
