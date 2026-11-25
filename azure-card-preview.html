@@ -181,6 +181,24 @@ html[data-catalog] .portfolio-report{display:grid;grid-template-columns:minmax(1
 .portfolio-report .report-embed iframe{height:clamp(240px,27vw,350px);aspect-ratio:auto}
 .portfolio-report .report-full-link{margin-top:8px;white-space:normal}
 @media(max-width:680px){html[data-catalog] .portfolio-report{grid-template-columns:1fr}.report-picker{display:flex;flex-wrap:wrap;margin:12px 0 8px}.portfolio-report .report-embed iframe{height:clamp(220px,60vw,290px)}}
+.report-carousel{margin:14px 0 12px}
+.report-swipe{position:relative;display:grid;gap:4px;min-height:88px;align-content:center;color:#f9f1f9;background:linear-gradient(125deg,#543660,#3a2d4b);border:1px solid #6b4d77;border-radius:10px;padding:10px 12px;touch-action:pan-y;user-select:none;cursor:grab}
+.report-swipe:active{cursor:grabbing}
+.report-slide-count{font:700 .66rem/1 ui-monospace,monospace;letter-spacing:.09em;color:#efc1d8}
+.report-slide-title{font-size:.96rem;line-height:1.22}
+.report-swipe-help{color:#ecdced;font-size:.71rem}
+.report-carousel-nav,.report-dots{display:flex;align-items:center;gap:5px}
+.report-carousel-nav{justify-content:space-between;margin-top:6px}
+.report-carousel-nav button{display:grid;place-items:center;cursor:pointer;font:inherit}
+.report-arrow{width:34px;height:34px;border:1px solid #d7c8dd;border-radius:50%;background:#faf6fb;color:#583a66}
+.report-arrow:hover{background:#eee5f2}
+.report-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.report-dot{width:30px;height:30px;padding:0;border:0;border-radius:50%;background:transparent;color:#83698b}
+.report-dot span{display:block;width:8px;height:8px;border:1px solid currentColor;border-radius:50%;transition:width .16s ease,background .16s ease}
+.report-dot[aria-pressed=true] span{width:16px;border-radius:10px;background:#5b3c67;color:#5b3c67}
+.report-embed iframe{opacity:1;transition:opacity .18s ease}
+.report-embed.is-changing iframe{opacity:0;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.report-embed iframe,.report-dot span{transition:none}}
 </style>
 </head>
 <body>
@@ -250,10 +268,20 @@ html[data-catalog] .portfolio-report{display:grid;grid-template-columns:minmax(1
 <div class="report-section-head">
 <p class="kicker">Interactive portfolio demos</p>
 <h2 id="portfolio-report-title">Power BI reports</h2>
-<div class="report-picker" role="group" aria-label="Choose a Power BI report">
-<button type="button" aria-pressed="true" data-report-index="0">Bakery waste</button>
-<button type="button" aria-pressed="false" data-report-index="1">Claims denials</button>
+<div class="report-carousel">
+<div class="report-swipe" tabindex="0" role="group" aria-label="Swipe report selection" aria-describedby="report-swipe-help">
+<span class="report-slide-count" aria-hidden="true">01 / 02</span>
+<strong class="report-slide-title" aria-live="polite">Bakery waste</strong>
+<span class="report-swipe-help" id="report-swipe-help">Swipe or drag here to switch</span>
 </div>
+<div class="report-carousel-nav" role="group" aria-label="Report navigation">
+<button type="button" class="report-arrow" data-report-step="-1" aria-label="Previous report"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12 5-5 5 5 5"/></svg></button>
+<div class="report-dots">
+<button type="button" class="report-dot" data-report-index="0" aria-pressed="true" aria-label="Bakery waste"><span></span></button>
+<button type="button" class="report-dot" data-report-index="1" aria-pressed="false" aria-label="Claims denials"><span></span></button>
+</div>
+<button type="button" class="report-arrow" data-report-step="1" aria-label="Next report"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 5 5 5-5 5"/></svg></button>
+</div></div>
 <p class="report-intro" aria-live="polite">Explore waste and sell-through by bakery item.</p>
 <a class="report-full-link" href="https://app.powerbi.com/view?r=eyJrIjoiNDExZmNlYjgtZWUwNi00MzQ4LWFjYjktZDBkYzJhNzUwMjM5IiwidCI6IjEyMjE5NjdiLTA3ZDgtNDU4NS1hMzAyLTMwMTUzYzk0ZDdkZCJ9" target="_blank" rel="noopener">Open full-size report <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg><span class="report-sr-only"> (opens in a new tab)</span></a></div>
 <div class="report-embed" id="report-viewer"></div>
@@ -475,31 +503,81 @@ document.getElementById(portfolioPreviewView === "catalog" ? "preview-catalog" :
 if (portfolioPreviewView === "catalog") {
   document.querySelector('.hero .nav a[href="#work"]').href = "#project-list";
   const reportFrame = document.createElement("iframe");
+  const viewer = document.getElementById("report-viewer");
   const reportLink = document.querySelector(".report-full-link");
   const intro = document.querySelector(".report-intro");
-  const choices = [...document.querySelectorAll(".report-picker button")];
+  const rail = document.querySelector(".report-swipe");
+  const slideTitle = rail.querySelector(".report-slide-title");
+  const slideCount = rail.querySelector(".report-slide-count");
+  const carousel = document.querySelector(".report-carousel");
+  const dots = [...carousel.querySelectorAll("[data-report-index]")];
   const reports = [
-    {title:"Bakery waste and sell-through",description:"Explore waste and sell-through by bakery item.",url:reportLink.href},
-    {title:"Claims denials by payer",description:"Compare denial reasons across payers.",url:"https://app.powerbi.com/view?r=eyJrIjoiM2I2Yzc2NDItYjc3Yy00YjgzLTgxOTctYmQwNTVlYzI0NjliIiwidCI6IjEyMjE5NjdiLTA3ZDgtNDU4NS1hMzAyLTMwMTUzYzk0ZDdkZCJ9"}
+    {label:"Bakery waste",title:"Bakery waste and sell-through",description:"Explore waste and sell-through by bakery item.",url:reportLink.href},
+    {label:"Claims denials",title:"Claims denials by payer",description:"Compare denial reasons across payers.",url:"https://app.powerbi.com/view?r=eyJrIjoiM2I2Yzc2NDItYjc3Yy00YjgzLTgxOTctYmQwNTVlYzI0NjliIiwidCI6IjEyMjE5NjdiLTA3ZDgtNDU4NS1hMzAyLTMwMTUzYzk0ZDdkZCJ9"}
   ];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let activeReport = -1, changeTimer, revealTimer;
   reportFrame.allowFullscreen = true;
   reportFrame.loading = "lazy";
+  reportFrame.addEventListener("load", () => {
+    if (!changeTimer) {
+      window.clearTimeout(revealTimer);
+      viewer.classList.remove("is-changing");
+    }
+  });
   function selectReport(i) {
     const report = reports[i];
-    if (!report || reportFrame.getAttribute("src") === report.url) return;
-    for (const [index, btn] of choices.entries()) btn.setAttribute("aria-pressed",String(index === i));
-    reportFrame.title = "Interactive Power BI report: " + report.title;
-    reportFrame.src = report.url;
+    if (!report || i === activeReport) return;
+    const useFade = activeReport !== -1 && !reducedMotion.matches;
+    activeReport = i;
+    dots.forEach((button,index) => button.setAttribute("aria-pressed",String(index===i)));
+    slideCount.textContent = String(i+1).padStart(2,"0") + " / " + String(reports.length).padStart(2,"0");
+    slideTitle.textContent = report.label;
     reportLink.href = report.url;
     reportLink.setAttribute("aria-label","Open full-size report: " + report.title + " (opens in a new tab)");
     intro.textContent = report.description;
+    window.clearTimeout(changeTimer);
+    window.clearTimeout(revealTimer);
+    const navigate = () => {
+      changeTimer = null;
+      reportFrame.title = "Interactive Power BI report: " + report.title;
+      if (reportFrame.getAttribute("src") === report.url) {
+        viewer.classList.remove("is-changing");
+        return;
+      }
+      reportFrame.src = report.url;
+      if (useFade) revealTimer = window.setTimeout(() => viewer.classList.remove("is-changing"),4000);
+    };
+    viewer.classList.toggle("is-changing",useFade);
+    if (useFade) changeTimer = window.setTimeout(navigate,180);
+    else navigate();
   }
-  for (const [index, btn] of choices.entries()) {
-    btn.setAttribute("aria-controls","report-viewer");
-    btn.addEventListener("click", () => selectReport(index));
+  const stepReport = direction => selectReport((activeReport+direction+reports.length)%reports.length);
+  for (const button of carousel.querySelectorAll("button")) {
+    button.setAttribute("aria-controls","report-viewer");
+    button.addEventListener("click", () => button.hasAttribute("data-report-index") ? selectReport(Number(button.dataset.reportIndex)) : stepReport(Number(button.dataset.reportStep)));
   }
+  carousel.addEventListener("keydown", event => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    stepReport(event.key === "ArrowRight" ? 1 : -1);
+  });
+  let start = null;
+  rail.addEventListener("pointerdown", event => {
+    if (!event.isPrimary || event.button !== 0) return;
+    start = {id:event.pointerId,x:event.clientX,y:event.clientY};
+    rail.setPointerCapture(event.pointerId);
+  });
+  rail.addEventListener("pointerup", event => {
+    if (!start || event.pointerId !== start.id) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    start = null;
+    if (Math.abs(dx) >= 30 && Math.abs(dx)>Math.abs(dy)*1.45) stepReport(dx < 0 ? 1 : -1);
+  });
+  rail.addEventListener("pointercancel", () => { start = null; });
   selectReport(0);
-  document.querySelector(".report-embed").append(reportFrame);
+  viewer.append(reportFrame);
   const work = document.getElementById("work");
   const featured = work.querySelector(".preview-feature");
   const more = work.querySelector('section[aria-labelledby="github-projects"]');
