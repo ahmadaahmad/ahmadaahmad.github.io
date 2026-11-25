@@ -45,7 +45,7 @@ const nav=[...document.querySelectorAll('.rail a')];
 let queued=false, selected=-1;
 function update(){
   queued=false;
-  const line=innerHeight*.4;
+  const line=innerHeight*.72;
   let current=0;
   for(let i=1;i<stops.length;i++)if(stops[i].getBoundingClientRect().top<=line)current=i;
   if(current===selected)return;
