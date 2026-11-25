@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Résumé motion preview | Ahmad Ahmad</title>
+<style>
+:root{color-scheme:dark;--bg:#102138;--panel:#192e49;--ink:#eef7ff;--muted:#c3d3e6;--cyan:#9bddf4;--edge:#456483}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 95% 0%,#214564,transparent 44rem),var(--bg);color:var(--ink);font:16px/1.55 system-ui,sans-serif}
+a{color:var(--cyan);text-underline-offset:.22em}a:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}
+.wrap{width:min(1040px,calc(100% - 42px));margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--edge)}.top a{font-weight:650}
+.kicker,.phase{font:700 .74rem/1.4 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);margin:0}
+.intro{padding:clamp(28px,5vw,60px) 0 clamp(15px,3vw,34px)}h1,h2,h3,p{margin-top:0}h1,h2{font:500 clamp(2rem,5vw,4.8rem)/1 Georgia,serif;letter-spacing:-.045em;margin-bottom:10px}.intro .role{color:var(--muted);margin:0;font-weight:650}
+.journey{display:grid;grid-template-columns:minmax(148px,205px) minmax(0,1fr);gap:clamp(20px,5vw,65px);align-items:start;padding-bottom:clamp(28px,10vh,100px)}
+.rail{position:sticky;top:40px;padding:6px 0}.rail ol{margin:12px 0;padding:0;list-style:none;border-left:1px solid var(--edge)}.rail a{display:flex;align-items:center;gap:10px;margin-left:-1px;padding:9px 9px 9px 12px;border-left:2px solid transparent;color:var(--muted);font-weight:640;text-decoration:none}.rail a[aria-current]{border-color:var(--cyan);color:var(--ink);background:#23415c}.rail a:hover{text-decoration:underline}
+.stops{min-width:0}.stop{min-height:72svh;display:flex;align-items:flex-start;scroll-margin-top:26px;padding:6px 0 42px}.stop:last-child{min-height:76svh}
+.card{width:100%;border:1px solid var(--edge);border-radius:18px;background:linear-gradient(145deg,#213b58,var(--panel) 65%);padding:clamp(22px,4vw,46px);box-shadow:0 20px 60px #0a152638}.card h2{font-size:clamp(1.85rem,4.8vw,3.45rem);margin:9px 0 16px}.card h3{font-size:clamp(1.1rem,2vw,1.36rem);margin:0 0 4px}.card p,.card li{max-width:61ch}.card p:not(.phase),.card li{color:var(--muted)}.card ul{padding-left:1.14em;margin:16px 0 0}.card li+li{margin-top:8px}.info{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0;margin:22px 0 0;list-style:none}.info li,.info li+li{margin:0;padding:4px 9px;border:1px solid var(--edge);border-radius:100px;font-size:.79rem}
+html[data-motion] .stop .card{opacity:.73;transform:translateY(12px);transition:transform .44s cubic-bezier(.2,.7,.2,1),opacity .44s,border-color .44s}
+html[data-motion] .stop[data-active] .card,html[data-motion] .stop:focus-within .card{opacity:1;transform:none;border-color:#82b9d8}
+footer{border-top:1px solid var(--edge);padding:18px 0 24px;color:var(--muted);font-size:.85rem}
+@media(max-width:620px){.wrap{width:calc(100% - 30px)}.journey{display:block}.rail{position:static;display:flex;align-items:center;flex-wrap:wrap;gap:5px 12px;margin-bottom:12px}.rail ol{display:flex;gap:6px;flex-wrap:wrap;border:0;margin:0}.rail a{padding:6px 8px;border-left:0;border-bottom:2px solid transparent}.stop{min-height:65svh}.stop:last-child{min-height:72svh}}
+@media(prefers-reduced-motion:reduce){html[data-motion] .stop .card{opacity:1;transform:none;transition:none}.stop,.stop:last-child{min-height:0}}
+</style></head><body>
+<div class="wrap">
+<header class="top"><a href="./azure-card-preview.html?layout=2&amp;view=catalog&amp;theme=midnight#top">← Portfolio preview</a><span class="kicker">Résumé motion preview</span></header>
+<div class="intro"><h1>Ahmad Ahmad</h1><p class="role">Data Engineering &amp; Power BI</p></div>
+<main class="journey">
+<nav class="rail" aria-label="Résumé sections"><p class="kicker">On this page</p><ol><li><a href="#career-summary" aria-current="location">01 &nbsp; Career summary</a></li><li><a href="#experience">02 &nbsp; Experience</a></li></ol></nav>
+<div class="stops">
+<section class="stop" id="career-summary" aria-labelledby="summary-title" data-active><div class="card">
+<p class="phase">01 &nbsp; Overview</p><h2 id="summary-title">Career summary</h2>
+<p>Over 10 years of experience in Microsoft business intelligence. I work on moving on-premises data workflows to Azure and building Power BI reports on top of the resulting data.</p>
+<ul class="info" aria-label="Key skills"><li>Azure Data Factory</li><li>Databricks and PySpark</li><li>SQL and ETL</li><li>Power BI</li></ul>
+</div></section>
+<section class="stop" id="experience" aria-labelledby="experience-title"><div class="card">
+<p class="phase">02 &nbsp; Recent experience</p><h2 id="experience-title">Experience</h2>
+<h3>Data Engineer &amp; BI Solutions Consultant</h3><p>10179906 Canada Inc. · Oct 2021 – Present</p>
+<ul><li>Built data transformations in PySpark and used partitioning to improve processing.</li><li>Designed Power BI dashboards using DAX and star-schema models.</li><li>Implemented incremental loads using watermarks and change data capture.</li></ul>
+</div></section>
+</div>
+</main>
+<footer>Preview of one scroll transition. The full résumé and downloads are not part of this preview.</footer>
+</div>
+<script>
+const stops=[...document.querySelectorAll('.stop')];
+const nav=[...document.querySelectorAll('.rail a')];
+let queued=false, selected=-1;
+function update(){
+  queued=false;
+  const line=innerHeight*.4;
+  let current=0;
+  for(let i=1;i<stops.length;i++)if(stops[i].getBoundingClientRect().top<=line)current=i;
+  if(current===selected)return;
+  selected=current;
+  stops.forEach((el,i)=>el.toggleAttribute('data-active',i===current));
+  nav.forEach((el,i)=>{if(i===current)el.setAttribute('aria-current','location');else el.removeAttribute('aria-current');});
+}
+function schedule(){if(!queued){queued=true;requestAnimationFrame(update);}}
+document.documentElement.dataset.motion='';
+addEventListener('scroll',schedule,{passive:true});
+addEventListener('resize',schedule);
+update();
+</script></body></html>
