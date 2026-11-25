@@ -87,10 +87,15 @@ html[data-resume-theme=light][data-motion] .stop:not([data-active]):not(:focus-w
 [data-active] .section-heading .section-number{border-color:var(--cyan)}
 html[data-resume-theme=light] .section-heading .section-number{background:#ddebfa;color:#134c76}
 @media(max-width:480px){.section-heading .section-number{min-width:2.3rem;height:2.3rem;border-radius:8px}.section-heading{gap:10px;padding-bottom:10px}}
+
+.resume-downloads{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+.resume-downloads a{display:inline-flex;align-items:center;gap:8px;min-height:42px;border:1px solid var(--edge);border-radius:8px;padding:7px 12px;background:var(--panel);color:var(--ink);font-size:.88rem;font-weight:700;text-decoration:none}
+.resume-downloads a:hover{border-color:var(--cyan);color:var(--cyan)}
+.resume-downloads svg{flex:none;color:var(--cyan)}
 </style></head><body>
 <div class="wrap">
 <header class="top"><a href="./azure-card-preview.html?layout=2&amp;view=catalog&amp;theme=midnight#top">← Portfolio preview</a><div class="theme-actions"><span class="kicker">Résumé motion preview</span><div class="resume-theme-picker" role="group" aria-label="Résumé theme"><button type="button" data-theme-choice="light" aria-pressed="false">Daylight</button><button type="button" data-theme-choice="dark" aria-pressed="true">Midnight</button></div></div></header>
-<div class="intro"><h1>Ahmad Ahmad’s résumé</h1><p class="role">Data Engineering &amp; Power BI</p></div>
+<div class="intro"><h1>Ahmad Ahmad’s résumé</h1><p class="role">Data Engineering &amp; Power BI</p><div class="resume-downloads" role="group" aria-label="Résumé downloads"><a href="./downloads/ahmad-ahmad-resume.docx" download="Ahmad Ahmad Resume.docx"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5v11m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>Download Word</a><a href="./downloads/ahmad-ahmad-resume.pdf" download="Ahmad Ahmad Resume.pdf"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5v11m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>Download PDF</a></div></div>
 <main class="journey">
 <nav class="rail" aria-label="Résumé sections"><p class="kicker">On this page</p><ol><li><a href="#career-summary" aria-current="location">01 &nbsp; Career summary</a></li><li><a href="#experience">02 &nbsp; Experience</a></li><li><a href="#education">03 &nbsp; Education</a></li><li><a href="#certifications">04 &nbsp; Certifications</a></li><li><a href="#skills">05 &nbsp; Skills</a></li></ol></nav>
 <div class="stops">
@@ -127,7 +132,7 @@ html[data-resume-theme=light] .section-heading .section-number{background:#ddebf
 </div></section>
 </div>
 </main>
-<footer>Résumé design preview. Word and PDF downloads will be added after review.</footer>
+<footer>Résumé design preview.</footer>
 </div>
 <script>
 const themeChoices=[...document.querySelectorAll(".resume-theme-picker button")];
