@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ahmad Ahmad’s portfolio: Azure data engineering, incremental data pipelines, and Power BI.">
 <title>Ahmad Ahmad | Data Engineering &amp; Power BI</title>
+<script>
+if(portfolioPreviewView==="catalog"&&portfolioPreviewParams.get("entrance")==="fade"&&(!location.hash||location.hash==="#top"))document.documentElement.dataset.entrancePreview="fade";
+</script>
 <style>
 :root{color-scheme:light;--paper:#f8f6f1;--ink:#211d2e;--muted:#585363;--line:#dcd6ca;--accent:#963e31;--dark:#211d2d;--white:#fffdf8;--peach:#f4a78c;--width:1140px}
 *,*::before,*::after{box-sizing:border-box}
@@ -319,6 +322,12 @@ html[data-catalog] .hero .nav .nav-action-button:focus-visible{outline-color:var
 @media(max-width:425px){html[data-catalog] .hero .nav{gap:6px 8px}html[data-catalog] .hero .nav .nav-action-button{gap:5px;min-height:44px;padding-inline:8px}}
 
 @media(max-width:500px){html[data-catalog] .hero .top .nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 8px;max-width:100%}html[data-catalog] .hero .nav .nav-action-button{gap:5px;padding-inline:8px;min-height:44px}}
+
+@keyframes portfolio-entrance-fade{from{opacity:.34}to{opacity:1}}
+@media(prefers-reduced-motion:no-preference){
+  html[data-catalog][data-entrance-preview=fade] .catalog-hero-copy :is(h1,.role){animation:portfolio-entrance-fade .45s ease-out both}
+  html[data-catalog][data-entrance-preview=fade] .resume-snapshot{animation:portfolio-entrance-fade .45s ease-out .16s both}
+}
 </style>
 </head>
 <body>
