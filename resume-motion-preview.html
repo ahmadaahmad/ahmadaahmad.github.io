@@ -31,12 +31,25 @@ footer{border-top:1px solid var(--edge);padding:18px 0 24px;color:var(--muted);f
 .experience-entry{padding:clamp(16px,3vw,26px);border:1px solid var(--edge);border-radius:13px;background:var(--panel)}
 .experience-entry .employer{margin:0;font-size:.9rem}
 .experience-entry ul{border-top:1px solid var(--edge);margin-top:13px;padding-top:13px}
+
+.experience-track{--track-inset:clamp(19px,4vw,33px);padding-left:var(--track-inset)}
+.experience-track::before{display:none}
+.experience-role{position:relative;margin:0 0 17px}
+.experience-role::before{content:"";position:absolute;left:calc(-1 * var(--track-inset) - 7px);top:15px;width:12px;height:12px;border-radius:50%;border:2px solid var(--bg);background:var(--cyan);box-shadow:0 0 0 1px var(--cyan)}
+.card.reference-layout{padding:clamp(11px,2vw,24px) 0 0;border:0;background:none;box-shadow:none}
+.education-item,.credential-list li,.skill-group{border-top:1px solid var(--edge);padding:14px 0}
+.education-item p{margin:5px 0 0}
+.card ul.credential-list{list-style:none;padding-left:0}
+.credential-list li{display:flex;justify-content:space-between;gap:8px 20px;max-width:none;font-weight:620}
+.card .award-date{color:var(--cyan);white-space:nowrap;font-size:.85rem}
+.card .skill-group .info{padding-left:0;margin-top:9px}
+@media(max-width:620px){.credential-list li{flex-wrap:wrap}}
 </style></head><body>
 <div class="wrap">
 <header class="top"><a href="./azure-card-preview.html?layout=2&amp;view=catalog&amp;theme=midnight#top">← Portfolio preview</a><span class="kicker">Résumé motion preview</span></header>
 <div class="intro"><h1>Ahmad Ahmad</h1><p class="role">Data Engineering &amp; Power BI</p></div>
 <main class="journey">
-<nav class="rail" aria-label="Résumé sections"><p class="kicker">On this page</p><ol><li><a href="#career-summary" aria-current="location">01 &nbsp; Career summary</a></li><li><a href="#experience">02 &nbsp; Experience</a></li></ol></nav>
+<nav class="rail" aria-label="Résumé sections"><p class="kicker">On this page</p><ol><li><a href="#career-summary" aria-current="location">01 &nbsp; Career summary</a></li><li><a href="#experience">02 &nbsp; Experience</a></li><li><a href="#education">03 &nbsp; Education</a></li><li><a href="#certifications">04 &nbsp; Certifications</a></li><li><a href="#skills">05 &nbsp; Skills</a></li></ol></nav>
 <div class="stops">
 <section class="stop" id="career-summary" aria-labelledby="summary-title" data-active><div class="card summary-layout">
 <p class="phase">01 &nbsp; Overview</p><h2 id="summary-title">Career summary</h2>
@@ -45,12 +58,33 @@ footer{border-top:1px solid var(--edge);padding:18px 0 24px;color:var(--muted);f
 </div></section>
 <section class="stop" id="experience" aria-labelledby="experience-title"><div class="card experience-layout">
 <p class="phase">02 &nbsp; Recent experience</p><h2 id="experience-title">Experience</h2>
-<div class="experience-track"><p class="experience-period"><time datetime="2021-10">Oct 2021</time> to present</p><article class="experience-entry"><h3>Data Engineer &amp; BI Solutions Consultant</h3><p class="employer">10179906 Canada Inc.</p>
+<div class="experience-track"><div class="experience-role"><p class="experience-period"><time datetime="2021-10">Oct 2021</time> to present</p><article class="experience-entry"><h3>Data Engineer &amp; BI Solutions Consultant</h3><p class="employer">10179906 Canada Inc.</p>
 <ul><li>Built data transformations in PySpark and used partitioning to improve processing.</li><li>Designed Power BI dashboards using DAX and star-schema models.</li><li>Implemented incremental loads using watermarks and change data capture.</li></ul></article></div>
+<div class="experience-role"><p class="experience-period">Oct 2020 to Oct 2021</p><article class="experience-entry"><h3>Power BI Developer</h3><p class="employer">Canadian Tire · subcontract with Tundra</p><ul><li>Built retail Power BI dashboards with drill-through and row-level security.</li><li>Collaborated with engineering teams to optimize Snowflake models for reporting.</li></ul></article></div>
+<div class="experience-role"><p class="experience-period">Oct 2018 to Sep 2020</p><article class="experience-entry"><h3>Business Intelligence Consultant</h3><p class="employer">Amaris</p><ul><li>Designed an Azure Data Factory migration proof of concept for moving legacy pipelines to Azure Data Lake Storage.</li><li>Optimized SQL data warehouse performance and built Power BI models for finance and supply chain reporting.</li><li>Built Power Apps and Power Automate workflows to digitize manual processes.</li></ul></article></div>
+<div class="experience-role"><p class="experience-period">May 2017 to Jan 2018</p><article class="experience-entry"><h3>Data Migration Analyst</h3><p class="employer">Canadian Nuclear Laboratories</p><ul><li>Mapped and validated data during migrations into EQuIS for environmental reporting.</li></ul></article></div>
+<div class="experience-role"><p class="experience-period">Feb 2015 to Mar 2016</p><article class="experience-entry"><h3>BI Developer / Product Analyst</h3><p class="employer">Kivuto Solutions Inc.</p><ul><li>Built Power BI and SSRS dashboards for customer satisfaction and call-centre performance.</li><li>Replaced legacy VBA processing with an SSIS ETL workflow.</li></ul></article></div>
+<div class="experience-role"><p class="experience-period">Jun 2009 to Jun 2014</p><article class="experience-entry"><h3>SQL / BI Developer</h3><p class="employer">Multiple BI projects · Amman, Jordan</p><ul><li>Designed SSIS workflows for integrating and cleaning data.</li><li>Optimized SQL Server queries and stored procedures, built SSRS reports, and used Team Foundation Server for version control and deployment.</li></ul></article></div>
+</div>
+</div></section>
+<section class="stop" id="education" aria-labelledby="education-title"><div class="card reference-layout">
+<p class="phase">03 &nbsp; Education</p><h2 id="education-title">Education</h2>
+<div class="education-item"><h3>University of Jordan</h3><p>Bachelor’s degree in computer science</p></div>
+<div class="education-item"><h3>University of Toronto</h3><p>Managing Predictive Analytics &amp; Big Data</p></div>
+</div></section>
+<section class="stop" id="certifications" aria-labelledby="certifications-title"><div class="card reference-layout">
+<p class="phase">04 &nbsp; Credentials</p><h2 id="certifications-title">Certifications</h2>
+<ul class="credential-list"><li><span>Microsoft Certified: Power Platform Developer</span><span class="award-date">Jan 2026</span></li><li><span>Microsoft Certified: Azure Data Engineer Associate</span><span class="award-date">Aug 2024</span></li><li><span>Analyzing and Visualizing Data with Microsoft Power BI</span><span class="award-date">2019</span></li><li><span>Microsoft MCSA: SQL 2016 Business Intelligence Development</span><span class="award-date">Aug 2018</span></li><li><span>Snowflake Hands On Essentials: Data Warehouse</span><span class="award-date">Sep 2020</span></li></ul>
+</div></section>
+<section class="stop" id="skills" aria-labelledby="skills-title"><div class="card reference-layout">
+<p class="phase">05 &nbsp; Tools and practices</p><h2 id="skills-title">Skills</h2>
+<div class="skill-group"><h3>Data engineering</h3><ul class="info" aria-label="Data engineering"><li>Azure Data Factory</li><li>Azure Databricks</li><li>Azure Synapse</li><li>SSIS</li><li>Data integration</li><li>Data validation</li></ul></div>
+<div class="skill-group"><h3>Databases</h3><ul class="info" aria-label="Databases"><li>SQL Server</li><li>Azure SQL</li><li>T-SQL</li><li>SQL Server Management Studio</li><li>Microsoft Access</li></ul></div>
+<div class="skill-group"><h3>Business intelligence</h3><ul class="info" aria-label="Business intelligence"><li>Power BI</li><li>SSRS</li><li>Excel</li><li>Power Apps Canvas</li><li>Data modelling</li><li>Data visualization</li></ul></div>
 </div></section>
 </div>
 </main>
-<footer>Preview of one scroll transition. The full résumé and downloads are not part of this preview.</footer>
+<footer>Résumé design preview. Word and PDF downloads will be added after review.</footer>
 </div>
 <script>
 const stops=[...document.querySelectorAll('.stop')];
