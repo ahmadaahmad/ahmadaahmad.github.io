@@ -2,6 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>Résumé motion preview | Ahmad Ahmad</title>
+<script>if(new URLSearchParams(location.search).get("theme")==="light")document.documentElement.dataset.resumeTheme="light";</script>
 <style>
 :root{color-scheme:dark;--bg:#102138;--panel:#192e49;--ink:#eef7ff;--muted:#c3d3e6;--cyan:#9bddf4;--edge:#456483}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 95% 0%,#214564,transparent 44rem),var(--bg);color:var(--ink);font:16px/1.55 system-ui,sans-serif}
@@ -63,9 +64,23 @@ footer{border-top:1px solid var(--edge);padding:18px 0 24px;color:var(--muted);f
 .education-item,.credential-list li,.skill-group{padding:17px 0}
 @media(max-width:620px){.stop,.stop:last-child{padding-top:9px;padding-bottom:40px}#career-summary{min-height:48svh}.experience-role{margin-bottom:26px}}
 @media(prefers-reduced-motion:reduce){#career-summary{min-height:0}}
+
+.theme-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 13px}
+.resume-theme-picker{display:inline-flex;gap:3px;padding:3px;border:1px solid var(--edge);border-radius:9px}
+.resume-theme-picker button{min-height:32px;padding:5px 9px;border:0;border-radius:6px;background:none;color:var(--muted);font:700 .79rem/1.1 system-ui,sans-serif;cursor:pointer}
+.resume-theme-picker button[aria-pressed=true]{background:#264965;color:var(--ink)}
+.resume-theme-picker button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+html[data-resume-theme=light]{color-scheme:light;--bg:#f7faff;--panel:#ffffff;--ink:#132940;--muted:#2e4a65;--cyan:#145986;--edge:#b7cce0}
+html[data-resume-theme=light] body{background:radial-gradient(ellipse at 95% 0%,#d9edff,transparent 37rem),var(--bg)}
+html[data-resume-theme=light] .rail a[aria-current]{background:#e0eefb}
+html[data-resume-theme=light] .experience-entry{box-shadow:0 8px 24px #193b6010}
+html[data-resume-theme=light] .card .experience-period{background:#e5f1fc}
+html[data-resume-theme=light] .resume-theme-picker button[aria-pressed=true]{background:#d6e9fb}
+html[data-resume-theme=light][data-motion] .stop:not([data-active]):not(:focus-within) .card{opacity:.84}
+@media(prefers-reduced-motion:reduce){html[data-resume-theme=light][data-motion] .stop:not([data-active]):not(:focus-within) .card{opacity:1}}
 </style></head><body>
 <div class="wrap">
-<header class="top"><a href="./azure-card-preview.html?layout=2&amp;view=catalog&amp;theme=midnight#top">← Portfolio preview</a><span class="kicker">Résumé motion preview</span></header>
+<header class="top"><a href="./azure-card-preview.html?layout=2&amp;view=catalog&amp;theme=midnight#top">← Portfolio preview</a><div class="theme-actions"><span class="kicker">Résumé motion preview</span><div class="resume-theme-picker" role="group" aria-label="Résumé theme"><button type="button" data-theme-choice="light" aria-pressed="false">Daylight</button><button type="button" data-theme-choice="dark" aria-pressed="true">Midnight</button></div></div></header>
 <div class="intro"><h1>Ahmad Ahmad</h1><p class="role">Data Engineering &amp; Power BI</p></div>
 <main class="journey">
 <nav class="rail" aria-label="Résumé sections"><p class="kicker">On this page</p><ol><li><a href="#career-summary" aria-current="location">01 &nbsp; Career summary</a></li><li><a href="#experience">02 &nbsp; Experience</a></li><li><a href="#education">03 &nbsp; Education</a></li><li><a href="#certifications">04 &nbsp; Certifications</a></li><li><a href="#skills">05 &nbsp; Skills</a></li></ol></nav>
@@ -106,6 +121,16 @@ footer{border-top:1px solid var(--edge);padding:18px 0 24px;color:var(--muted);f
 <footer>Résumé design preview. Word and PDF downloads will be added after review.</footer>
 </div>
 <script>
+const themeChoices=[...document.querySelectorAll(".resume-theme-picker button")];
+function applyResumeTheme(theme,updateUrl){
+  const light=theme==="light";
+  if(light)document.documentElement.dataset.resumeTheme="light";
+  else delete document.documentElement.dataset.resumeTheme;
+  for(const b of themeChoices)b.setAttribute("aria-pressed",String(b.dataset.themeChoice===(light?"light":"dark")));
+  if(updateUrl){const url=new URL(location.href);if(light)url.searchParams.set("theme","light");else url.searchParams.delete("theme");history.replaceState(null,"",url);}
+}
+for(const b of themeChoices)b.addEventListener("click",()=>applyResumeTheme(b.dataset.themeChoice,true));
+applyResumeTheme(document.documentElement.dataset.resumeTheme,false);
 const stops=[...document.querySelectorAll('.stop')];
 const nav=[...document.querySelectorAll('.rail a')];
 let queued=false, selected=-1;
