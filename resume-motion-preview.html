@@ -44,6 +44,25 @@ footer{border-top:1px solid var(--edge);padding:18px 0 24px;color:var(--muted);f
 .card .award-date{color:var(--cyan);white-space:nowrap;font-size:.85rem}
 .card .skill-group .info{padding-left:0;margin-top:9px}
 @media(max-width:620px){.credential-list li{flex-wrap:wrap}}
+
+/* Use content-sized sections and a consistent spacing rhythm. */
+.journey{padding-bottom:clamp(16px,4vh,46px)}
+.stop,.stop:last-child{min-height:0;padding:clamp(14px,2.3vw,25px) 0 clamp(36px,7vh,76px)}
+#career-summary{min-height:54svh}
+.stop:last-child{padding-bottom:clamp(22px,4vh,48px)}
+.card.summary-layout,.card.experience-layout,.card.reference-layout{padding-top:0}
+.card h2{margin-bottom:clamp(17px,2.1vw,26px)}
+.summary-layout .summary-lead{margin-bottom:clamp(20px,3vw,30px)}
+.experience-role{margin-bottom:clamp(25px,4vw,40px)}
+.experience-role:last-child{margin-bottom:0}
+.card .experience-period{margin-bottom:13px}
+.experience-entry{padding:clamp(19px,3.2vw,31px)}
+.experience-entry h3{margin-bottom:6px}
+.experience-entry ul{margin-top:17px;padding-top:15px}
+.experience-entry li+li{margin-top:9px}
+.education-item,.credential-list li,.skill-group{padding:17px 0}
+@media(max-width:620px){.stop,.stop:last-child{padding-top:9px;padding-bottom:40px}#career-summary{min-height:48svh}.experience-role{margin-bottom:26px}}
+@media(prefers-reduced-motion:reduce){#career-summary{min-height:0}}
 </style></head><body>
 <div class="wrap">
 <header class="top"><a href="./azure-card-preview.html?layout=2&amp;view=catalog&amp;theme=midnight#top">← Portfolio preview</a><span class="kicker">Résumé motion preview</span></header>
