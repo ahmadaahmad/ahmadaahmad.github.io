@@ -9,6 +9,7 @@
 <script>
 if(portfolioPreviewView==="catalog"&&portfolioPreviewParams.get("entrance")==="fade"&&(!location.hash||location.hash==="#top"))document.documentElement.dataset.entrancePreview="fade";
 if(portfolioPreviewView==="catalog"&&portfolioPreviewParams.get("background")==="trails"&&(!location.hash||location.hash==="#top"))document.documentElement.dataset.heroTrails="";
+if(document.documentElement.hasAttribute("data-hero-trails")&&portfolioPreviewParams.get("stars")==="gold")document.documentElement.dataset.starColor="gold";
 </script>
 <style>
 :root{color-scheme:light;--paper:#f8f6f1;--ink:#211d2e;--muted:#585363;--line:#dcd6ca;--accent:#963e31;--dark:#211d2d;--white:#fffdf8;--peach:#f4a78c;--width:1140px}
@@ -343,6 +344,10 @@ html[data-catalog][data-hero-trails] .portfolio-star-trails .portfolio-starfield
 @keyframes portfolio-star-shine{0%,100%{opacity:.56}50%{opacity:.96}}
 @media(prefers-reduced-motion:no-preference) and (min-width:741px){html[data-hero-trails] .sky-shine{animation:portfolio-star-shine var(--shine-duration,6s) ease-in-out var(--shine-delay,0s) 2}}
 @media(max-width:740px){html[data-hero-trails] .portfolio-star-trails .portfolio-starfield{opacity:.53}}
+
+html[data-star-color=gold] .portfolio-starfield>g:first-child{fill:#e2ba73}
+html[data-star-color=gold] .portfolio-starfield>g:nth-child(2){fill:#ffda8b}
+html[data-star-color=gold] .portfolio-starfield .sky-shine circle{fill:#fff4cb}
 </style>
 </head>
 <body>
