@@ -172,6 +172,15 @@ html[data-catalog] .portfolio-report{display:block;color:var(--ink);background:v
 .report-full-link{display:inline-flex;align-items:center;gap:5px;color:var(--accent);font-size:.91rem;font-weight:730;white-space:nowrap;padding:6px 0}
 .report-sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
 @media(max-width:740px){html[data-catalog] .catalog-hero-copy{padding-top:0}.catalog-hero-right{max-width:540px}}
+html[data-catalog] .portfolio-report{display:grid;grid-template-columns:minmax(190px,.76fr) minmax(0,2.24fr);gap:clamp(12px,2.6vw,28px);align-items:start;margin-bottom:clamp(32px,4vw,52px)}
+.portfolio-report .report-section-head{display:block;margin:0;padding:5px 0}
+.report-picker{display:grid;gap:6px;margin:16px 0 12px}
+.report-picker button{cursor:pointer;text-align:left;color:#51405a;padding:7px 10px;border:1px solid #d7c8dd;border-radius:6px;background:#f8f3f9;font:650 .83rem/1.3 system-ui,sans-serif}
+.report-picker button:hover{background:#eee5f2;border-color:#a789b2}
+.report-picker button[aria-pressed="true"]{color:#fff;background:#5b3c67;border-color:#5b3c67}
+.portfolio-report .report-embed iframe{height:clamp(240px,27vw,350px);aspect-ratio:auto}
+.portfolio-report .report-full-link{margin-top:8px;white-space:normal}
+@media(max-width:680px){html[data-catalog] .portfolio-report{grid-template-columns:1fr}.report-picker{display:flex;flex-wrap:wrap;margin:12px 0 8px}.portfolio-report .report-embed iframe{height:clamp(220px,60vw,290px)}}
 </style>
 </head>
 <body>
@@ -238,12 +247,16 @@ html[data-catalog] .portfolio-report{display:block;color:var(--ink);background:v
 </header>
 <main id="work" class="wrap">
 <section class="portfolio-report" id="portfolio-report" aria-labelledby="portfolio-report-title">
-<div class="report-section-head"><div><p class="kicker">Interactive Power BI report</p>
-<h2 id="portfolio-report-title">Bakery waste and sell-through</h2>
-<p class="report-intro">Explore waste, sell-through, and how they vary by item.</p>
+<div class="report-section-head">
+<p class="kicker">Interactive portfolio demos</p>
+<h2 id="portfolio-report-title">Power BI reports</h2>
+<div class="report-picker" role="group" aria-label="Choose a Power BI report">
+<button type="button" aria-pressed="true" data-report-index="0">Bakery waste</button>
+<button type="button" aria-pressed="false" data-report-index="1">Claims denials</button>
 </div>
+<p class="report-intro" aria-live="polite">Explore waste and sell-through by bakery item.</p>
 <a class="report-full-link" href="https://app.powerbi.com/view?r=eyJrIjoiNDExZmNlYjgtZWUwNi00MzQ4LWFjYjktZDBkYzJhNzUwMjM5IiwidCI6IjEyMjE5NjdiLTA3ZDgtNDU4NS1hMzAyLTMwMTUzYzk0ZDdkZCJ9" target="_blank" rel="noopener">Open full-size report <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg><span class="report-sr-only"> (opens in a new tab)</span></a></div>
-<div class="report-embed"></div>
+<div class="report-embed" id="report-viewer"></div>
 </section>
 <div id="project-list" class="section-head selected-work-head"><h2>Selected work</h2><figure class="catalog-work-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="35 56 422 163" role="img" aria-labelledby="catalog-logo-title" focusable="false"><title id="catalog-logo-title">Different source layers merge into one green module that fits into a larger data warehouse.</title><ellipse cx="251" cy="203" rx="196" ry="11" fill="#191726"/><path d="M48 153l35 -15 35 15 -35 15z" fill="#f0b8bc" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M48 153l35 15v7l-35 -15z" fill="#bd7893" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M83 168l35 -15v7l-35 15z" fill="#925873" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M59 122l35 -15 35 15 -35 15z" fill="#a8d9e7" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M59 122l35 15v7l-35 -15z" fill="#6eaec4" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M94 137l35 -15v7l-35 15z" fill="#4d7f9c" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M48 91l35 -15 35 15 -35 15z" fill="#ffe1a3" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M48 91l35 15v7l-35 -15z" fill="#d1a46f" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M83 106l35 -15v7l-35 15z" fill="#a36e54" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M143 132h17m-5-5 5 5-5 5" fill="none" stroke="#bfacc5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 153l39 -17 39 17 -39 17z" fill="#f0b8bc" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 153l39 17v7l-39 -17z" fill="#bd7893" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M227 170l39 -17v7l-39 17z" fill="#925873" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 136l39 -17 39 17 -39 17z" fill="#a8d9e7" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 136l39 17v7l-39 -17z" fill="#6eaec4" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M227 153l39 -17v7l-39 17z" fill="#4d7f9c" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 119l39 -17 39 17 -39 17z" fill="#ffe1a3" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 119l39 17v7l-39 -17z" fill="#d1a46f" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M227 136l39 -17v7l-39 17z" fill="#a36e54" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M207 85v14m-4-5 4 5 4-5m35-9v14m-4-5 4 5 4-5" fill="none" stroke="#f7c99e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /><path d="M280 132h17m-5-5 5 5-5 5" fill="none" stroke="#bfacc5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 142l26 -13 26 13 -26 13z" fill="#8b829b" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 142l26 13v26l-26 -13z" fill="#625978" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 155l26 -13v26l-26 13z" fill="#4b4664" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 155l26 -13 26 13 -26 13z" fill="#8b829b" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 155l26 13v26l-26 -13z" fill="#625978" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M405 168l26 -13v26l-26 13z" fill="#4b4664" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M327 155l26 -13 26 13 -26 13z" fill="#8b829b" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M327 155l26 13v26l-26 -13z" fill="#625978" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 168l26 -13v26l-26 13z" fill="#4b4664" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 168l26 -13 26 13 -26 13z" fill="#8b829b" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 168l26 13v26l-26 -13z" fill="#625978" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 181l26 -13v26l-26 13z" fill="#4b4664" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 116l26 -13 26 13 -26 13z" fill="#8b829b" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 116l26 13v26l-26 -13z" fill="#625978" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 129l26 -13v26l-26 13z" fill="#4b4664" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 129l26 -13 26 13 -26 13z" fill="#8b829b" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 129l26 13v26l-26 -13z" fill="#625978" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M405 142l26 -13v26l-26 13z" fill="#4b4664" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M327 129l26 -13 26 13 -26 13z" fill="#8b829b" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M327 129l26 13v26l-26 -13z" fill="#625978" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 142l26 -13v26l-26 13z" fill="#4b4664" stroke="#312d43" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 168l26-13 26 13-26 13Z" fill="#3d5962" stroke="#a7d9c8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"/><path d="M353 128v38m52-38v38m-26-27v40" fill="none" stroke="#a3d1c2" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4" opacity=".65"/><path d="M353 100l26 -13 26 13 -26 13z" fill="#cbf0dc" stroke="#345c5d" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 100l26 13v26l-26 -13z" fill="#80beaa" stroke="#345c5d" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 113l26 -13v26l-26 13z" fill="#498d81" stroke="#345c5d" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 109l26 13 26-13m-52 9l26 13 26-13" fill="none" stroke="#d2ead5" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" /></svg></figure><p class="meta" id="selected-work-meta">Azure &amp; Power BI</p></div>
 <article class="feature preview-feature" aria-labelledby="azure" data-layout="stacked"><div class="preview-art"><svg class="project-art art-pipeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="art-azure-title art-azure-desc" focusable="false">
@@ -462,10 +475,30 @@ document.getElementById(portfolioPreviewView === "catalog" ? "preview-catalog" :
 if (portfolioPreviewView === "catalog") {
   document.querySelector('.hero .nav a[href="#work"]').href = "#project-list";
   const reportFrame = document.createElement("iframe");
-  reportFrame.title = "Interactive Power BI report: Bakery waste and sell-through";
-  reportFrame.src = document.querySelector(".report-full-link").href;
+  const reportLink = document.querySelector(".report-full-link");
+  const intro = document.querySelector(".report-intro");
+  const choices = [...document.querySelectorAll(".report-picker button")];
+  const reports = [
+    {title:"Bakery waste and sell-through",description:"Explore waste and sell-through by bakery item.",url:reportLink.href},
+    {title:"Claims denials by payer",description:"Compare denial reasons across payers.",url:"https://app.powerbi.com/view?r=eyJrIjoiM2I2Yzc2NDItYjc3Yy00YjgzLTgxOTctYmQwNTVlYzI0NjliIiwidCI6IjEyMjE5NjdiLTA3ZDgtNDU4NS1hMzAyLTMwMTUzYzk0ZDdkZCJ9"}
+  ];
   reportFrame.allowFullscreen = true;
   reportFrame.loading = "lazy";
+  function selectReport(i) {
+    const report = reports[i];
+    if (!report || reportFrame.getAttribute("src") === report.url) return;
+    for (const [index, btn] of choices.entries()) btn.setAttribute("aria-pressed",String(index === i));
+    reportFrame.title = "Interactive Power BI report: " + report.title;
+    reportFrame.src = report.url;
+    reportLink.href = report.url;
+    reportLink.setAttribute("aria-label","Open full-size report: " + report.title + " (opens in a new tab)");
+    intro.textContent = report.description;
+  }
+  for (const [index, btn] of choices.entries()) {
+    btn.setAttribute("aria-controls","report-viewer");
+    btn.addEventListener("click", () => selectReport(index));
+  }
+  selectReport(0);
   document.querySelector(".report-embed").append(reportFrame);
   const work = document.getElementById("work");
   const featured = work.querySelector(".preview-feature");
