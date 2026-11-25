@@ -199,10 +199,49 @@ html[data-catalog] .portfolio-report{display:grid;grid-template-columns:minmax(1
 .report-embed iframe{opacity:1;transition:opacity .18s ease}
 .report-embed.is-changing iframe{opacity:0;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.report-embed iframe,.report-dot span{transition:none}}
+.theme-picker{display:none}
+html[data-catalog] .theme-picker{display:flex;gap:7px;flex-wrap:wrap;align-items:center;padding:8px 0 11px;border-top:1px solid #54366024}
+.theme-picker strong{font-size:.84rem;margin-right:5px}
+.theme-picker button{display:inline-flex;align-items:center;gap:6px;font:650 .78rem/1.2 system-ui,sans-serif;color:var(--ink);padding:5px 8px;border:1px solid var(--line);background:var(--white);border-radius:6px;cursor:pointer}
+.theme-picker button[aria-pressed=true]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.theme-swatch{width:13px;height:13px;border-radius:50%;border:1px solid #0003;background:linear-gradient(135deg,#342642 50%,#f4a78c 50%)}
+[data-theme-choice=midnight] .theme-swatch{background:linear-gradient(135deg,#11223b 50%,#79c9ef 50%)}
+[data-theme-choice=evergreen] .theme-swatch{background:linear-gradient(135deg,#163c32 50%,#bde9cc 50%)}
+[data-theme-choice=editorial] .theme-swatch{background:linear-gradient(135deg,#f1dabc 50%,#ac4e38 50%)}
+html[data-catalog][data-portfolio-theme=midnight]{--paper:#eaf0f7;--ink:#172940;--muted:#475e75;--line:#c4d3e2;--accent:#20547e;--dark:#102138;--white:#f8fbff;--peach:#9bddf4;--hero-card:#192e49;--hero-line:#426180;--hero-text:#ecf6ff;--hero-soft:#c7dded;--hero-accent:#a0dbf4;--soft-accent:#dbeaf5;--accent-border:#a6c4db;--rail-light:#24547c;--rail-dark:#1a3658;--rail-text:#eff8ff;--rail-muted:#d6ebf8;--hero-heading-font:system-ui,sans-serif}
+html[data-catalog][data-portfolio-theme=evergreen]{--paper:#edf4eb;--ink:#18352c;--muted:#476459;--line:#c5d8c8;--accent:#286043;--dark:#183b31;--white:#fbfdf8;--peach:#bde9cc;--hero-card:#214639;--hero-line:#53715d;--hero-text:#f0f8ee;--hero-soft:#d2e8db;--hero-accent:#c1eccb;--soft-accent:#e1efe3;--accent-border:#b0d2be;--rail-light:#366b53;--rail-dark:#254938;--rail-text:#f5fcf6;--rail-muted:#deefe2}
+html[data-catalog][data-portfolio-theme=editorial]{--paper:#f8efe4;--ink:#35261f;--muted:#655044;--line:#dfc7b1;--accent:#873c2c;--dark:#efd6b8;--white:#fff9ef;--peach:#efd4c4;--hero-card:#fff3e2;--hero-line:#c8a990;--hero-text:#33231d;--hero-soft:#5c4437;--hero-accent:#803f2e;--soft-accent:#f4e2d6;--accent-border:#d9ad98;--rail-light:#95503d;--rail-dark:#713b30;--rail-text:#fff8ef;--rail-muted:#ffdfce;--hero-heading-font:Georgia,serif}
+html[data-catalog][data-portfolio-theme] .preview-bar{background:var(--paper);border-color:var(--line)}
+html[data-catalog][data-portfolio-theme] .preview-controls a{border-color:var(--line)}
+html[data-catalog][data-portfolio-theme] .preview-controls a[aria-current=page]{background:var(--accent);color:white}
+html[data-catalog][data-portfolio-theme] .hero{color:var(--hero-text)}
+html[data-catalog][data-portfolio-theme] h1{font-family:var(--hero-heading-font,Georgia,serif)}
+html[data-catalog][data-portfolio-theme] .hero .top{border-color:var(--hero-line)}
+html[data-catalog][data-portfolio-theme] .hero :is(.nav,.role){color:var(--hero-text)}
+html[data-catalog][data-portfolio-theme] .hero :is(.intro,.resume-role,.resume-snapshot dt){color:var(--hero-soft)}
+html[data-catalog][data-portfolio-theme] .hero :is(.kicker,.resume-snapshot>a){color:var(--hero-accent)}
+html[data-catalog][data-portfolio-theme] .resume-snapshot{color:var(--hero-text);background:var(--hero-card);border-color:var(--hero-line)}
+html[data-catalog][data-portfolio-theme] .resume-snapshot dl div{border-color:var(--hero-line)}
+html[data-catalog][data-portfolio-theme] .resume-snapshot a{color:var(--hero-accent)}
+html[data-catalog][data-portfolio-theme] .report-swipe{background:linear-gradient(125deg,var(--rail-light),var(--rail-dark));border-color:var(--rail-dark);color:var(--rail-text)}
+html[data-catalog][data-portfolio-theme] .report-swipe :is(.report-slide-count,.report-swipe-help){color:var(--rail-muted)}
+html[data-catalog][data-portfolio-theme] :is(.catalog-chip,.report-arrow){background:var(--soft-accent);border-color:var(--accent-border);color:var(--accent)}
+html[data-catalog][data-portfolio-theme] .catalog-chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:white}
+html[data-catalog][data-portfolio-theme] .report-dot[aria-pressed=true] span{background:var(--accent);color:var(--accent)}
+html[data-catalog][data-portfolio-theme] .preview-body .diagram .steps li{background:var(--soft-accent);border-color:var(--accent-border)}
+html[data-catalog][data-portfolio-theme] .preview-body :is(.diagram-label,.walkthrough-choice,.diagram figcaption,.steps b){color:var(--accent)}
+html[data-catalog][data-portfolio-theme] .preview-body .diagram .steps li b{background:var(--white);border-color:var(--accent-border)}
+html[data-catalog][data-portfolio-theme] :focus-visible{outline-color:var(--accent)}
 </style>
 </head>
 <body>
-<aside class="preview-bar"><div class="wrap preview-controls"><strong>Azure card preview</strong><a id="preview-one" href="?layout=1#work">1 · Stacked card</a><a id="preview-two" href="?layout=2#work">2 · Shared heading</a><a href="?layout=2&view=logos">Logo options</a><a id="preview-catalog" href="?layout=2&view=catalog#work">All projects preview</a><a href="./#work">Current homepage</a></div></aside>
+<aside class="preview-bar"><div class="wrap preview-controls"><strong>Azure card preview</strong><a id="preview-one" href="?layout=1#work">1 · Stacked card</a><a id="preview-two" href="?layout=2#work">2 · Shared heading</a><a href="?layout=2&view=logos">Logo options</a><a id="preview-catalog" href="?layout=2&view=catalog#work">All projects preview</a><a href="./#work">Current homepage</a></div>
+<div class="wrap theme-picker" role="group" aria-label="Choose a portfolio theme"><strong>Theme options</strong>
+<button type="button" data-theme-choice="plum" aria-pressed="true"><span class="theme-swatch" aria-hidden="true"></span>Plum &amp; cream</button>
+<button type="button" data-theme-choice="midnight" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Midnight blue</button>
+<button type="button" data-theme-choice="evergreen" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Evergreen</button>
+<button type="button" data-theme-choice="editorial" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Warm editorial</button>
+</div></aside>
 <section id="logo-review" aria-labelledby="logo-review-title">
 <div class="wrap logo-review-wrap">
 <div class="logo-review-head"><h2 id="logo-review-title">Portfolio logo options</h2><a id="logo-back" href="?layout=2#work">Back to Azure preview</a></div>
@@ -502,6 +541,22 @@ if (optionTwo) {
 document.getElementById(portfolioPreviewView === "catalog" ? "preview-catalog" : optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
 if (portfolioPreviewView === "catalog") {
   document.querySelector('.hero .nav a[href="#work"]').href = "#project-list";
+  const themeButtons = [...document.querySelectorAll(".theme-picker button")];
+  const themeKeys = new Set(themeButtons.map(b => b.dataset.themeChoice));
+  function setPortfolioTheme(key, updateUrl) {
+    if (!themeKeys.has(key)) key = "plum";
+    if (key === "plum") delete document.documentElement.dataset.portfolioTheme;
+    else document.documentElement.dataset.portfolioTheme = key;
+    for (const b of themeButtons) b.setAttribute("aria-pressed",String(b.dataset.themeChoice===key));
+    if (updateUrl) {
+      const url = new URL(location.href);
+      if (key === "plum") url.searchParams.delete("theme");
+      else url.searchParams.set("theme",key);
+      history.replaceState(history.state,"",url);
+    }
+  }
+  for (const b of themeButtons) b.addEventListener("click",() => setPortfolioTheme(b.dataset.themeChoice,true));
+  setPortfolioTheme(previewParams.get("theme"),false);
   const reportFrame = document.createElement("iframe");
   const viewer = document.getElementById("report-viewer");
   const reportLink = document.querySelector(".report-full-link");
