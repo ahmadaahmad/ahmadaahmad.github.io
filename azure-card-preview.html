@@ -294,6 +294,7 @@ html[data-catalog] .start-placement{display:flex;align-items:center;gap:7px;flex
 .hero .portfolio-start a:focus-visible{outline-color:var(--hero-accent,var(--peach))}
 #work>.portfolio-start{margin:0 0 17px}
 #portfolio-report{scroll-margin-top:20px}
+#pipeline-steps{scroll-margin-top:24px}
 </style>
 </head>
 <body>
@@ -350,7 +351,7 @@ html[data-catalog] .start-placement{display:flex;align-items:center;gap:7px;flex
 <p class="intro">I build Azure data pipelines and Power BI reports. These projects show how I approach moving data efficiently and making it easier to explore.</p>
 <nav class="portfolio-start" id="portfolio-start" aria-label="Start here" hidden>
 <p class="start-label">Start here</p>
-<a id="start-azure" href="?layout=2&amp;view=project">See a data pipeline <span aria-hidden="true">↗</span></a>
+<a id="start-azure" href="?layout=2&amp;view=project#pipeline-steps">See a data pipeline <span aria-hidden="true">↗</span></a>
 <a href="#portfolio-report">Try a Power BI report <span aria-hidden="true">↓</span></a>
 </nav>
 <div class="hero-links">
@@ -898,7 +899,7 @@ if (portfolioPreviewView === "catalog") {
 <section class="card"><p class="kicker">The problem</p><h2>Most records don’t change</h2><p class="desc">Daily extracts can contain many of the same records. A full reload would process the entire dataset each time, even when only a small share has changed.</p></section>
 <section class="card"><p class="kicker">Load only new or changed records</p><h2>Merge just the changes</h2><p class="desc">I built a pipeline with Azure Data Factory, Data Lake Storage, and Azure SQL. It stages each batch and merges new or updated records into the target table without rebuilding it.</p></section>
 </div>
-<section class="card"><p class="kicker">The daily run</p><h2>How the pipeline works</h2><ol class="case-steps"><li><span class="case-num" aria-hidden="true">01</span><div><span class="case-step-title">The pipeline picks up the daily extract.</span><p class="case-step-detail">Azure Data Factory reads the daily CSV and writes the changed rows to Data Lake Storage as Parquet files.</p></div></li><li><span class="case-num" aria-hidden="true">02</span><div><span class="case-step-title">It stages the batch in Azure SQL.</span><p class="case-step-detail">It loads those files into a staging table before updating the target table.</p></div></li><li><span class="case-num" aria-hidden="true">03</span><div><span class="case-step-title">It merges new and updated records into the target table.</span><p class="case-step-detail">The merge inserts new records and updates matching ones without reloading the whole table.</p></div></li><li><span class="case-num" aria-hidden="true">04</span><div><span class="case-step-title">It saves the latest timestamp from the batch so the next run can find records that changed after that point.</span><p class="case-step-detail">During extraction, the pipeline records the latest modification date as the starting point for the next extract.</p></div></li></ol></section>
+<section class="card" id="pipeline-steps" aria-labelledby="pipeline-steps-title"><p class="kicker">The daily run</p><h2 id="pipeline-steps-title">How the pipeline works</h2><ol class="case-steps"><li><span class="case-num" aria-hidden="true">01</span><div><span class="case-step-title">The pipeline picks up the daily extract.</span><p class="case-step-detail">Azure Data Factory reads the daily CSV and writes the changed rows to Data Lake Storage as Parquet files.</p></div></li><li><span class="case-num" aria-hidden="true">02</span><div><span class="case-step-title">It stages the batch in Azure SQL.</span><p class="case-step-detail">It loads those files into a staging table before updating the target table.</p></div></li><li><span class="case-num" aria-hidden="true">03</span><div><span class="case-step-title">It merges new and updated records into the target table.</span><p class="case-step-detail">The merge inserts new records and updates matching ones without reloading the whole table.</p></div></li><li><span class="case-num" aria-hidden="true">04</span><div><span class="case-step-title">It saves the latest timestamp from the batch so the next run can find records that changed after that point.</span><p class="case-step-detail">During extraction, the pipeline records the latest modification date as the starting point for the next extract.</p></div></li></ol></section>
 <div class="case-cta"><a class="btn case-link" href="https://github.com/ahmadaahmad/azure-incremental-load-adf-architecture#readme">View the code and technical walkthrough on GitHub <span aria-hidden="true">↗</span></a></div>
 </main></div>
 </body>
