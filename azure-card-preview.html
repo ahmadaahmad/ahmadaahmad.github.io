@@ -247,6 +247,8 @@ html[data-catalog] .catalog-work-layout .portfolio-report{display:block;padding:
 .catalog-work-layout .report-embed iframe{height:202px;min-height:202px;aspect-ratio:auto}
 @media (min-width:951px){html[data-catalog] .catalog-project-column .preview-body .project-text,html[data-catalog] .catalog-project-column .preview-body .diagram{padding:20px 18px 22px}html[data-catalog] .catalog-project-column .shared-title{padding:21px 18px 0}}
 @media (max-width:950px){.catalog-work-layout{grid-template-columns:1fr}html[data-catalog] .catalog-work-layout .portfolio-report{max-width:430px}.catalog-work-layout .report-embed iframe{height:220px}}
+.net-catalog-card .project-art{max-width:160px;margin:0 0 10px}
+.net-catalog-card .note{margin:0}
 </style>
 </head>
 <body>
@@ -379,11 +381,11 @@ html[data-catalog] .catalog-work-layout .portfolio-report{display:block;padding:
 <figcaption>Each successful run sets the starting point for the next one.</figcaption>
 </figure>
 </div></article>
-<section class="catalog-only" aria-labelledby="github-projects"><div class="section-head catalog-title"><h2 id="github-projects">More GitHub projects</h2><p class="meta">4 repositories</p></div><div class="catalog-grid"><article class="card catalog-card" aria-labelledby="catalog-1"><p class="kicker">Data transformation</p><h3 id="catalog-1">Azure data modernization</h3><p class="desc">Cleans sales CSVs in Azure Data Factory, adds cost and unit-price fields, and writes separate category files back to Blob Storage.</p><ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Blob Storage</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-data-modernization" aria-label="View Azure data modernization on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
+<section class="catalog-only" aria-labelledby="github-projects"><div class="section-head catalog-title"><h2 id="github-projects">More projects</h2><p class="meta">4 repositories</p></div><div class="catalog-grid"><article class="card catalog-card" aria-labelledby="catalog-1"><p class="kicker">Data transformation</p><h3 id="catalog-1">Azure data modernization</h3><p class="desc">Cleans sales CSVs in Azure Data Factory, adds cost and unit-price fields, and writes separate category files back to Blob Storage.</p><ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Blob Storage</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-data-modernization" aria-label="View Azure data modernization on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
 <article class="card catalog-card" aria-labelledby="catalog-2"><p class="kicker">Analytics pipeline</p><h3 id="catalog-2">Azure Databricks analytics</h3><p class="desc">Spark notebooks copy raw CSVs to Data Lake Storage Gen2, verify and clean the data, and save the results as Parquet.</p><ul class="tags" aria-label="Technologies"><li>Databricks</li><li>Apache Spark</li><li>ADLS Gen2</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-databricks-analytics" aria-label="View Azure Databricks analytics on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
 <article class="card catalog-card" aria-labelledby="catalog-3"><p class="kicker">Load comparison</p><h3 id="catalog-3">Hierarchical migration pipelines</h3><p class="desc">Compares two ways to load date-partitioned Parquet into Azure Synapse: ADF loops and the native COPY INTO command.</p><ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Azure Synapse</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-hierarchical-migration-pipelines" aria-label="View Hierarchical migration pipelines on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
 <article class="card catalog-card" aria-labelledby="catalog-4"><p class="kicker">Version control workflow</p><h3 id="catalog-4">Fabric Sync Bridge</h3><p class="desc">Pairs a Power BI project with GitHub Actions workflows for syncing changes between GitHub and Bitbucket.</p><ul class="tags" aria-label="Technologies"><li>Power BI project</li><li>GitHub Actions</li><li>Bitbucket</li></ul><a class="action" href="https://github.com/ahmadaahmad/fabric-sync-bridge" aria-label="View Fabric Sync Bridge on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article></div></section>
-<div class="section-head catalog-title catalog-only"><h2>Technical note</h2></div>
+<div class="section-head catalog-title catalog-only" id="catalog-note-label"><h2>Technical note</h2></div>
 <div class="secondary">
 <article class="card" aria-labelledby="powerbi">
 <svg class="project-art art-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="art-bi-title art-bi-desc" focusable="false">
@@ -439,7 +441,7 @@ html[data-catalog] .catalog-work-layout .portfolio-report{display:block;padding:
 <script>
 const previewParams = new URLSearchParams(location.search);
 const optionTwo = previewParams.get("layout") === "2" || portfolioPreviewView === "catalog";
-if (portfolioPreviewView === "catalog") document.getElementById("selected-work-meta").textContent = "5 GitHub projects";
+if (portfolioPreviewView === "catalog") document.getElementById("selected-work-meta").textContent = "6 projects";
 const catalogParams = new URLSearchParams({layout:"2",view:"catalog"});
 if (previewParams.has("v")) catalogParams.set("v",previewParams.get("v"));
 document.getElementById("preview-catalog").href = "?" + catalogParams.toString() + "#work";
@@ -651,8 +653,23 @@ if (portfolioPreviewView === "catalog") {
   const work = document.getElementById("work");
   const featured = work.querySelector(".preview-feature");
   const more = work.querySelector('section[aria-labelledby="github-projects"]');
+  const embedding = work.querySelector('article[aria-labelledby="rls"]');
+  embedding.classList.add("catalog-card","net-catalog-card");
+  embedding.querySelector(".kicker").textContent = "Secure embedding design";
+  const netTags = document.createElement("ul");
+  netTags.className = "tags";
+  netTags.setAttribute("aria-label","Technologies");
+  for (const label of [".NET","Power BI","Row-level security"]) {
+    const item = document.createElement("li");
+    item.textContent = label;
+    netTags.append(item);
+  }
+  embedding.querySelector(".note").before(netTags);
+  more.querySelector(".catalog-grid").append(embedding);
+  document.getElementById("catalog-note-label").remove();
+  work.querySelector(".secondary").hidden = true;
   const cards = [featured, ...more.querySelectorAll(".catalog-card")];
-  const keyFor = label => label === "ADLS Gen2" ? "Data Lake Storage" : label.trim();
+  const keyFor = label => label === "ADLS Gen2" ? "Data Lake Storage" : label === "Power BI project" ? "Power BI" : label.trim();
   const tagCounts = new Map();
   const selectedTags = new Map();
   const projectTags = cards.map(project => {
@@ -666,7 +683,7 @@ if (portfolioPreviewView === "catalog") {
       button.type = "button";
       button.className = "catalog-chip";
       button.textContent = label;
-      button.setAttribute("aria-label", "Filter projects by " + key);
+      button.setAttribute("aria-label", "Filter projects by " + label);
       button.setAttribute("aria-pressed", "false");
       button.addEventListener("click", () => {
         setFilter(activeTag === key ? "" : key);
@@ -682,7 +699,7 @@ if (portfolioPreviewView === "catalog") {
   const filter = document.createElement("section");
   filter.className = "catalog-filter";
   filter.setAttribute("aria-labelledby","catalog-filter-title");
-  filter.innerHTML = '<div class="catalog-filter-heading"><h3 id="catalog-filter-title">Filter GitHub projects by technology</h3><p class="catalog-filter-status" role="status"></p></div><div class="catalog-filter-controls" role="group" aria-label="Project filters"></div>';
+  filter.innerHTML = '<div class="catalog-filter-heading"><h3 id="catalog-filter-title">Filter projects by technology</h3><p class="catalog-filter-status" role="status"></p></div><div class="catalog-filter-controls" role="group" aria-label="Project filters"></div>';
   const status = filter.querySelector("[role=status]");
   const controls = filter.querySelector(".catalog-filter-controls");
   for (const [key,label] of [["","All projects"],...[...tagCounts.keys()].sort((a,b)=>a.localeCompare(b)).map(key=>[key,key])]) {
@@ -717,7 +734,7 @@ if (portfolioPreviewView === "catalog") {
       for (const pair of buttons) pair.button.setAttribute("aria-pressed",String(pair.key === key));
     }
     more.hidden = moreMatches === 0;
-    more.querySelector(".catalog-title .meta").textContent = moreMatches + (moreMatches === 1 ? " repository" : " repositories");
+    more.querySelector(".catalog-title .meta").textContent = moreMatches + (moreMatches === 1 ? " project" : " projects");
     for (const [tag,btn] of selectedTags) btn.setAttribute("aria-pressed",String(tag === key));
     status.textContent = key ? ("Showing " + matches + " of " + cards.length + " projects · " + key) : ("Showing all " + cards.length + " projects");
   }
