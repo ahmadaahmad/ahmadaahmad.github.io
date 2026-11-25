@@ -111,9 +111,13 @@ const nav=[...document.querySelectorAll('.rail a')];
 let queued=false, selected=-1;
 function update(){
   queued=false;
-  const line=innerHeight*.72;
   let current=0;
-  for(let i=1;i<stops.length;i++)if(stops[i].getBoundingClientRect().top<=line)current=i;
+  // Show the first transition early; use the reading area for the shorter later sections.
+  for(let i=1;i<stops.length;i++){
+    const threshold=innerHeight*(i===1?.72:.32);
+    if(stops[i].getBoundingClientRect().top<=threshold)current=i;
+  }
+  if(scrollY>0&&scrollY+innerHeight>=document.documentElement.scrollHeight-4)current=stops.length-1;
   if(current===selected)return;
   selected=current;
   stops.forEach((el,i)=>el.toggleAttribute('data-active',i===current));
