@@ -93,7 +93,7 @@ html[data-logos] body>.preview-bar,html[data-case] #logo-review{display:none}
 .logo-review-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 20px;flex-wrap:wrap}
 .logo-review-head h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:0}
 .logo-review-wrap .note{margin:6px 0 12px}
-.logo-options{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.logo-options{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
 @media(max-width:1000px){.logo-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .logo-option{appearance:none;cursor:pointer;border:1px solid #bca59e;border-radius:7px;background:#fffdf8;color:#211d2d;padding:6px 9px;display:flex;align-items:center;gap:9px;font:650 .88rem/1.25 system-ui;text-align:left;min-height:50px}
 .logo-option[aria-pressed="true"]{border-color:#5a395b;box-shadow:inset 0 0 0 1px #5a395b;background:#eee6f1}
@@ -128,6 +128,7 @@ html[data-logos] .hero.story-hero .hero-logo-art{display:grid;place-items:center
 <button class="logo-option" type="button" data-mark="split" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Split AA</button>
 <button class="logo-option" type="button" data-mark="story" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Data storytelling</button>
 <button class="logo-option" type="button" data-mark="notebook" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Illustrated data notebook</button>
+<button class="logo-option" type="button" data-mark="consolidation" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Data consolidation</button>
 </div>
 <p class="logo-status" role="status">Showing: Current AA</p>
 </div></section>
@@ -258,11 +259,12 @@ if (portfolioPreviewView === "logos") {
   const marks = {
     monogram: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#543655"/><path d="m6 25 6.5-14L19 25m-11-4.5h9M17 25l6.5-14L30 25m-11-4.5h9" fill="none" stroke="#ffb59e" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>',
     pipeline: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#49334f"/><path d="M9 11h4l6 7h8M9 25h4l6-7" fill="none" stroke="#ffb59e" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="11" r="2.3" fill="#f0daee"/><circle cx="9" cy="25" r="2.3" fill="#f0daee"/><circle cx="19" cy="18" r="2.5" fill="#ffb59e"/><circle cx="27" cy="18" r="2.6" fill="#f0daee"/>',
+    consolidation: '<rect x="1" y="1" width="62" height="48" rx="10" fill="#103637" stroke="#529a91" stroke-width=".55"/><path d="M21 12h4c5 0 5 13 12 13h8M21 25h24M21 38h4c5 0 5-13 12-13" fill="none" stroke="#7fd1bd" stroke-width="1.35" stroke-linecap="round"/><circle cx="36" cy="25" r="2.05" fill="#ffca84"/><path d="m41.5 22.8 2.2 2.2-2.2 2.2" fill="none" stroke="#7fd1bd" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="7.3" width="12" height="9.4" rx="1.2" fill="#d6f6e7" stroke="#73c6aa" stroke-width=".65"/><path d="M8.4 10.2h11.2m-10.9 3h10.9m-8.3-2.8v5.7m4.6-5.7v5.7" stroke="#297767" stroke-width=".72"/><path d="M9.1 19.5h7.4l3.1 3v8h-10.5z" fill="#fff1d4" stroke="#edb774" stroke-width=".65" stroke-linejoin="round"/><path d="M16.3 19.8v3h2.9" fill="none" stroke="#b9733e" stroke-width=".68"/><text x="14.1" y="27.5" font-family="system-ui,sans-serif" font-size="3.35" text-anchor="middle" font-weight="750" fill="#663b28">CSV</text><rect x="8" y="33.4" width="12" height="9.2" rx="2.25" fill="#244e58" stroke="#87c7d5" stroke-width=".76"/><path d="M9.7 37.2c1.35-.9 2.9-.9 4.25 0 1.35.85 2.95.85 4.42-.12m-8.67 2.14c1.35-.9 2.9-.9 4.25 0 1.35.85 2.95.85 4.42-.12" fill="none" stroke="#a4e4e9" stroke-width=".82" stroke-linecap="round"/><path d="M46 18.7v10.9c0 1.65 3 3 6.7 3s6.7-1.35 6.7-3V18.7" fill="#d6f6e7" stroke="#6cc5a7" stroke-width=".78"/><ellipse cx="52.7" cy="18.7" rx="6.7" ry="3" fill="#f0f9de" stroke="#6cc5a7" stroke-width=".78"/><text x="52.7" y="27.8" font-family="system-ui,sans-serif" font-size="4.05" text-anchor="middle" font-weight="750" fill="#225044">SQL</text>',
     notebook: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#183e3b"/><path d="M5.3 9.5c4.8-1.5 9-1 12.7 1.1 3.7-2.1 7.9-2.6 12.7-1.1v16c-4.7-.9-8.9-.4-12.7 1.7-3.8-2.1-8-2.6-12.7-1.7z" fill="#fff4d6" stroke="#c9a979" stroke-width="1.35" stroke-linejoin="round"/><path d="M18 11v15M8.7 14.2l5.7.1m-5.7 3.1 5.7.1m-5.7 3.2 4.3.1" fill="none" stroke="#9f7e57" stroke-width="1.05" stroke-linecap="round"/><path d="M21 22.1h7.2m-6-1.9v-2.5m2.3 2.5v-4.2m2.3 4.2v-6.1" fill="none" stroke="#267970" stroke-width="1.3" stroke-linecap="round"/><path d="m20.7 16.1 2.9-2.7 3.7-1.2" fill="none" stroke="#c57543" stroke-width="1.05" stroke-linecap="round"/><path d="m26.2 24.5 3.7-5.7 1.5 1-3.8 5.7-1.9 1z" fill="#eeae58" stroke="#74482e" stroke-width=".72" stroke-linejoin="round"/>',
     story: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#51384f"/><path d="M8 26h20M11 24v-5m7 5v-8m7 8V11" stroke="#dbb6d5" stroke-width="2.2" stroke-linecap="round"/><path d="m10 15 7-3.5 7-4" stroke="#ffc1a9" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="7.5" r="2.15" fill="#ffc1a9"/>',
     split: '<rect x="1" y="1" width="34" height="34" rx="17" fill="#f4a78c"/><path d="m8.5 23.8 4.8-12 4.7 12m-8-3.9h6.6m1.5 3.9 4.8-12 4.7 12m-8-3.9h6.6" fill="none" stroke="#342138" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"/>'
   };
-  const svg = key => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" focusable="false">' + marks[key] + '</svg>';
+  const svg = key => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + (key === "consolidation" ? "0 0 64 50" : "0 0 36 36") + '" aria-hidden="true" focusable="false">' + marks[key] + '</svg>';
   for (const btn of logoButtons) {
     const key = btn.dataset.mark;
     if (marks[key]) btn.querySelector(".logo-tile").innerHTML = svg(key);
@@ -270,8 +272,9 @@ if (portfolioPreviewView === "logos") {
       for (const candidate of logoButtons) candidate.setAttribute("aria-pressed", String(candidate === btn));
       brandMark.classList.toggle("custom-logo", !!marks[key]);
       const standalone = key === "notebook";
-      portfolioHero.classList.toggle("story-hero", key === "story");
-      heroLogoArt.innerHTML = key === "story" ? svg(key) : "";
+      const showHeroMark = key === "story" || key === "consolidation";
+      portfolioHero.classList.toggle("story-hero", showHeroMark);
+      heroLogoArt.innerHTML = showHeroMark ? svg(key) : "";
       brandLink.classList.toggle("story-brand", standalone);
       if (standalone) brandLink.setAttribute("aria-label", "Ahmad Ahmad");
       else brandLink.removeAttribute("aria-label");
