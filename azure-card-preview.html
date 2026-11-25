@@ -105,6 +105,14 @@ html[data-logos] .brand.story-brand .monogram{width:52px;height:52px;flex-basis:
 html[data-logos] .brand.story-brand .brand-name{display:none}
 @media(max-width:740px){html[data-logos] .brand.story-brand .monogram{width:44px;height:44px;flex-basis:44px}}
 @media(max-width:740px){.logo-options{grid-template-columns:repeat(2,minmax(0,1fr))}.brand .monogram.custom-logo{width:30px;height:30px;flex-basis:30px}}
+.hero-logo-art{display:none}
+html[data-logos] .hero.story-hero .brand{display:none}
+html[data-logos] .hero.story-hero .nav{margin-left:auto}
+html[data-logos] .hero.story-hero .hero-copy{position:relative}
+html[data-logos] .hero.story-hero .hero-logo-art{display:grid;place-items:center;position:absolute;top:50%;right:clamp(12px,5vw,75px);width:clamp(146px,22vw,248px);transform:translateY(-50%)}
+.hero-logo-art svg{display:block;width:100%;height:auto}
+@media(min-width:741px){html[data-logos] .hero.story-hero .hero-copy h1{font-size:clamp(3.05rem,7.2vw,6.6rem);max-width:70%}html[data-logos] .hero.story-hero .intro{max-width:min(52ch,62%)}}
+@media(max-width:740px){html[data-logos] .hero.story-hero .hero-logo-art{position:static;transform:none;width:min(39%,174px);margin:4px 0 22px}}
 </style>
 </head>
 <body>
@@ -112,7 +120,7 @@ html[data-logos] .brand.story-brand .brand-name{display:none}
 <section id="logo-review" aria-labelledby="logo-review-title">
 <div class="wrap logo-review-wrap">
 <div class="logo-review-head"><h2 id="logo-review-title">Portfolio logo options</h2><a id="logo-back" href="?layout=2#work">Back to Azure preview</a></div>
-<p class="note">Pick an option, then look beside Ahmad Ahmad in the header below.</p>
+<p class="note">Pick an option, then look for the mark in the dark area below.</p>
 <div class="logo-options" role="group" aria-label="Choose a logo">
 <button class="logo-option" type="button" data-mark="current" aria-pressed="true"><span class="logo-tile" aria-hidden="true"><span class="monogram">AA</span></span>Current AA</button>
 <button class="logo-option" type="button" data-mark="monogram" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Plum and coral AA</button>
@@ -239,7 +247,12 @@ const previewParams = new URLSearchParams(location.search);
 const optionTwo = previewParams.get("layout") === "2";
 const trialSequence = previewParams.get("sequence") === "trial";
 if (portfolioPreviewView === "logos") {
-  const brandLink = document.querySelector(".hero .brand");
+  const portfolioHero = document.querySelector("body > .hero");
+  const brandLink = portfolioHero.querySelector(".brand");
+  const heroLogoArt = document.createElement("div");
+  heroLogoArt.className = "hero-logo-art";
+  heroLogoArt.setAttribute("aria-hidden", "true");
+  portfolioHero.querySelector(".hero-links").before(heroLogoArt);
   const brandMark = brandLink.querySelector(".monogram");
   const logoButtons = [...document.querySelectorAll(".logo-option")];
   const marks = {
@@ -256,7 +269,9 @@ if (portfolioPreviewView === "logos") {
     btn.addEventListener("click", () => {
       for (const candidate of logoButtons) candidate.setAttribute("aria-pressed", String(candidate === btn));
       brandMark.classList.toggle("custom-logo", !!marks[key]);
-      const standalone = key === "story" || key === "notebook";
+      const standalone = key === "notebook";
+      portfolioHero.classList.toggle("story-hero", key === "story");
+      heroLogoArt.innerHTML = key === "story" ? svg(key) : "";
       brandLink.classList.toggle("story-brand", standalone);
       if (standalone) brandLink.setAttribute("aria-label", "Ahmad Ahmad");
       else brandLink.removeAttribute("aria-label");
