@@ -147,6 +147,16 @@ html[data-catalog] .selected-work-head{align-items:center;column-gap:20px}
 html[data-catalog] .catalog-work-art{display:block;width:clamp(140px,21vw,248px);line-height:0;margin:0 auto 0 6px}
 .catalog-work-art svg{display:block;width:100%;height:auto}.catalog-work-art svg>ellipse{opacity:.12}
 @media(max-width:590px){html[data-catalog] .selected-work-head{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px}html[data-catalog] .catalog-work-art{grid-row:2;grid-column:1/-1;margin:0;width:min(200px,100%)}}
+.catalog-filter{margin:0 0 18px;padding:13px 16px;border:1px solid var(--line);border-radius:9px;background:var(--white)}
+.catalog-filter-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 7px}
+.catalog-filter-heading h3{font-size:.84rem;letter-spacing:0;margin:0}
+.catalog-filter-status{font-size:.8rem;color:var(--muted);margin:0}
+.catalog-filter-controls{display:flex;flex-wrap:wrap;gap:6px}
+.catalog-chip{appearance:none;cursor:pointer;font:650 .77rem/1.2 system-ui,sans-serif;color:#694573;background:#faf6fb;border:1px solid #d7c8dd;border-radius:100px;padding:5px 9px}
+.catalog-chip:hover{background:#eee5f2;border-color:#a789b2}
+.catalog-chip[aria-pressed="true"]{background:#5b3c67;color:#fff;border-color:#5b3c67}
+html[data-catalog] .tags li:has(>.catalog-chip){border:0;padding:0}
+html[data-catalog] #work [hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -424,6 +434,75 @@ if (optionTwo) {
   });
 }
 document.getElementById(portfolioPreviewView === "catalog" ? "preview-catalog" : optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
+if (portfolioPreviewView === "catalog") {
+  const work = document.getElementById("work");
+  const featured = work.querySelector(".preview-feature");
+  const more = work.querySelector('section[aria-labelledby="github-projects"]');
+  const cards = [featured, ...more.querySelectorAll(".catalog-card")];
+  const keyFor = label => label === "ADLS Gen2" ? "Data Lake Storage" : label.trim();
+  const tagCounts = new Map();
+  const selectedTags = new Map();
+  const projectTags = cards.map(project => {
+    const buttons = [];
+    const keys = new Set();
+    for (const item of project.querySelectorAll(".tags li")) {
+      const label = item.textContent.trim();
+      const key = keyFor(label);
+      keys.add(key);
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "catalog-chip";
+      button.textContent = label;
+      button.setAttribute("aria-label", "Filter projects by " + key);
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        setFilter(activeTag === key ? "" : key);
+        (selectedTags.get(activeTag) || selectedTags.get("")).focus({preventScroll:true});
+        filter.scrollIntoView({block:"nearest"});
+      });
+      item.replaceChildren(button);
+      buttons.push({button,key});
+    }
+    for (const key of keys) tagCounts.set(key, (tagCounts.get(key) || 0) + 1);
+    return {project,keys,buttons};
+  });
+  const filter = document.createElement("section");
+  filter.className = "catalog-filter";
+  filter.setAttribute("aria-labelledby","catalog-filter-title");
+  filter.innerHTML = '<div class="catalog-filter-heading"><h3 id="catalog-filter-title">Filter GitHub projects by technology</h3><p class="catalog-filter-status" role="status"></p></div><div class="catalog-filter-controls" role="group" aria-label="Project filters"></div>';
+  const status = filter.querySelector("[role=status]");
+  const controls = filter.querySelector(".catalog-filter-controls");
+  for (const [key,label] of [["","All projects"],...[...tagCounts.keys()].sort((a,b)=>a.localeCompare(b)).map(key=>[key,key])]) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "catalog-chip";
+    button.textContent = label;
+    button.addEventListener("click", () => setFilter(activeTag === key ? "" : key));
+    controls.append(button);
+    selectedTags.set(key,button);
+  }
+  featured.before(filter);
+  let activeTag = "";
+  function setFilter(key) {
+    activeTag = key;
+    let matches = 0;
+    let moreMatches = 0;
+    for (const {project,keys,buttons} of projectTags) {
+      const visible = !key || keys.has(key);
+      project.hidden = !visible;
+      if (visible) {
+        matches++;
+        if (project !== featured) moreMatches++;
+      }
+      for (const pair of buttons) pair.button.setAttribute("aria-pressed",String(pair.key === key));
+    }
+    more.hidden = moreMatches === 0;
+    more.querySelector(".catalog-title .meta").textContent = moreMatches + (moreMatches === 1 ? " repository" : " repositories");
+    for (const [tag,btn] of selectedTags) btn.setAttribute("aria-pressed",String(tag === key));
+    status.textContent = key ? ("Showing " + matches + " of " + cards.length + " projects · " + key) : ("Showing all " + cards.length + " projects");
+  }
+  setFilter("");
+}
 </script><div id="case-study">
 <header class="hero case-hero"><div class="wrap"><div class="top"><a class="case-back" href="?layout=2#work">← Back to portfolio preview</a><span class="meta case-preview-label">Case study preview</span></div>
 <div class="hero-copy"><p class="kicker">Azure data engineering</p><h1>Azure incremental-load pipeline</h1><p class="intro">A daily pipeline that processes new and changed records without reloading the entire dataset.</p></div></div></header>
