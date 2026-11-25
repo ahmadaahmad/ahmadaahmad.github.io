@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script>const portfolioPreviewView=new URLSearchParams(location.search).get("view");if(portfolioPreviewView==="project"){document.documentElement.setAttribute("data-case","");document.title="Azure incremental-load pipeline | Ahmad Ahmad";}else if(portfolioPreviewView==="logos"){document.documentElement.setAttribute("data-logos","");document.title="Logo options | Ahmad Ahmad";}</script>
+<script>const portfolioPreviewView=new URLSearchParams(location.search).get("view");if(portfolioPreviewView==="project"){document.documentElement.setAttribute("data-case","");document.title="Azure incremental-load pipeline | Ahmad Ahmad";}else if(portfolioPreviewView==="logos"){document.documentElement.setAttribute("data-logos","");document.title="Logo options | Ahmad Ahmad";}else if(portfolioPreviewView==="catalog"){document.documentElement.setAttribute("data-catalog","");document.title="All projects preview | Ahmad Ahmad";}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ahmad Ahmad’s portfolio: Azure data engineering, incremental data pipelines, and Power BI.">
@@ -122,10 +122,12 @@ html[data-logos] .hero.etl-hero .hero-logo-art{right:clamp(8px,2vw,32px);width:c
 @media(max-width:475px){.logo-options.etl-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .logo-options.fusion-options{grid-template-columns:repeat(5,minmax(0,1fr))}
 @media(max-width:640px){.logo-options.fusion-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.catalog-only{display:none}html[data-catalog] .catalog-only{display:block}html[data-catalog] .catalog-title{display:flex;margin:40px 0 14px}.catalog-title h2{font-size:clamp(1.85rem,3.8vw,2.7rem)}.catalog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.catalog-card{padding:22px 24px;display:flex;flex-direction:column;align-items:flex-start;border-top:3px solid #be9ac3}.catalog-card:nth-child(2){border-top-color:#71a99b}.catalog-card:nth-child(3){border-top-color:#dca287}.catalog-card:nth-child(4){border-top-color:#9b9fc7}.catalog-card h3{font-size:1.38rem}.catalog-card .desc{flex:1}.catalog-card .action{font-size:.94rem}.catalog-card .tags{margin-bottom:12px}.catalog-title+.secondary{margin-top:0}
+@media(max-width:740px){.catalog-grid{grid-template-columns:1fr}html[data-catalog] .catalog-title{margin-top:30px}}
 </style>
 </head>
 <body>
-<aside class="preview-bar"><div class="wrap preview-controls"><strong>Azure card preview</strong><a id="preview-one" href="?layout=1#work">1 · Stacked card</a><a id="preview-two" href="?layout=2#work">2 · Shared heading</a><a href="?layout=2&view=logos">Logo options</a><a href="./#work">Current homepage</a></div></aside>
+<aside class="preview-bar"><div class="wrap preview-controls"><strong>Azure card preview</strong><a id="preview-one" href="?layout=1#work">1 · Stacked card</a><a id="preview-two" href="?layout=2#work">2 · Shared heading</a><a href="?layout=2&view=logos">Logo options</a><a id="preview-catalog" href="?layout=2&view=catalog#work">All projects preview</a><a href="./#work">Current homepage</a></div></aside>
 <section id="logo-review" aria-labelledby="logo-review-title">
 <div class="wrap logo-review-wrap">
 <div class="logo-review-head"><h2 id="logo-review-title">Portfolio logo options</h2><a id="logo-back" href="?layout=2#work">Back to Azure preview</a></div>
@@ -172,7 +174,7 @@ html[data-logos] .hero.etl-hero .hero-logo-art{right:clamp(8px,2vw,32px);width:c
 </div>
 </header>
 <main id="work" class="wrap">
-<div class="section-head"><h2>Selected work</h2><p class="meta">Azure &amp; Power BI</p></div>
+<div class="section-head"><h2>Selected work</h2><p class="meta" id="selected-work-meta">Azure &amp; Power BI</p></div>
 <article class="feature preview-feature" aria-labelledby="azure" data-layout="stacked"><div class="preview-art"><svg class="project-art art-pipeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="art-azure-title art-azure-desc" focusable="false">
 <title id="art-azure-title">Incremental data flow</title><desc id="art-azure-desc">Source streams converge through a processing stage, then changed records flow into a database.</desc>
 <defs><pattern id="art-azure-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#594866" stroke-opacity=".55"/></pattern></defs>
@@ -211,6 +213,11 @@ html[data-logos] .hero.etl-hero .hero-logo-art{right:clamp(8px,2vw,32px);width:c
 <figcaption>Each successful run sets the starting point for the next one.</figcaption>
 </figure>
 </div></article>
+<section class="catalog-only" aria-labelledby="github-projects"><div class="section-head catalog-title"><h2 id="github-projects">More GitHub projects</h2><p class="meta">4 repositories</p></div><div class="catalog-grid"><article class="card catalog-card" aria-labelledby="catalog-1"><p class="kicker">Data transformation</p><h3 id="catalog-1">Azure data modernization</h3><p class="desc">Cleans sales CSVs in Azure Data Factory, adds cost and unit-price fields, and writes separate category files back to Blob Storage.</p><ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Blob Storage</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-data-modernization" aria-label="View Azure data modernization on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
+<article class="card catalog-card" aria-labelledby="catalog-2"><p class="kicker">Analytics pipeline</p><h3 id="catalog-2">Azure Databricks analytics</h3><p class="desc">Spark notebooks copy raw CSVs to Data Lake Storage Gen2, verify and clean the data, and save the results as Parquet.</p><ul class="tags" aria-label="Technologies"><li>Databricks</li><li>Apache Spark</li><li>ADLS Gen2</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-databricks-analytics" aria-label="View Azure Databricks analytics on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
+<article class="card catalog-card" aria-labelledby="catalog-3"><p class="kicker">Load comparison</p><h3 id="catalog-3">Hierarchical migration pipelines</h3><p class="desc">Compares two ways to load date-partitioned Parquet into Azure Synapse: ADF loops and the native COPY INTO command.</p><ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Azure Synapse</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-hierarchical-migration-pipelines" aria-label="View Hierarchical migration pipelines on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
+<article class="card catalog-card" aria-labelledby="catalog-4"><p class="kicker">Version control workflow</p><h3 id="catalog-4">Fabric Sync Bridge</h3><p class="desc">Pairs a Power BI project with GitHub Actions workflows for syncing changes between GitHub and Bitbucket.</p><ul class="tags" aria-label="Technologies"><li>Power BI project</li><li>GitHub Actions</li><li>Bitbucket</li></ul><a class="action" href="https://github.com/ahmadaahmad/fabric-sync-bridge" aria-label="View Fabric Sync Bridge on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article></div></section>
+<div class="section-head catalog-title catalog-only"><h2>Report and technical note</h2></div>
 <div class="secondary">
 <article class="card" aria-labelledby="powerbi">
 <svg class="project-art art-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="art-bi-title art-bi-desc" focusable="false">
@@ -265,7 +272,11 @@ html[data-logos] .hero.etl-hero .hero-logo-art{right:clamp(8px,2vw,32px);width:c
 <template id="azure-step-icons"><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4h4M9 12h6m-6 4h6"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="6" rx="6" ry="2.7"/><path d="M6 6v11.5c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7V6M6 12c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h3l6 6h7M4 18h3l6-6m3-4 4 4-4 4"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7.5v4.8l3 2"/></svg></template>
 <script>
 const previewParams = new URLSearchParams(location.search);
-const optionTwo = previewParams.get("layout") === "2";
+const optionTwo = previewParams.get("layout") === "2" || portfolioPreviewView === "catalog";
+if (portfolioPreviewView === "catalog") document.getElementById("selected-work-meta").textContent = "5 GitHub projects";
+const catalogParams = new URLSearchParams({layout:"2",view:"catalog"});
+if (previewParams.has("v")) catalogParams.set("v",previewParams.get("v"));
+document.getElementById("preview-catalog").href = "?" + catalogParams.toString() + "#work";
 const trialSequence = previewParams.get("sequence") === "trial";
 if (portfolioPreviewView === "logos") {
   const portfolioHero = document.querySelector("body > .hero");
@@ -376,7 +387,7 @@ if (optionTwo) {
     step.replaceChildren(badge, document.createTextNode(" " + walkthrough[i]));
   });
 }
-document.getElementById(optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
+document.getElementById(portfolioPreviewView === "catalog" ? "preview-catalog" : optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
 </script><div id="case-study">
 <header class="hero case-hero"><div class="wrap"><div class="top"><a class="case-back" href="?layout=2#work">← Back to portfolio preview</a><span class="meta case-preview-label">Case study preview</span></div>
 <div class="hero-copy"><p class="kicker">Azure data engineering</p><h1>Azure incremental-load pipeline</h1><p class="intro">A daily pipeline that processes new and changed records without reloading the entire dataset.</p></div></div></header>
