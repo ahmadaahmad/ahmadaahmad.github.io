@@ -100,6 +100,9 @@ html[data-logos] body>.preview-bar,html[data-case] #logo-review{display:none}
 .logo-tile .monogram{width:27px;height:27px;border-color:#ffffff70}
 .logo-tile svg{width:30px;height:30px}.brand .monogram.custom-logo{padding:0;border:0}.brand .monogram.custom-logo svg{width:100%;height:100%}
 .logo-status{margin:9px 0 0;color:#5a4359;font-size:.8rem}
+html[data-logos] .brand.story-brand .monogram{width:52px;height:52px;flex-basis:52px}
+html[data-logos] .brand.story-brand .brand-name{display:none}
+@media(max-width:740px){html[data-logos] .brand.story-brand .monogram{width:44px;height:44px;flex-basis:44px}}
 @media(max-width:740px){.logo-options{grid-template-columns:repeat(2,minmax(0,1fr))}.brand .monogram.custom-logo{width:30px;height:30px;flex-basis:30px}}
 </style>
 </head>
@@ -122,7 +125,7 @@ html[data-logos] body>.preview-bar,html[data-case] #logo-review{display:none}
 <header class="hero" id="top">
 <div class="wrap">
 <div class="top">
-<a class="brand" href="#top"><span class="monogram" aria-hidden="true">AA</span> Ahmad Ahmad</a>
+<a class="brand" href="#top"><span class="monogram" aria-hidden="true">AA</span> <span class="brand-name">Ahmad Ahmad</span></a>
 <nav class="nav" aria-label="Portfolio"><a href="#work">Projects</a><a href="https://github.com/ahmadaahmad">GitHub</a></nav>
 </div>
 <div class="hero-copy">
@@ -234,7 +237,8 @@ const previewParams = new URLSearchParams(location.search);
 const optionTwo = previewParams.get("layout") === "2";
 const trialSequence = previewParams.get("sequence") === "trial";
 if (portfolioPreviewView === "logos") {
-  const brandMark = document.querySelector(".hero .brand .monogram");
+  const brandLink = document.querySelector(".hero .brand");
+  const brandMark = brandLink.querySelector(".monogram");
   const logoButtons = [...document.querySelectorAll(".logo-option")];
   const marks = {
     monogram: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#543655"/><path d="m6 25 6.5-14L19 25m-11-4.5h9M17 25l6.5-14L30 25m-11-4.5h9" fill="none" stroke="#ffb59e" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>',
@@ -249,6 +253,9 @@ if (portfolioPreviewView === "logos") {
     btn.addEventListener("click", () => {
       for (const candidate of logoButtons) candidate.setAttribute("aria-pressed", String(candidate === btn));
       brandMark.classList.toggle("custom-logo", !!marks[key]);
+      brandLink.classList.toggle("story-brand", key === "story");
+      if (key === "story") brandLink.setAttribute("aria-label", "Ahmad Ahmad");
+      else brandLink.removeAttribute("aria-label");
       brandMark.innerHTML = marks[key] ? svg(key) : "AA";
       document.querySelector(".logo-status").textContent = "Showing: " + btn.lastChild.textContent.trim();
     });
