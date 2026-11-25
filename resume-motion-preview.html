@@ -78,6 +78,15 @@ html[data-resume-theme=light] .card .experience-period{background:#e5f1fc}
 html[data-resume-theme=light] .resume-theme-picker button[aria-pressed=true]{background:#d6e9fb}
 html[data-resume-theme=light][data-motion] .stop:not([data-active]):not(:focus-within) .card{opacity:.84}
 @media(prefers-reduced-motion:reduce){html[data-resume-theme=light][data-motion] .stop:not([data-active]):not(:focus-within) .card{opacity:1}}
+
+/* Match the numbered menu with a consistent visual marker at every section. */
+.section-heading{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:0 clamp(12px,2vw,19px);padding:2px 0 13px;border-bottom:1px solid var(--edge);margin:0 0 clamp(19px,3vw,27px)}
+.section-heading .section-number{display:grid;place-items:center;min-width:2.75rem;height:2.75rem;border:1px solid var(--edge);border-radius:10px;background:#23415c;color:var(--cyan);font:750 .9rem/1 ui-monospace,monospace;letter-spacing:.04em}
+.card .section-heading h2{font-size:clamp(1.85rem,4.1vw,3.05rem);line-height:1.04;margin:0;overflow-wrap:anywhere}
+[data-active] .section-heading{border-bottom-color:var(--cyan)}
+[data-active] .section-heading .section-number{border-color:var(--cyan)}
+html[data-resume-theme=light] .section-heading .section-number{background:#ddebfa;color:#134c76}
+@media(max-width:480px){.section-heading .section-number{min-width:2.3rem;height:2.3rem;border-radius:8px}.section-heading{gap:10px;padding-bottom:10px}}
 </style></head><body>
 <div class="wrap">
 <header class="top"><a href="./azure-card-preview.html?layout=2&amp;view=catalog&amp;theme=midnight#top">← Portfolio preview</a><div class="theme-actions"><span class="kicker">Résumé motion preview</span><div class="resume-theme-picker" role="group" aria-label="Résumé theme"><button type="button" data-theme-choice="light" aria-pressed="false">Daylight</button><button type="button" data-theme-choice="dark" aria-pressed="true">Midnight</button></div></div></header>
@@ -86,12 +95,12 @@ html[data-resume-theme=light][data-motion] .stop:not([data-active]):not(:focus-w
 <nav class="rail" aria-label="Résumé sections"><p class="kicker">On this page</p><ol><li><a href="#career-summary" aria-current="location">01 &nbsp; Career summary</a></li><li><a href="#experience">02 &nbsp; Experience</a></li><li><a href="#education">03 &nbsp; Education</a></li><li><a href="#certifications">04 &nbsp; Certifications</a></li><li><a href="#skills">05 &nbsp; Skills</a></li></ol></nav>
 <div class="stops">
 <section class="stop" id="career-summary" aria-labelledby="summary-title" data-active><div class="card summary-layout">
-<p class="phase">01 &nbsp; Overview</p><h2 id="summary-title">Career summary</h2>
+<header class="section-heading"><span class="section-number" aria-hidden="true">01</span><h2 id="summary-title">Career summary</h2></header>
 <p class="summary-lead">Over 10 years of experience in Microsoft business intelligence. I work on moving on-premises data workflows to Azure and building Power BI reports on top of the resulting data.</p>
 <ul class="info" aria-label="Key skills"><li>Azure Data Factory</li><li>Databricks and PySpark</li><li>SQL and ETL</li><li>Power BI</li></ul>
 </div></section>
 <section class="stop" id="experience" aria-labelledby="experience-title"><div class="card experience-layout">
-<p class="phase">02 &nbsp; Recent experience</p><h2 id="experience-title">Experience</h2>
+<header class="section-heading"><span class="section-number" aria-hidden="true">02</span><h2 id="experience-title">Experience</h2></header>
 <div class="experience-track"><div class="experience-role"><p class="experience-period"><time datetime="2021-10">Oct 2021</time> to present</p><article class="experience-entry"><h3>Data Engineer &amp; BI Solutions Consultant</h3><p class="employer">10179906 Canada Inc.</p>
 <ul><li>Built data transformations in PySpark and used partitioning to improve processing.</li><li>Designed Power BI dashboards using DAX and star-schema models.</li><li>Implemented incremental loads using watermarks and change data capture.</li></ul></article></div>
 <div class="experience-role"><p class="experience-period">Oct 2020 to Oct 2021</p><article class="experience-entry"><h3>Power BI Developer</h3><p class="employer">Canadian Tire · subcontract with Tundra</p><ul><li>Built retail Power BI dashboards with drill-through and row-level security.</li><li>Collaborated with engineering teams to optimize Snowflake models for reporting.</li></ul></article></div>
@@ -102,16 +111,16 @@ html[data-resume-theme=light][data-motion] .stop:not([data-active]):not(:focus-w
 </div>
 </div></section>
 <section class="stop" id="education" aria-labelledby="education-title"><div class="card reference-layout">
-<p class="phase">03 &nbsp; Education</p><h2 id="education-title">Education</h2>
+<header class="section-heading"><span class="section-number" aria-hidden="true">03</span><h2 id="education-title">Education</h2></header>
 <div class="education-item"><h3>University of Jordan</h3><p>Bachelor’s degree in computer science</p></div>
 <div class="education-item"><h3>University of Toronto</h3><p>Managing Predictive Analytics &amp; Big Data</p></div>
 </div></section>
 <section class="stop" id="certifications" aria-labelledby="certifications-title"><div class="card reference-layout">
-<p class="phase">04 &nbsp; Credentials</p><h2 id="certifications-title">Certifications</h2>
+<header class="section-heading"><span class="section-number" aria-hidden="true">04</span><h2 id="certifications-title">Certifications</h2></header>
 <ul class="credential-list"><li><span>Microsoft Certified: Power Platform Developer</span><span class="award-date">Jan 2026</span></li><li><span>Microsoft Certified: Azure Data Engineer Associate</span><span class="award-date">Aug 2024</span></li><li><span>Analyzing and Visualizing Data with Microsoft Power BI</span><span class="award-date">2019</span></li><li><span>Microsoft MCSA: SQL 2016 Business Intelligence Development</span><span class="award-date">Aug 2018</span></li><li><span>Snowflake Hands On Essentials: Data Warehouse</span><span class="award-date">Sep 2020</span></li></ul>
 </div></section>
 <section class="stop" id="skills" aria-labelledby="skills-title"><div class="card reference-layout">
-<p class="phase">05 &nbsp; Tools and practices</p><h2 id="skills-title">Skills</h2>
+<header class="section-heading"><span class="section-number" aria-hidden="true">05</span><h2 id="skills-title">Skills</h2></header>
 <div class="skill-group"><h3>Data engineering</h3><ul class="info" aria-label="Data engineering"><li>Azure Data Factory</li><li>Azure Databricks</li><li>Azure Synapse</li><li>SSIS</li><li>Data integration</li><li>Data validation</li></ul></div>
 <div class="skill-group"><h3>Databases</h3><ul class="info" aria-label="Databases"><li>SQL Server</li><li>Azure SQL</li><li>T-SQL</li><li>SQL Server Management Studio</li><li>Microsoft Access</li></ul></div>
 <div class="skill-group"><h3>Business intelligence</h3><ul class="info" aria-label="Business intelligence"><li>Power BI</li><li>SSRS</li><li>Excel</li><li>Power Apps Canvas</li><li>Data modelling</li><li>Data visualization</li></ul></div>
