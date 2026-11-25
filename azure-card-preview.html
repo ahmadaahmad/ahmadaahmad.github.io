@@ -157,6 +157,20 @@ html[data-catalog] .catalog-work-art{display:block;width:clamp(140px,21vw,248px)
 .catalog-chip[aria-pressed="true"]{background:#5b3c67;color:#fff;border-color:#5b3c67}
 html[data-catalog] .tags li:has(>.catalog-chip){border:0;padding:0}
 html[data-catalog] #work [hidden]{display:none!important}
+.catalog-hero-right{display:none}
+html[data-catalog] .catalog-hero-right{display:grid;gap:16px;min-width:0}
+html[data-catalog] .catalog-hero{align-items:start}
+html[data-catalog] .catalog-hero-copy{padding-top:14px}
+html[data-catalog] .secondary [aria-labelledby="powerbi"]{display:none}
+html[data-catalog] .portfolio-report{color:#f8eff8;background:#2d253a;border:1px solid #63506d;border-radius:14px;padding:clamp(14px,2.2vw,24px);min-width:0}
+.portfolio-report .kicker{color:#efad99;margin-bottom:8px}
+.portfolio-report h2{font-size:clamp(1.55rem,2.7vw,2.15rem);letter-spacing:-.025em;line-height:1.12}
+.report-intro{margin:7px 0 11px;color:#ddcfe1;font-size:.86rem}
+.report-embed{width:100%;background:#fff;border:1px solid #897393;border-radius:6px;overflow:hidden}
+.report-embed iframe{display:block;width:100%;height:auto;aspect-ratio:16/10;min-height:220px;border:0}
+.report-full-link{display:inline-block;margin-top:10px;color:#f5b6a3;font-size:.9rem;font-weight:700}
+.report-sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
+@media(max-width:740px){html[data-catalog] .catalog-hero-copy{padding-top:0}.catalog-hero-right{max-width:540px}}
 </style>
 </head>
 <body>
@@ -205,6 +219,14 @@ html[data-catalog] #work [hidden]{display:none!important}
 <a href="https://linkedin.com/in/ahmadahmad1">LinkedIn <span aria-hidden="true">↗</span></a>
 </div>
 </div>
+<div class="catalog-hero-right">
+<section class="portfolio-report" id="portfolio-report" aria-labelledby="portfolio-report-title">
+<p class="kicker">Interactive Power BI report</p>
+<h2 id="portfolio-report-title">Bakery waste and sell-through</h2>
+<p class="report-intro">Explore waste, sell-through, and how they vary by item.</p>
+<div class="report-embed"></div>
+<a class="report-full-link" href="https://app.powerbi.com/view?r=eyJrIjoiNDExZmNlYjgtZWUwNi00MzQ4LWFjYjktZDBkYzJhNzUwMjM5IiwidCI6IjEyMjE5NjdiLTA3ZDgtNDU4NS1hMzAyLTMwMTUzYzk0ZDdkZCJ9" target="_blank" rel="noopener">Open full-size report <span aria-hidden="true">↗</span><span class="report-sr-only"> (opens in a new tab)</span></a>
+</section>
 <aside class="resume-snapshot" aria-labelledby="resume-snapshot-title">
 <p class="kicker">Career snapshot</p>
 <h2 id="resume-snapshot-title">Résumé at a glance</h2>
@@ -216,6 +238,7 @@ html[data-catalog] #work [hidden]{display:none!important}
 </dl>
 <a href="https://docs.google.com/document/d/1DWun1eoX7Fjeo-8_c07DLfUdFT8Dd6O_/edit">View full résumé <span aria-hidden="true">↗</span></a>
 </aside>
+</div>
 </div>
 </div>
 </header>
@@ -263,7 +286,7 @@ html[data-catalog] #work [hidden]{display:none!important}
 <article class="card catalog-card" aria-labelledby="catalog-2"><p class="kicker">Analytics pipeline</p><h3 id="catalog-2">Azure Databricks analytics</h3><p class="desc">Spark notebooks copy raw CSVs to Data Lake Storage Gen2, verify and clean the data, and save the results as Parquet.</p><ul class="tags" aria-label="Technologies"><li>Databricks</li><li>Apache Spark</li><li>ADLS Gen2</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-databricks-analytics" aria-label="View Azure Databricks analytics on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
 <article class="card catalog-card" aria-labelledby="catalog-3"><p class="kicker">Load comparison</p><h3 id="catalog-3">Hierarchical migration pipelines</h3><p class="desc">Compares two ways to load date-partitioned Parquet into Azure Synapse: ADF loops and the native COPY INTO command.</p><ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Azure Synapse</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-hierarchical-migration-pipelines" aria-label="View Hierarchical migration pipelines on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article>
 <article class="card catalog-card" aria-labelledby="catalog-4"><p class="kicker">Version control workflow</p><h3 id="catalog-4">Fabric Sync Bridge</h3><p class="desc">Pairs a Power BI project with GitHub Actions workflows for syncing changes between GitHub and Bitbucket.</p><ul class="tags" aria-label="Technologies"><li>Power BI project</li><li>GitHub Actions</li><li>Bitbucket</li></ul><a class="action" href="https://github.com/ahmadaahmad/fabric-sync-bridge" aria-label="View Fabric Sync Bridge on GitHub">View on GitHub <span aria-hidden="true">↗</span></a></article></div></section>
-<div class="section-head catalog-title catalog-only"><h2>Report and technical note</h2></div>
+<div class="section-head catalog-title catalog-only"><h2>Technical note</h2></div>
 <div class="secondary">
 <article class="card" aria-labelledby="powerbi">
 <svg class="project-art art-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="art-bi-title art-bi-desc" focusable="false">
@@ -435,6 +458,12 @@ if (optionTwo) {
 }
 document.getElementById(portfolioPreviewView === "catalog" ? "preview-catalog" : optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
 if (portfolioPreviewView === "catalog") {
+  const reportFrame = document.createElement("iframe");
+  reportFrame.title = "Interactive Power BI report: Bakery waste and sell-through";
+  reportFrame.src = document.querySelector(".report-full-link").href;
+  reportFrame.allowFullscreen = true;
+  reportFrame.loading = "lazy";
+  document.querySelector(".report-embed").append(reportFrame);
   const work = document.getElementById("work");
   const featured = work.querySelector(".preview-feature");
   const more = work.querySelector('section[aria-labelledby="github-projects"]');
