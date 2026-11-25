@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script>if(new URLSearchParams(location.search).get("view")==="project"){document.documentElement.setAttribute("data-case","");document.title="Azure incremental-load pipeline | Ahmad Ahmad";}</script>
+<script>const portfolioPreviewView=new URLSearchParams(location.search).get("view");if(portfolioPreviewView==="project"){document.documentElement.setAttribute("data-case","");document.title="Azure incremental-load pipeline | Ahmad Ahmad";}else if(portfolioPreviewView==="logos"){document.documentElement.setAttribute("data-logos","");document.title="Logo options | Ahmad Ahmad";}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ahmad Ahmad’s portfolio: Azure data engineering, incremental data pipelines, and Power BI.">
@@ -86,10 +86,37 @@ footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:
 .case-cta{padding:0 0 6px}.case-link{display:inline-flex;margin:8px 0 0}.case-preview-btn{display:inline-flex;margin-top:15px}.case-card-actions{display:flex;align-items:flex-start;flex-direction:column;gap:12px}.case-card-actions .case-preview-btn{margin-top:0}
 @media(max-width:740px){.case-grid{grid-template-columns:1fr}.case-hero .hero-copy{padding:40px 0}.case-main{gap:13px}}
 
+#logo-review{display:none;background:#fff4e8;border-bottom:1px solid #dfcabc}
+html[data-logos] #logo-review{display:block}
+html[data-logos] body>.preview-bar,html[data-case] #logo-review{display:none}
+.logo-review-wrap{padding:18px 0 20px}
+.logo-review-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 20px;flex-wrap:wrap}
+.logo-review-head h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:0}
+.logo-review-wrap .note{margin:6px 0 12px}
+.logo-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.logo-option{appearance:none;cursor:pointer;border:1px solid #bca59e;border-radius:7px;background:#fffdf8;color:#211d2d;padding:6px 9px;display:flex;align-items:center;gap:9px;font:650 .88rem/1.25 system-ui;text-align:left;min-height:50px}
+.logo-option[aria-pressed="true"]{border-color:#5a395b;box-shadow:inset 0 0 0 1px #5a395b;background:#eee6f1}
+.logo-tile,.brand .monogram.custom-logo{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;background:#211d2d;border-radius:6px}
+.logo-tile .monogram{width:27px;height:27px;border-color:#ffffff70}
+.logo-tile svg{width:30px;height:30px}.brand .monogram.custom-logo{padding:0;border:0}.brand .monogram.custom-logo svg{width:100%;height:100%}
+.logo-status{margin:9px 0 0;color:#5a4359;font-size:.8rem}
+@media(max-width:740px){.logo-options{grid-template-columns:repeat(2,minmax(0,1fr))}.brand .monogram.custom-logo{width:30px;height:30px;flex-basis:30px}}
 </style>
 </head>
 <body>
-<aside class="preview-bar"><div class="wrap preview-controls"><strong>Azure card preview</strong><a id="preview-one" href="?layout=1#work">1 · Stacked card</a><a id="preview-two" href="?layout=2#work">2 · Shared heading</a><a href="./#work">Current homepage</a></div></aside>
+<aside class="preview-bar"><div class="wrap preview-controls"><strong>Azure card preview</strong><a id="preview-one" href="?layout=1#work">1 · Stacked card</a><a id="preview-two" href="?layout=2#work">2 · Shared heading</a><a href="?layout=2&view=logos">Logo options</a><a href="./#work">Current homepage</a></div></aside>
+<section id="logo-review" aria-labelledby="logo-review-title">
+<div class="wrap logo-review-wrap">
+<div class="logo-review-head"><h2 id="logo-review-title">Portfolio logo options</h2><a id="logo-back" href="?layout=2#work">Back to Azure preview</a></div>
+<p class="note">Pick an option, then look beside Ahmad Ahmad in the header below.</p>
+<div class="logo-options" role="group" aria-label="Choose a logo">
+<button class="logo-option" type="button" data-mark="current" aria-pressed="true"><span class="logo-tile" aria-hidden="true"><span class="monogram">AA</span></span>Current AA</button>
+<button class="logo-option" type="button" data-mark="monogram" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Plum and coral AA</button>
+<button class="logo-option" type="button" data-mark="pipeline" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Connected nodes</button>
+<button class="logo-option" type="button" data-mark="split" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Split AA</button>
+</div>
+<p class="logo-status" role="status">Showing: Current AA</p>
+</div></section>
 <a class="skip" href="#work">Skip to projects</a>
 <header class="hero" id="top">
 <div class="wrap">
@@ -205,6 +232,31 @@ footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:
 const previewParams = new URLSearchParams(location.search);
 const optionTwo = previewParams.get("layout") === "2";
 const trialSequence = previewParams.get("sequence") === "trial";
+if (portfolioPreviewView === "logos") {
+  const brandMark = document.querySelector(".hero .brand .monogram");
+  const logoButtons = [...document.querySelectorAll(".logo-option")];
+  const marks = {
+    monogram: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#543655"/><path d="m6 25 6.5-14L19 25m-11-4.5h9M17 25l6.5-14L30 25m-11-4.5h9" fill="none" stroke="#ffb59e" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>',
+    pipeline: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#49334f"/><path d="M9 11h4l6 7h8M9 25h4l6-7" fill="none" stroke="#ffb59e" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="11" r="2.3" fill="#f0daee"/><circle cx="9" cy="25" r="2.3" fill="#f0daee"/><circle cx="19" cy="18" r="2.5" fill="#ffb59e"/><circle cx="27" cy="18" r="2.6" fill="#f0daee"/>',
+    split: '<rect x="1" y="1" width="34" height="34" rx="17" fill="#f4a78c"/><path d="m8.5 23.8 4.8-12 4.7 12m-8-3.9h6.6m1.5 3.9 4.8-12 4.7 12m-8-3.9h6.6" fill="none" stroke="#342138" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"/>'
+  };
+  const svg = key => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true" focusable="false">' + marks[key] + '</svg>';
+  for (const btn of logoButtons) {
+    const key = btn.dataset.mark;
+    if (marks[key]) btn.querySelector(".logo-tile").innerHTML = svg(key);
+    btn.addEventListener("click", () => {
+      for (const candidate of logoButtons) candidate.setAttribute("aria-pressed", String(candidate === btn));
+      brandMark.classList.toggle("custom-logo", !!marks[key]);
+      brandMark.innerHTML = marks[key] ? svg(key) : "AA";
+      document.querySelector(".logo-status").textContent = "Showing: " + btn.textContent.trim();
+    });
+  }
+  const backParams = new URLSearchParams({layout:"2"});
+  if (previewParams.has("v")) backParams.set("v",previewParams.get("v"));
+  document.getElementById("logo-back").href = "?" + backParams.toString() + "#work";
+}
+const logoLink = document.querySelector('.preview-controls a[href*="view=logos"]');
+if (previewParams.has("v")) logoLink.href = "?layout=2&view=logos&v=" + encodeURIComponent(previewParams.get("v"));
 const card = document.querySelector(".preview-feature");
 const image = card.querySelector(".preview-art");
 if (optionTwo) {
