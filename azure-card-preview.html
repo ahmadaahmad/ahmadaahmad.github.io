@@ -276,6 +276,24 @@ html[data-logos] .brand .monogram.insight-sample{background:transparent;width:va
 .contact-status:not(:empty){padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)}
 @media(max-width:660px){.contact-panel{grid-template-columns:1fr}}
 @media(max-width:425px){.contact-fields{grid-template-columns:1fr}}
+
+.start-placement{display:none}
+html[data-catalog] .start-placement{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:0 0 11px}
+.start-placement strong{font-size:.84rem;margin-right:5px}
+.start-placement button{font:650 .78rem/1.2 system-ui,sans-serif;color:var(--ink);padding:6px 9px;border:1px solid var(--line);background:var(--white);border-radius:6px;cursor:pointer;min-height:32px}
+.start-placement button[aria-pressed=true]{color:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.start-placement a{font-size:.8rem;font-weight:650;color:var(--accent);margin-inline-start:4px}
+.portfolio-start[hidden]{display:none}
+.portfolio-start{display:flex;flex-wrap:wrap;align-items:center;gap:9px 12px;scroll-margin-top:20px}
+.portfolio-start .start-label{font:700 .69rem/1.4 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0}
+.portfolio-start a{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:6px 11px;border-radius:6px;border:1px solid var(--line);background:var(--white);color:var(--accent);font-size:.86rem;font-weight:700;text-decoration:none}
+.portfolio-start a:hover{text-decoration:underline}
+.hero .portfolio-start{margin:0 0 17px}
+.hero .portfolio-start .start-label{width:100%;color:var(--hero-accent,var(--peach))}
+.hero .portfolio-start a{background:var(--hero-card,#2d253a);color:var(--hero-text,#f8eff8);border-color:var(--hero-line,#63506d)}
+.hero .portfolio-start a:focus-visible{outline-color:var(--hero-accent,var(--peach))}
+#work>.portfolio-start{margin:0 0 17px}
+#portfolio-report{scroll-margin-top:20px}
 </style>
 </head>
 <body>
@@ -285,6 +303,11 @@ html[data-logos] .brand .monogram.insight-sample{background:transparent;width:va
 <button type="button" data-theme-choice="midnight" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Midnight blue</button>
 <button type="button" data-theme-choice="evergreen" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Evergreen</button>
 <button type="button" data-theme-choice="editorial" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Warm editorial</button>
+</div>
+<div class="wrap start-placement" role="group" aria-label="Preview Start here placement"><strong>Start here placement</strong>
+<button type="button" data-start-placement="hero" aria-pressed="true">A · Under intro</button>
+<button type="button" data-start-placement="work" aria-pressed="false">B · Near Selected work</button>
+<a href="#portfolio-start">See placement ↓</a>
 </div></aside>
 <section id="logo-review" aria-labelledby="logo-review-title">
 <div class="wrap logo-review-wrap">
@@ -325,6 +348,11 @@ html[data-logos] .brand .monogram.insight-sample{background:transparent;width:va
 <h1>Ahmad Ahmad</h1>
 <p class="role">Data Engineering &amp; Power BI</p>
 <p class="intro">I build Azure data pipelines and Power BI reports. These projects show how I approach moving data efficiently and making it easier to explore.</p>
+<nav class="portfolio-start" id="portfolio-start" aria-label="Start here" hidden>
+<p class="start-label">Start here</p>
+<a id="start-azure" href="?layout=2&amp;view=project">See a data pipeline <span aria-hidden="true">↗</span></a>
+<a href="#portfolio-report">Try a Power BI report <span aria-hidden="true">↓</span></a>
+</nav>
 <div class="hero-links">
 <a class="btn" href="https://docs.google.com/document/d/1DWun1eoX7Fjeo-8_c07DLfUdFT8Dd6O_/edit">View résumé <span aria-hidden="true">↗</span></a>
 <a href="https://linkedin.com/in/ahmadahmad1">LinkedIn <span aria-hidden="true">↗</span></a>
@@ -627,6 +655,25 @@ if (portfolioPreviewView === "catalog") {
   }
   for (const b of themeButtons) b.addEventListener("click",() => setPortfolioTheme(b.dataset.themeChoice,true));
   setPortfolioTheme(previewParams.get("theme"),false);
+  const startLinks = document.getElementById("portfolio-start");
+  const startButtons = [...document.querySelectorAll("[data-start-placement]")];
+  const startAzureUrl = new URL(document.getElementById("start-azure").href);
+  if (previewParams.has("v")) startAzureUrl.searchParams.set("v",previewParams.get("v"));
+  document.getElementById("start-azure").href = startAzureUrl.href;
+  function setStartPlacement(value,updateUrl=false) {
+    const placement = value === "work" ? "work" : "hero";
+    if (placement === "work") document.getElementById("project-list").after(startLinks);
+    else document.querySelector(".catalog-hero-copy > .hero-links").before(startLinks);
+    startLinks.hidden = false;
+    for (const b of startButtons) b.setAttribute("aria-pressed",String(b.dataset.startPlacement===placement));
+    if (updateUrl) {
+      const url = new URL(location.href);
+      url.searchParams.set("start",placement);
+      history.replaceState(history.state,"",url);
+    }
+  }
+  for (const b of startButtons) b.addEventListener("click",()=>setStartPlacement(b.dataset.startPlacement,true));
+  setStartPlacement(previewParams.get("start"));
   const reportFrame = document.createElement("iframe");
   const viewer = document.getElementById("report-viewer");
   const reportLink = document.querySelector(".report-full-link");
