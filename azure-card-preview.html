@@ -804,24 +804,39 @@ if (portfolioPreviewView === "catalog") {
   form.addEventListener("input", () => {
     if (!button.disabled) status.textContent = "";
   });
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (button.disabled) return;
     const data = new FormData(form);
     if (!String(data.get("name") || "").trim() || !String(data.get("message") || "").trim()) {
-      event.preventDefault();
       status.textContent = "Please enter your name and a message.";
       return;
     }
     if (!live) {
-      event.preventDefault();
       status.textContent = "Preview test passed. Nothing was sent.";
+      return;
     }
-    // A normal browser POST lets Formspree show its hosted reCAPTCHA.
+    button.disabled = true;
+    status.textContent = "Sending…";
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(endpoint, {method:"POST",body:data,headers:{Accept:"application/json"},signal:controller.signal});
+      if (!response.ok) throw new Error("The form service did not accept the message.");
+      form.reset();
+      status.textContent = "Message sent. Thanks for reaching out.";
+    } catch {
+      status.textContent = "Couldn’t confirm delivery. Your message is still here. Try again or use LinkedIn.";
+    } finally {
+      clearTimeout(timeout);
+      button.disabled = false;
+    }
   });
   if (live) {
     form.action = endpoint;
     form.elements.name.autocomplete = "name";
     form.elements.email.autocomplete = "email";
-    document.getElementById("contact-note").textContent = "Formspree may ask you to verify you’re human before sending. Please don’t include sensitive information.";
+    document.getElementById("contact-note").textContent = "Formspree processes your message. Please don’t include sensitive information.";
     button.textContent = "Send message";
   } else {
     form.autocomplete = "off";
