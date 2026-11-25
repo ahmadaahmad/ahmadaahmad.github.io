@@ -294,7 +294,7 @@ html[data-catalog] .start-placement{display:flex;align-items:center;gap:7px;flex
 .hero .portfolio-start a:focus-visible{outline-color:var(--hero-accent,var(--peach))}
 #work>.portfolio-start{margin:0 0 17px}
 #portfolio-report{scroll-margin-top:20px}
-#pipeline-steps{scroll-margin-top:24px}
+#pipeline-steps,#catalog-pipeline-steps{scroll-margin-top:24px}
 </style>
 </head>
 <body>
@@ -351,7 +351,7 @@ html[data-catalog] .start-placement{display:flex;align-items:center;gap:7px;flex
 <p class="intro">I build Azure data pipelines and Power BI reports. These projects show how I approach moving data efficiently and making it easier to explore.</p>
 <nav class="portfolio-start" id="portfolio-start" aria-label="Start here" hidden>
 <p class="start-label">Start here</p>
-<a id="start-azure" href="?layout=2&amp;view=project#pipeline-steps">See a data pipeline <span aria-hidden="true">↗</span></a>
+<a id="start-azure" href="#catalog-pipeline-steps">See a data pipeline <span aria-hidden="true">↓</span></a>
 <a href="#portfolio-report">Try a Power BI report <span aria-hidden="true">↓</span></a>
 </nav>
 <div class="hero-links">
@@ -426,7 +426,7 @@ html[data-catalog] .start-placement{display:flex;align-items:center;gap:7px;flex
 <ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Data Lake Storage</li><li>Azure SQL</li></ul>
 <a class="action" href="https://github.com/ahmadaahmad/azure-incremental-load-adf-architecture">See the pipeline and screenshots <span aria-hidden="true">↗</span></a>
 </div>
-<figure class="diagram" aria-label="Incremental pipeline stages">
+<figure class="diagram" id="catalog-pipeline-steps" aria-label="How the pipeline works" tabindex="-1">
 <p class="diagram-label">How the pipeline works</p>
 <ol class="steps">
 <li><b aria-hidden="true">01</b> Land the daily extract</li>
@@ -658,9 +658,6 @@ if (portfolioPreviewView === "catalog") {
   setPortfolioTheme(previewParams.get("theme"),false);
   const startLinks = document.getElementById("portfolio-start");
   const startButtons = [...document.querySelectorAll("[data-start-placement]")];
-  const startAzureUrl = new URL(document.getElementById("start-azure").href);
-  if (previewParams.has("v")) startAzureUrl.searchParams.set("v",previewParams.get("v"));
-  document.getElementById("start-azure").href = startAzureUrl.href;
   function setStartPlacement(value,updateUrl=false) {
     const placement = value === "work" ? "work" : "hero";
     if (placement === "work") document.getElementById("project-list").after(startLinks);
@@ -840,6 +837,9 @@ if (portfolioPreviewView === "catalog") {
     status.textContent = key ? ("Showing " + matches + " of " + cards.length + " projects · " + key) : ("Showing all " + cards.length + " projects");
   }
   setFilter("");
+  document.getElementById("start-azure").addEventListener("click", () => {
+    if (featured.hidden) setFilter("");
+  });
 }
 
 if (portfolioPreviewView === "catalog") {
