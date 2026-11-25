@@ -250,7 +250,7 @@ if (portfolioPreviewView === "logos") {
       for (const candidate of logoButtons) candidate.setAttribute("aria-pressed", String(candidate === btn));
       brandMark.classList.toggle("custom-logo", !!marks[key]);
       brandMark.innerHTML = marks[key] ? svg(key) : "AA";
-      document.querySelector(".logo-status").textContent = "Showing: " + btn.textContent.trim();
+      document.querySelector(".logo-status").textContent = "Showing: " + btn.lastChild.textContent.trim();
     });
   }
   const backParams = new URLSearchParams({layout:"2"});
