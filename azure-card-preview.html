@@ -232,6 +232,21 @@ html[data-catalog][data-portfolio-theme] .preview-body .diagram .steps li{backgr
 html[data-catalog][data-portfolio-theme] .preview-body :is(.diagram-label,.walkthrough-choice,.diagram figcaption,.steps b){color:var(--accent)}
 html[data-catalog][data-portfolio-theme] .preview-body .diagram .steps li b{background:var(--white);border-color:var(--accent-border)}
 html[data-catalog][data-portfolio-theme] :focus-visible{outline-color:var(--accent)}
+.catalog-work-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,32%);align-items:start;gap:clamp(15px,2.4vw,28px)}
+.catalog-project-column{min-width:0}
+html[data-catalog] .catalog-work-layout .portfolio-report{display:block;padding:15px;margin:0;border-radius:12px}
+.catalog-work-layout .portfolio-report .report-section-head{padding:0}
+.catalog-work-layout .portfolio-report h2{font-size:clamp(1.55rem,2.2vw,1.95rem)}
+.catalog-work-layout .portfolio-report .kicker{font-size:.65rem;margin:0 0 4px}
+.catalog-work-layout .report-carousel{margin:9px 0 3px}
+.catalog-work-layout .report-swipe{min-height:65px;padding:6px 9px;gap:3px}
+.catalog-work-layout .report-carousel-nav{margin-top:3px}
+.catalog-work-layout .report-arrow{width:29px;height:29px}
+.catalog-work-layout .report-intro{font-size:.8rem;margin:4px 0 0}
+.catalog-work-layout .report-full-link{margin:4px 0 8px;padding:2px 0;font-size:.81rem}
+.catalog-work-layout .report-embed iframe{height:202px;min-height:202px;aspect-ratio:auto}
+@media (min-width:951px){html[data-catalog] .catalog-project-column .preview-body .project-text,html[data-catalog] .catalog-project-column .preview-body .diagram{padding:20px 18px 22px}html[data-catalog] .catalog-project-column .shared-title{padding:21px 18px 0}}
+@media (max-width:950px){.catalog-work-layout{grid-template-columns:1fr}html[data-catalog] .catalog-work-layout .portfolio-report{max-width:430px}.catalog-work-layout .report-embed iframe{height:220px}}
 </style>
 </head>
 <body>
@@ -680,6 +695,13 @@ if (portfolioPreviewView === "catalog") {
     selectedTags.set(key,button);
   }
   featured.before(filter);
+  const workLayout = document.createElement("div");
+  workLayout.className = "catalog-work-layout";
+  const projectColumn = document.createElement("div");
+  projectColumn.className = "catalog-project-column";
+  featured.before(workLayout);
+  workLayout.append(projectColumn,document.getElementById("portfolio-report"));
+  projectColumn.append(featured,more);
   let activeTag = "";
   function setFilter(key) {
     activeTag = key;
