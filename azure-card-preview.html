@@ -72,6 +72,7 @@ footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:
 [data-layout="split"] .diagram .steps li:not(:first-child)::before{top:-5px;bottom:50%}
 [data-layout="split"] .diagram .steps li:not(:last-child)::after{top:50%;bottom:-5px}
 .preview-step-icon{display:block;width:16px;height:16px}
+.walkthrough-choice{align-self:flex-start;margin:0 0 10px;color:#654775;font-size:.8rem;font-weight:650;text-underline-offset:3px}
 
 #case-study{display:none}html[data-case] body>.skip,html[data-case] body>.preview-bar,html[data-case] body>.hero,html[data-case] body>main,html[data-case] body>footer{display:none}html[data-case] #case-study{display:block}
 .case-back{font-weight:650;color:var(--peach)}
@@ -198,7 +199,9 @@ footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:
 <footer><div class="wrap footer-row"><p class="foot-label">Ahmad Ahmad · Portfolio</p><p><a href="https://linkedin.com/in/ahmadahmad1">Connect on LinkedIn<span aria-hidden="true"> ↗</span></a></p></div></footer>
 <template id="azure-step-icons"><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4h4M9 12h6m-6 4h6"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="6" rx="6" ry="2.7"/><path d="M6 6v11.5c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7V6M6 12c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h3l6 6h7M4 18h3l6-6m3-4 4 4-4 4"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7.5v4.8l3 2"/></svg></template>
 <script>
-const optionTwo = new URLSearchParams(location.search).get("layout") === "2";
+const previewParams = new URLSearchParams(location.search);
+const optionTwo = previewParams.get("layout") === "2";
+const trialSequence = previewParams.get("sequence") === "trial";
 const card = document.querySelector(".preview-feature");
 const image = card.querySelector(".preview-art");
 if (optionTwo) {
@@ -210,10 +213,31 @@ if (optionTwo) {
   caseLink.textContent = "Open the Azure project page preview";
   card.querySelector(".project-text").append(document.createElement("br"), caseLink);
   const walkthrough = ["The pipeline picks up the daily extract.","It stages the batch in Azure SQL.","It merges new and updated records into the target table.","It saves the latest timestamp from the batch so the next run can find records that changed after that point."];
+  const comparison = document.createElement("a");
+  comparison.className = "walkthrough-choice";
+  const comparisonParams = new URLSearchParams(previewParams);
+  comparisonParams.delete("view");
+  if (trialSequence) comparisonParams.delete("sequence");
+  else comparisonParams.set("sequence", "trial");
+  comparison.href = "?" + comparisonParams.toString() + "#work";
+  comparison.textContent = trialSequence ? "Back to original sequence" : "Try alternate sequence";
+  card.querySelector(".diagram-label").after(comparison);
+  if (trialSequence) {
+    const revised = [
+      walkthrough[0],
+      "It uses the saved modification date to find changed rows, writes them to Data Lake Storage, and saves the latest modification date.",
+      walkthrough[1],
+      walkthrough[2]
+    ];
+    walkthrough.splice(0, walkthrough.length, ...revised);
+    card.querySelector(".project-text .desc").textContent = "I built a pipeline that processes new and changed records from daily extracts instead of reloading the entire dataset. It uses a saved modification date to find changes and merges them into Azure SQL.";
+    card.querySelector(".diagram figcaption").textContent = "The saved date tells the next extract where to start.";
+  }
+  const iconOrder = trialSequence ? [0,3,1,2] : [0,1,2,3];
   card.querySelectorAll(".diagram .steps li").forEach((step, i) => {
     if (!walkthrough[i]) return;
     const badge = step.querySelector("b");
-    const icon = document.getElementById("azure-step-icons").content.children[i];
+    const icon = document.getElementById("azure-step-icons").content.children[iconOrder[i]];
     if (icon) badge.replaceChildren(icon.cloneNode(true));
     step.replaceChildren(badge, document.createTextNode(" " + walkthrough[i]));
   });
