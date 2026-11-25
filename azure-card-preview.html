@@ -218,7 +218,7 @@ if (optionTwo) {
   caseLink.textContent = "View project overview";
   const repoLink = card.querySelector(".project-text .action");
   const externalIndicator = repoLink.querySelector("[aria-hidden]");
-  repoLink.replaceChildren(document.createTextNode("View code and setup steps on GitHub "), externalIndicator);
+  repoLink.replaceChildren(document.createTextNode("View code on GitHub "), externalIndicator);
   const actions = document.createElement("div");
   actions.className = "case-card-actions";
   repoLink.before(actions);
