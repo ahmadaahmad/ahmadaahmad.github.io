@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>const portfolioPreviewParams=new URLSearchParams(location.search);const portfolioPreviewView=portfolioPreviewParams.get("view");if(portfolioPreviewView==="project"){document.documentElement.setAttribute("data-case","");document.title="Azure incremental-load pipeline | Ahmad Ahmad";}else if(portfolioPreviewView==="logos"){document.documentElement.setAttribute("data-logos","");document.title="Logo options | Ahmad Ahmad";}else if(portfolioPreviewView==="catalog"){document.documentElement.setAttribute("data-catalog","");document.title="All projects preview | Ahmad Ahmad";}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ahmad Ahmad’s portfolio: Azure data engineering, incremental data pipelines, and Power BI.">
+<meta name="robots" content="noindex, nofollow">
+<title>Ahmad Ahmad | Data Engineering &amp; Power BI</title>
+<script>
+if(portfolioPreviewView==="catalog"&&portfolioPreviewParams.get("entrance")==="fade"&&(!location.hash||location.hash==="#top"))document.documentElement.dataset.entrancePreview="fade";
+if(portfolioPreviewView==="catalog"&&portfolioPreviewParams.get("background")==="trails"&&(!location.hash||location.hash==="#top"))document.documentElement.dataset.heroTrails="";
+if(document.documentElement.hasAttribute("data-hero-trails")&&portfolioPreviewParams.get("stars")==="gold")document.documentElement.dataset.starColor="gold";
+</script>
+<style>
+:root{color-scheme:light;--paper:#f8f6f1;--ink:#211d2e;--muted:#585363;--line:#dcd6ca;--accent:#963e31;--dark:#211d2d;--white:#fffdf8;--peach:#f4a78c;--width:1140px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-underline-offset:.22em} a:hover{text-decoration:underline} :focus-visible{outline:3px solid #bd604b;outline-offset:4px}
+.wrap{width:min(var(--width),calc(100% - 80px));margin-inline:auto}
+.skip{position:absolute;left:1rem;top:-6rem;background:var(--white);color:var(--ink);padding:.6rem;z-index:2}.skip:focus{top:.5rem}
+.hero{background:var(--dark);color:var(--white)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:23px 0;border-bottom:1px solid #ffffff27}
+.brand,.nav a{text-decoration:none}.brand{display:flex;align-items:center;gap:12px;font-weight:720}.monogram{display:grid;place-items:center;border:1px solid #ffffff51;width:36px;height:36px;font:700 12px ui-monospace,monospace;letter-spacing:.05em;color:var(--peach)}
+.nav{display:flex;flex-wrap:wrap;gap:22px;font-size:.89rem;color:#eee4ee}
+.hero-copy{padding:68px 0 72px}
+.kicker,.meta,.diagram-label,.foot-label{font:700 .72rem/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}
+.hero .kicker{color:var(--peach)}.kicker{color:var(--accent);margin:0 0 10px}
+h1,h2,h3,p{margin-top:0} h1,h2,h3{line-height:1.06}
+h1{font:500 clamp(3.2rem,8vw,6.6rem)/.96 Georgia,serif;letter-spacing:-.065em;margin:0 0 22px}
+.role{font-size:clamp(1.18rem,2.5vw,1.67rem);color:#faf0f9;font-weight:620;margin-bottom:7px}
+.intro{max-width:52ch;color:#dcd2df;margin-bottom:23px}
+.hero-links{display:flex;flex-wrap:wrap;align-items:center;gap:11px 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:9px 15px;min-height:42px;border-radius:6px;background:var(--peach);color:#291d25;font-weight:700;text-decoration:none}
+main{padding:55px 0 58px}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:18px;margin-bottom:16px}
+h2{font:500 clamp(2.25rem,5vw,3.4rem)/1 Georgia,serif;letter-spacing:-.05em;margin:0}
+.meta{color:var(--muted);margin:0}
+.feature{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--white)}
+.project-text,.diagram,.card{padding:clamp(20px,3.5vw,37px)}
+h3{font-size:clamp(1.38rem,2.6vw,1.9rem);letter-spacing:-.035em;margin:0 0 12px}
+.desc{color:var(--muted);margin-bottom:17px;max-width:57ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0 0 18px;list-style:none}.tags li{font-size:.76rem;font-weight:620;border:1px solid var(--line);border-radius:100px;padding:3px 8px}
+.action{font-weight:730;color:var(--accent)}.action span{margin-left:3px}
+.diagram{margin:0;display:flex;flex-direction:column;justify-content:center;background:#eeeaf4;border-left:1px solid var(--line)}
+.diagram-label{color:#5d456e;margin:0 0 12px}
+.steps{margin:0;padding:0;display:grid;gap:7px;list-style:none}
+.steps li{display:flex;gap:10px;align-items:center;padding:8px 10px;background:var(--white);border:1px solid #d8cde2;border-radius:5px;font-size:.9rem;font-weight:650}
+.steps b{min-width:2em;color:#6f477f;font:700 .74rem ui-monospace,monospace}
+.project-art{display:block;width:100%;height:auto;border-radius:8px;border:1px solid #d8cde2}.art-pipeline{margin-bottom:14px}.art-card{margin:0 0 19px}
+.diagram figcaption{margin-top:10px;font-size:.8rem;color:#534762}
+.secondary{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}
+.card{border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.note{font-size:.83rem;color:var(--muted);margin:12px 0 0}
+footer{border-top:1px solid var(--line);padding:23px 0 31px}.footer-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.footer-row p{margin:0}.foot-label{align-self:center;color:var(--muted)}
+@media(max-width:740px){.wrap{width:calc(100% - 36px)}.top{padding:16px 0}.nav{gap:12px}.brand{gap:7px}.monogram{width:30px;height:30px}.hero-copy{padding:48px 0 51px}main{padding:37px 0 40px}.feature,.secondary{grid-template-columns:1fr}.diagram{border-left:0;border-top:1px solid var(--line)}}
+@media(max-width:380px){.top{align-items:flex-start;flex-direction:column;gap:9px}.section-head{align-items:flex-start;flex-direction:column;gap:5px}}
+
+.preview-bar{background:#fff4e8;border-bottom:1px solid #dfcabc;color:var(--ink)}
+.preview-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 0}
+.preview-controls strong{margin-right:8px}.preview-controls a{padding:5px 10px;border:1px solid #bca59e;border-radius:5px;text-decoration:none;font-size:.9rem}.preview-controls a[aria-current="page"]{color:var(--white);background:var(--dark);border-color:var(--dark)}
+.preview-feature{display:block}.shared-title{padding:28px 32px 0}.shared-title h3{margin-bottom:0}
+.preview-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.preview-body .diagram{border:0;background:transparent;justify-content:flex-start}
+.preview-body .diagram .steps li{background:#f4eff7}
+.preview-body .project-text,.preview-body .diagram{padding:25px 32px 30px}
+.preview-art{padding:25px 32px 0}.preview-art .project-art,.preview-body .project-art{margin:0}
+[data-layout="stacked"] .preview-body{display:block}
+[data-layout="stacked"] .preview-art .project-art{max-width:820px}
+[data-layout="stacked"] .preview-body .project-text{padding-top:17px;padding-bottom:0}
+[data-layout="stacked"] .preview-body .diagram{padding-top:17px;max-width:820px}
+[data-layout="split"] .preview-art{padding:0;margin:0 0 17px}
+@media(max-width:740px){.preview-body{grid-template-columns:1fr}.preview-body .project-text,.preview-body .diagram{padding:19px 20px}.shared-title{padding:21px 20px 0}.preview-art{padding:20px 20px 0}.preview-controls strong{width:100%}}
+
+[data-layout="split"] .diagram .steps li{position:relative;isolation:isolate}
+[data-layout="split"] .diagram .steps li b{position:relative;z-index:1;display:grid;place-items:center;width:25px;height:25px;min-width:25px;background:#fffdf8;border:1px solid #d3bed7;border-radius:50%}
+[data-layout="split"] .diagram .steps li:not(:first-child)::before,[data-layout="split"] .diagram .steps li:not(:last-child)::after{content:"";position:absolute;z-index:0;left:22px;width:1px;background:#b79fc0;pointer-events:none}
+[data-layout="split"] .diagram .steps li:not(:first-child)::before{top:-5px;bottom:50%}
+[data-layout="split"] .diagram .steps li:not(:last-child)::after{top:50%;bottom:-5px}
+.preview-step-icon{display:block;width:16px;height:16px}
+.walkthrough-choice{align-self:flex-start;margin:0 0 10px;color:#654775;font-size:.8rem;font-weight:650;text-underline-offset:3px}
+
+#case-study{display:none}html[data-case] body>.skip,html[data-case] body>.preview-bar,html[data-case] body>.hero,html[data-case] body>main,html[data-case] body>footer{display:none}html[data-case] #case-study{display:block}
+.case-back{font-weight:650;color:var(--peach)}
+.case-hero .hero-copy{padding:54px 0 48px}.case-hero h1{font-size:clamp(2.8rem,7vw,5.5rem);max-width:15ch}.case-hero .intro{max-width:61ch;margin-bottom:0}.case-preview-label{color:var(--peach)}
+.case-main{display:grid;gap:22px}.case-main h2{font-size:clamp(1.9rem,4vw,2.65rem);margin-bottom:12px}.case-main .desc{max-width:69ch;margin-bottom:0}
+.case-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:15px}.case-aline{margin:0}
+.case-steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}.case-steps li{display:grid;grid-template-columns:29px 1fr;gap:10px;align-items:center;color:var(--ink);padding:7px 0;border-bottom:1px solid var(--line)}.case-steps li:last-child{border-bottom:0}
+.case-steps li{align-items:start}
+.case-step-title{display:block;font-weight:600}
+.case-step-detail{margin:3px 0 0;color:#62566b;font-size:.87rem;line-height:1.42;font-weight:400}.case-num{display:grid;place-items:center;background:#eee7f4;color:#654775;width:27px;height:27px;border-radius:50%;font:700 .75rem ui-monospace,monospace}
+.case-cta{padding:0 0 6px}.case-link{display:inline-flex;margin:8px 0 0}.case-preview-btn{display:inline-flex;margin-top:15px}.case-card-actions{display:flex;align-items:flex-start;flex-direction:column;gap:12px}.case-card-actions .case-preview-btn{margin-top:0}
+@media(max-width:740px){.case-grid{grid-template-columns:1fr}.case-hero .hero-copy{padding:40px 0}.case-main{gap:13px}}
+
+#logo-review{display:none;background:#fff4e8;border-bottom:1px solid #dfcabc}
+html[data-logos] #logo-review{display:block}
+html[data-logos] body>.preview-bar,html[data-case] #logo-review{display:none}
+.logo-review-wrap{padding:18px 0 20px}
+.logo-review-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px 20px;flex-wrap:wrap}
+.logo-review-head h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:0}
+.logo-review-wrap .note{margin:6px 0 12px}
+.logo-options{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+@media(max-width:1000px){.logo-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.logo-option{appearance:none;cursor:pointer;border:1px solid #bca59e;border-radius:7px;background:#fffdf8;color:#211d2d;padding:6px 9px;display:flex;align-items:center;gap:9px;font:650 .88rem/1.25 system-ui;text-align:left;min-height:50px}
+.logo-option[aria-pressed="true"]{border-color:#5a395b;box-shadow:inset 0 0 0 1px #5a395b;background:#eee6f1}
+.logo-tile,.brand .monogram.custom-logo{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;background:#211d2d;border-radius:6px}
+.logo-tile .monogram{width:27px;height:27px;border-color:#ffffff70}
+.logo-tile svg{width:30px;height:30px}.brand .monogram.custom-logo{padding:0;border:0}.brand .monogram.custom-logo svg{width:100%;height:100%}
+.logo-status{margin:9px 0 0;color:#5a4359;font-size:.8rem}
+html[data-logos] .brand.story-brand .monogram{width:52px;height:52px;flex-basis:52px}
+html[data-logos] .brand.story-brand .brand-name{display:none}
+@media(max-width:740px){html[data-logos] .brand.story-brand .monogram{width:44px;height:44px;flex-basis:44px}}
+@media(max-width:740px){.logo-options{grid-template-columns:repeat(2,minmax(0,1fr))}.brand .monogram.custom-logo{width:30px;height:30px;flex-basis:30px}}
+.hero-logo-art{display:none}
+html[data-logos] .hero.story-hero .brand{display:none}
+html[data-logos] .hero.story-hero .nav{margin-left:auto}
+html[data-logos] .hero.story-hero .hero-copy{position:relative}
+html[data-logos] .hero.story-hero .hero-logo-art{display:grid;place-items:center;position:absolute;top:50%;right:clamp(12px,5vw,75px);width:clamp(146px,22vw,248px);transform:translateY(-50%)}
+.hero-logo-art svg{display:block;width:100%;height:auto}
+@media(min-width:741px){html[data-logos] .hero.story-hero .hero-copy h1{font-size:clamp(3.05rem,7.2vw,6.6rem);max-width:70%}html[data-logos] .hero.story-hero .intro{max-width:min(52ch,62%)}}
+@media(max-width:740px){html[data-logos] .hero.story-hero .hero-logo-art{position:static;transform:none;width:min(39%,174px);margin:4px 0 22px}}
+.logo-group-label{margin:10px 0 6px;font-size:.82rem;letter-spacing:0;color:#58415a}
+.logo-options.etl-options{grid-template-columns:repeat(5,minmax(0,1fr))}
+html[data-logos] .hero.etl-hero .hero-logo-art{right:clamp(8px,2vw,32px);width:clamp(216px,31vw,408px)}
+@media(min-width:741px){html[data-logos] .hero.etl-hero .hero-copy h1,html[data-logos] .hero.etl-hero .role{max-width:59%}html[data-logos] .hero.etl-hero .intro{max-width:min(50ch,55%)}}
+@media(max-width:850px){.logo-options.etl-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:740px){html[data-logos] .hero.etl-hero .hero-logo-art{width:min(100%,340px)}}
+@media(max-width:475px){.logo-options.etl-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.logo-options.fusion-options{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:640px){.logo-options.fusion-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.catalog-only{display:none}html[data-catalog] .catalog-only{display:block}html[data-catalog] .catalog-title{display:flex;margin:40px 0 14px}.catalog-title h2{font-size:clamp(1.85rem,3.8vw,2.7rem)}.catalog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.catalog-card{padding:22px 24px;display:flex;flex-direction:column;align-items:flex-start;border-top:3px solid #be9ac3}.catalog-card:nth-child(2){border-top-color:#71a99b}.catalog-card:nth-child(3){border-top-color:#dca287}.catalog-card:nth-child(4){border-top-color:#9b9fc7}.catalog-card h3{font-size:1.38rem}.catalog-card .desc{flex:1}.catalog-card .action{font-size:.94rem}.catalog-card .tags{margin-bottom:12px}html[data-catalog] .catalog-title+.secondary{margin-top:0}
+@media(max-width:740px){.catalog-grid{grid-template-columns:1fr}html[data-catalog] .catalog-title{margin-top:30px}}
+.resume-snapshot{display:none}
+html[data-catalog] .catalog-hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:clamp(24px,4vw,50px);align-items:center}
+html[data-catalog] .catalog-hero h1{font-size:clamp(3rem,7vw,6.2rem)}
+html[data-catalog] .catalog-hero-copy>.hero-links>.btn{display:none}
+html[data-catalog] .resume-snapshot{display:block;color:#f8eff8;background:#2d253a;border:1px solid #63506d;border-radius:14px;padding:clamp(19px,3vw,32px);box-shadow:0 14px 28px #130f1c40}
+.resume-snapshot .kicker{color:#efad99;margin-bottom:7px}
+.resume-snapshot h2{font-size:clamp(1.7rem,3vw,2.45rem);line-height:1.1;letter-spacing:-.035em}
+.resume-role{color:#e3d5e8;margin:8px 0 13px;font-weight:610;font-size:.95rem}
+.resume-snapshot dl{margin:0 0 15px}.resume-snapshot dl div{border-top:1px solid #55455f;padding:8px 0 7px;display:grid;grid-template-columns:minmax(94px,.7fr) minmax(0,1.55fr);gap:8px;align-items:start}.resume-snapshot dt{font-size:.77rem;color:#d8b3ce}.resume-snapshot dd{margin:0;font-size:.88rem;line-height:1.35}.resume-snapshot>a{color:#f5b6a3;font-size:.91rem;font-weight:700}
+@media(max-width:740px){html[data-catalog] .catalog-hero{grid-template-columns:1fr}.resume-snapshot{max-width:520px}}
+@media(max-width:380px){.resume-snapshot dl div{grid-template-columns:1fr;gap:2px}}
+.catalog-hero-art{display:none}
+html[data-catalog] body>.hero .top .brand{display:none}
+html[data-catalog] body>.hero .top .nav{margin-left:auto}
+html[data-catalog] .catalog-hero-art{display:block;width:min(336px,85%);margin:0 0 15px;line-height:0}
+.catalog-hero-art svg{display:block;width:100%;height:auto}
+@media(max-width:740px){html[data-catalog] .catalog-hero-art{width:min(330px,100%)}}
+
+.catalog-work-art{display:none}
+html[data-catalog] .selected-work-head{align-items:center;column-gap:20px}
+html[data-catalog] .catalog-work-art{display:block;width:clamp(140px,21vw,248px);line-height:0;margin:0 auto 0 6px}
+.catalog-work-art svg{display:block;width:100%;height:auto}.catalog-work-art svg>ellipse{opacity:.12}
+@media(max-width:590px){html[data-catalog] .selected-work-head{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px}html[data-catalog] .catalog-work-art{grid-row:2;grid-column:1/-1;margin:0;width:min(200px,100%)}}
+.catalog-filter{margin:0 0 18px;padding:13px 16px;border:1px solid var(--line);border-radius:9px;background:var(--white)}
+.catalog-filter-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 7px}
+.catalog-filter-heading h3{font-size:.84rem;letter-spacing:0;margin:0}
+.catalog-filter-status{font-size:.8rem;color:var(--muted);margin:0}
+.catalog-filter-controls{display:flex;flex-wrap:wrap;gap:6px}
+.catalog-chip{appearance:none;cursor:pointer;font:650 .77rem/1.2 system-ui,sans-serif;color:#694573;background:#faf6fb;border:1px solid #d7c8dd;border-radius:100px;padding:5px 9px}
+.catalog-chip:hover{background:#eee5f2;border-color:#a789b2}
+.catalog-chip[aria-pressed="true"]{background:#5b3c67;color:#fff;border-color:#5b3c67}
+html[data-catalog] .tags li:has(>.catalog-chip){border:0;padding:0}
+html[data-catalog] #work [hidden]{display:none!important}
+.catalog-hero-right{display:none}
+html[data-catalog] .catalog-hero-right{display:grid;gap:16px;min-width:0}
+html[data-catalog] .catalog-hero{align-items:center}
+html[data-catalog] .secondary [aria-labelledby="powerbi"]{display:none}
+.portfolio-report{display:none}
+html[data-catalog] .portfolio-report{display:block;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:14px;padding:clamp(15px,2.6vw,28px);min-width:0;margin-bottom:clamp(40px,6vw,66px)}
+.report-section-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;column-gap:20px;row-gap:12px;margin-bottom:14px}
+.portfolio-report .kicker{color:var(--accent);margin-bottom:7px}
+.portfolio-report h2{font-size:clamp(1.7rem,3.9vw,2.85rem);letter-spacing:-.035em;line-height:1.08}
+.report-intro{margin:7px 0 0;color:var(--muted);font-size:.91rem}
+.report-embed{width:100%;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.report-embed iframe{display:block;width:100%;height:auto;aspect-ratio:16/10;min-height:235px;max-height:670px;border:0}
+.report-full-link{display:inline-flex;align-items:center;gap:5px;color:var(--accent);font-size:.91rem;font-weight:730;white-space:nowrap;padding:6px 0}
+.report-sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden;white-space:nowrap}
+@media(max-width:740px){html[data-catalog] .catalog-hero-copy{padding-top:0}.catalog-hero-right{max-width:540px}}
+html[data-catalog] .portfolio-report{display:grid;grid-template-columns:minmax(190px,.76fr) minmax(0,2.24fr);gap:clamp(12px,2.6vw,28px);align-items:start;margin-bottom:clamp(32px,4vw,52px)}
+.portfolio-report .report-section-head{display:block;margin:0;padding:5px 0}
+.report-picker{display:grid;gap:6px;margin:16px 0 12px}
+.report-picker button{cursor:pointer;text-align:left;color:#51405a;padding:7px 10px;border:1px solid #d7c8dd;border-radius:6px;background:#f8f3f9;font:650 .83rem/1.3 system-ui,sans-serif}
+.report-picker button:hover{background:#eee5f2;border-color:#a789b2}
+.report-picker button[aria-pressed="true"]{color:#fff;background:#5b3c67;border-color:#5b3c67}
+.portfolio-report .report-embed iframe{height:clamp(240px,27vw,350px);aspect-ratio:auto}
+.portfolio-report .report-full-link{margin-top:8px;white-space:normal}
+@media(max-width:680px){html[data-catalog] .portfolio-report{grid-template-columns:1fr}.report-picker{display:flex;flex-wrap:wrap;margin:12px 0 8px}.portfolio-report .report-embed iframe{height:clamp(220px,60vw,290px)}}
+.report-carousel{margin:14px 0 12px}
+.report-swipe{position:relative;display:grid;gap:4px;min-height:88px;align-content:center;color:#f9f1f9;background:linear-gradient(125deg,#543660,#3a2d4b);border:1px solid #6b4d77;border-radius:10px;padding:10px 12px;touch-action:pan-y;user-select:none;cursor:grab}
+.report-swipe:active{cursor:grabbing}
+.report-slide-count{font:700 .66rem/1 ui-monospace,monospace;letter-spacing:.09em;color:#efc1d8}
+.report-slide-title{font-size:.96rem;line-height:1.22}
+.report-swipe-help{color:#ecdced;font-size:.71rem}
+.report-carousel-nav,.report-dots{display:flex;align-items:center;gap:5px}
+.report-carousel-nav{justify-content:space-between;margin-top:6px}
+.report-carousel-nav button{display:grid;place-items:center;cursor:pointer;font:inherit}
+.report-arrow{width:34px;height:34px;border:1px solid #d7c8dd;border-radius:50%;background:#faf6fb;color:#583a66}
+.report-arrow:hover{background:#eee5f2}
+.report-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.report-dot{width:30px;height:30px;padding:0;border:0;border-radius:50%;background:transparent;color:#83698b}
+.report-dot span{display:block;width:8px;height:8px;border:1px solid currentColor;border-radius:50%;transition:width .16s ease,background .16s ease}
+.report-dot[aria-pressed=true] span{width:16px;border-radius:10px;background:#5b3c67;color:#5b3c67}
+.report-embed iframe{opacity:1;transition:opacity .18s ease}
+.report-embed.is-changing iframe{opacity:0;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.report-embed iframe,.report-dot span{transition:none}}
+.theme-picker{display:none}
+html[data-catalog] .theme-picker{display:flex;gap:7px;flex-wrap:wrap;align-items:center;padding:8px 0 11px;border-top:1px solid #54366024}
+.theme-picker strong{font-size:.84rem;margin-right:5px}
+.theme-picker button{display:inline-flex;align-items:center;gap:6px;font:650 .78rem/1.2 system-ui,sans-serif;color:var(--ink);padding:5px 8px;border:1px solid var(--line);background:var(--white);border-radius:6px;cursor:pointer}
+.theme-picker button[aria-pressed=true]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.theme-swatch{width:13px;height:13px;border-radius:50%;border:1px solid #0003;background:linear-gradient(135deg,#342642 50%,#f4a78c 50%)}
+[data-theme-choice=midnight] .theme-swatch{background:linear-gradient(135deg,#11223b 50%,#79c9ef 50%)}
+[data-theme-choice=evergreen] .theme-swatch{background:linear-gradient(135deg,#163c32 50%,#bde9cc 50%)}
+[data-theme-choice=editorial] .theme-swatch{background:linear-gradient(135deg,#f1dabc 50%,#ac4e38 50%)}
+html[data-catalog][data-portfolio-theme=midnight]{--paper:#eaf0f7;--ink:#172940;--muted:#475e75;--line:#c4d3e2;--accent:#20547e;--dark:#102138;--white:#f8fbff;--peach:#9bddf4;--hero-card:#192e49;--hero-line:#426180;--hero-text:#ecf6ff;--hero-soft:#c7dded;--hero-accent:#a0dbf4;--soft-accent:#dbeaf5;--accent-border:#a6c4db;--rail-light:#24547c;--rail-dark:#1a3658;--rail-text:#eff8ff;--rail-muted:#d6ebf8;--hero-heading-font:system-ui,sans-serif}
+html[data-catalog][data-portfolio-theme=evergreen]{--paper:#edf4eb;--ink:#18352c;--muted:#476459;--line:#c5d8c8;--accent:#286043;--dark:#183b31;--white:#fbfdf8;--peach:#bde9cc;--hero-card:#214639;--hero-line:#53715d;--hero-text:#f0f8ee;--hero-soft:#d2e8db;--hero-accent:#c1eccb;--soft-accent:#e1efe3;--accent-border:#b0d2be;--rail-light:#366b53;--rail-dark:#254938;--rail-text:#f5fcf6;--rail-muted:#deefe2}
+html[data-catalog][data-portfolio-theme=editorial]{--paper:#f8efe4;--ink:#35261f;--muted:#655044;--line:#dfc7b1;--accent:#873c2c;--dark:#efd6b8;--white:#fff9ef;--peach:#efd4c4;--hero-card:#fff3e2;--hero-line:#c8a990;--hero-text:#33231d;--hero-soft:#5c4437;--hero-accent:#803f2e;--soft-accent:#f4e2d6;--accent-border:#d9ad98;--rail-light:#95503d;--rail-dark:#713b30;--rail-text:#fff8ef;--rail-muted:#ffdfce;--hero-heading-font:Georgia,serif}
+html[data-catalog][data-portfolio-theme] .preview-bar{background:var(--paper);border-color:var(--line)}
+html[data-catalog][data-portfolio-theme] .preview-controls a{border-color:var(--line)}
+html[data-catalog][data-portfolio-theme] .preview-controls a[aria-current=page]{background:var(--accent);color:white}
+html[data-catalog][data-portfolio-theme] .hero{color:var(--hero-text)}
+html[data-catalog][data-portfolio-theme] h1{font-family:var(--hero-heading-font,Georgia,serif)}
+html[data-catalog][data-portfolio-theme] .hero .top{border-color:var(--hero-line)}
+html[data-catalog][data-portfolio-theme] .hero :is(.nav,.role){color:var(--hero-text)}
+html[data-catalog][data-portfolio-theme] .hero :is(.intro,.resume-role,.resume-snapshot dt){color:var(--hero-soft)}
+html[data-catalog][data-portfolio-theme] .hero :is(.kicker,.resume-snapshot>a){color:var(--hero-accent)}
+html[data-catalog][data-portfolio-theme] .resume-snapshot{color:var(--hero-text);background:var(--hero-card);border-color:var(--hero-line)}
+html[data-catalog][data-portfolio-theme] .resume-snapshot dl div{border-color:var(--hero-line)}
+html[data-catalog][data-portfolio-theme] .resume-snapshot a{color:var(--hero-accent)}
+html[data-catalog][data-portfolio-theme] .report-swipe{background:linear-gradient(125deg,var(--rail-light),var(--rail-dark));border-color:var(--rail-dark);color:var(--rail-text)}
+html[data-catalog][data-portfolio-theme] .report-swipe :is(.report-slide-count,.report-swipe-help){color:var(--rail-muted)}
+html[data-catalog][data-portfolio-theme] :is(.catalog-chip,.report-arrow){background:var(--soft-accent);border-color:var(--accent-border);color:var(--accent)}
+html[data-catalog][data-portfolio-theme] .catalog-chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:white}
+html[data-catalog][data-portfolio-theme] .report-dot[aria-pressed=true] span{background:var(--accent);color:var(--accent)}
+html[data-catalog][data-portfolio-theme] .preview-body .diagram .steps li{background:var(--soft-accent);border-color:var(--accent-border)}
+html[data-catalog][data-portfolio-theme] .preview-body :is(.diagram-label,.walkthrough-choice,.diagram figcaption,.steps b){color:var(--accent)}
+html[data-catalog][data-portfolio-theme] .preview-body .diagram .steps li b{background:var(--white);border-color:var(--accent-border)}
+html[data-catalog][data-portfolio-theme] :focus-visible{outline-color:var(--accent)}
+.catalog-work-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,32%);align-items:start;gap:clamp(15px,2.4vw,28px)}
+.catalog-project-column{min-width:0}
+html[data-catalog] .catalog-work-layout .portfolio-report{display:block;padding:15px;margin:0;border-radius:12px}
+.catalog-work-layout .portfolio-report .report-section-head{padding:0}
+.catalog-work-layout .portfolio-report h2{font-size:clamp(1.55rem,2.2vw,1.95rem)}
+.catalog-work-layout .portfolio-report .kicker{font-size:.65rem;margin:0 0 4px}
+.catalog-work-layout .report-carousel{margin:9px 0 3px}
+.catalog-work-layout .report-swipe{min-height:65px;padding:6px 9px;gap:3px}
+.catalog-work-layout .report-carousel-nav{margin-top:3px}
+.catalog-work-layout .report-arrow{width:29px;height:29px}
+.catalog-work-layout .report-intro{font-size:.8rem;margin:4px 0 0}
+.catalog-work-layout .report-full-link{margin:4px 0 8px;padding:2px 0;font-size:.81rem}
+.catalog-work-layout .report-embed iframe{height:202px;min-height:202px;aspect-ratio:auto}
+@media (min-width:951px){html[data-catalog] .catalog-project-column .preview-body .project-text,html[data-catalog] .catalog-project-column .preview-body .diagram{padding:20px 18px 22px}html[data-catalog] .catalog-project-column .shared-title{padding:21px 18px 0}}
+@media (max-width:950px){.catalog-work-layout{grid-template-columns:1fr}html[data-catalog] .catalog-work-layout .portfolio-report{max-width:430px}.catalog-work-layout .report-embed iframe{height:220px}}
+.net-catalog-card .project-art{max-width:160px;margin:0 0 10px}
+.net-catalog-card .note{margin:0}
+html[data-catalog][data-portfolio-theme="midnight"] .catalog-work-art{--warehouse-191726:#102138;--warehouse-625978:#3a5675;--warehouse-925873:#626591;--warehouse-f0b8bc:#b7b7e4;--warehouse-bd7893:#8a8cbc;--warehouse-a8d9e7:#9bddf4;--warehouse-6eaec4:#569bbf;--warehouse-4d7f9c:#367094;--warehouse-ffe1a3:#f1d3a1;--warehouse-d1a46f:#c39a6b;--warehouse-a36e54:#8c6648;--warehouse-bfacc5:#5c7895;--warehouse-f7c99e:#916239;--warehouse-8b829b:#56718e;--warehouse-312d43:#20354e;--warehouse-4b4664:#263f5b;--warehouse-3d5962:#2a6681;--warehouse-a7d9c8:#abebf5;--warehouse-a3d1c2:#4e8baa;--warehouse-cbf0dc:#b6f0f7;--warehouse-345c5d:#255372;--warehouse-80beaa:#65b6d3;--warehouse-498d81:#3b83aa;--warehouse-d2ead5:#d4f6fa}
+/* Scale the brand against the hero title; keep the navigation row compact. */
+.hero{--insight-size:clamp(58px,7.5vw,96px)}
+.case-hero{--insight-size:clamp(52px,6.25vw,80px)}
+.insight-brand-mark{width:var(--insight-size);height:var(--insight-size);display:block;flex:none}
+html:not([data-logos]) body>.hero .top,.case-hero .top,html[data-logos] .hero:has(.insight-sample) .top{padding-block:clamp(8px,1vw,12px)}
+html[data-catalog] body>.hero .top .brand{display:flex}
+html:not([data-logos]) .brand>.monogram,html[data-logos] .brand>.insight-brand-mark,html[data-catalog] .brand>.brand-name{display:none}
+html[data-logos] .brand .monogram.insight-sample{background:transparent;width:var(--insight-size);height:var(--insight-size);flex-basis:var(--insight-size)}
+.case-back{display:inline-flex;align-items:center;gap:11px}
+@media(max-width:380px){html[data-catalog] body>.hero .top{flex-direction:row;align-items:center}}
+
+.contact-preview{margin-top:clamp(36px,6vw,72px);scroll-margin-top:24px}
+.contact-panel{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(22px,5vw,60px);padding:clamp(18px,4vw,44px);border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.contact-intro h2{font-size:clamp(2rem,4.2vw,3.15rem);margin-bottom:12px}
+.contact-intro .desc{max-width:36ch;margin-bottom:12px}
+.contact-form fieldset{display:grid;gap:12px;border:0;padding:0;margin:0;min-width:0}
+.contact-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.contact-form label{display:grid;gap:5px;min-width:0;font-size:.87rem;font-weight:690}
+.contact-form :is(input,textarea){width:100%;min-width:0;min-height:44px;padding:9px 10px;border:1px solid var(--muted);border-radius:7px;background:var(--white);color:var(--ink);font:inherit;font-size:1rem;font-weight:400}
+.contact-form textarea{min-height:108px;resize:vertical}
+.contact-form :is(button){justify-self:start;min-height:44px;border:1px solid var(--accent);border-radius:7px;padding:8px 14px;background:var(--accent);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.contact-form button:disabled{cursor:default;opacity:.68}
+.contact-form .contact-note,.contact-status{margin:0;font-size:.84rem;color:var(--muted)}
+.contact-status:not(:empty){padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)}
+@media(max-width:660px){.contact-panel{grid-template-columns:1fr}}
+@media(max-width:425px){.contact-fields{grid-template-columns:1fr}}
+
+.start-placement{display:none}
+html[data-catalog] .start-placement{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:0 0 11px}
+.start-placement strong{font-size:.84rem;margin-right:5px}
+.start-placement button{font:650 .78rem/1.2 system-ui,sans-serif;color:var(--ink);padding:6px 9px;border:1px solid var(--line);background:var(--white);border-radius:6px;cursor:pointer;min-height:32px}
+.start-placement button[aria-pressed=true]{color:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.start-placement a{font-size:.8rem;font-weight:650;color:var(--accent);margin-inline-start:4px}
+.portfolio-start[hidden]{display:none}
+.portfolio-start{display:flex;flex-wrap:wrap;align-items:center;gap:9px 12px;scroll-margin-top:20px}
+.portfolio-start .start-label{font:700 .69rem/1.4 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0}
+.portfolio-start a{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:6px 11px;border-radius:6px;border:1px solid var(--line);background:var(--white);color:var(--accent);font-size:.86rem;font-weight:700;text-decoration:none}
+.portfolio-start a:hover{text-decoration:underline}
+.hero .portfolio-start{margin:0 0 17px}
+.hero .portfolio-start .start-label{width:100%;color:var(--hero-accent,var(--peach))}
+.hero .portfolio-start a{background:var(--hero-card,#2d253a);color:var(--hero-text,#f8eff8);border-color:var(--hero-line,#63506d)}
+.hero .portfolio-start a:focus-visible{outline-color:var(--hero-accent,var(--peach))}
+#work>.portfolio-start{margin:0 0 17px}
+#portfolio-report{scroll-margin-top:20px}
+#pipeline-steps,#catalog-pipeline-steps{scroll-margin-top:24px}
+
+body:has(>.report-modal[open]){overflow:hidden}
+.report-modal{width:min(1100px,calc(100% - 32px));max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);padding:clamp(15px,2.8vw,28px);border:1px solid var(--line);border-radius:16px;background:var(--white);color:var(--ink);box-shadow:0 25px 75px #11203966;overflow:auto;overscroll-behavior:contain}
+.report-modal::backdrop{background:#081427ba}
+.report-modal-head{display:flex;gap:15px;align-items:flex-start;justify-content:space-between}
+.report-modal-head .kicker{margin:0 0 5px}
+.report-modal-head h2{font-size:clamp(1.65rem,4vw,2.75rem)}
+.report-modal button{min-height:40px;padding:6px 12px;border:1px solid var(--line);border-radius:7px;background:var(--white);color:var(--ink);font:700 .86rem/1.2 system-ui,sans-serif;cursor:pointer}
+.report-modal button[aria-pressed=true]{color:white;background:var(--accent);border-color:var(--accent)}
+.report-modal-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;justify-content:space-between;margin:14px 0 10px}
+.report-modal-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.report-modal-full{color:var(--accent);font-size:.88rem;font-weight:700}
+.report-modal-stage{position:relative}
+.report-modal-frame{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--paper)}
+.report-modal-stage.is-loading .report-modal-frame{visibility:hidden}
+.report-modal-loader{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:11px;border:1px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink);font:650 .92rem/1.4 system-ui,sans-serif}
+.report-modal-loader[hidden]{display:none}
+.report-modal-spinner{width:33px;height:33px;box-sizing:border-box;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:report-preview-spin .85s linear infinite}
+@keyframes report-preview-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.report-modal-spinner{animation:none}}
+.report-modal-frame iframe{display:block;width:100%;border:0;height:clamp(235px,60vh,660px);height:clamp(235px,60dvh,660px)}
+@media(max-width:540px){.report-modal{width:calc(100% - 16px);max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px);padding:13px}.report-modal button{min-height:44px}.report-modal-toolbar{margin-top:10px}.report-modal-frame iframe{height:clamp(235px,58dvh,440px)}}
+
+html[data-catalog] .hero .nav{align-items:center}
+html[data-catalog] .hero .nav .nav-action-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:6px 12px;border:1px solid var(--hero-line,#806b8c);border-radius:8px;background:var(--hero-card,#2d253a);color:var(--hero-text,#f8eff8);font-weight:720;white-space:nowrap}
+html[data-catalog] .hero .nav .nav-action-button svg{flex:none;color:var(--hero-accent,var(--peach))}
+html[data-catalog] .hero .nav .nav-action-button:hover{border-color:var(--hero-accent,var(--peach));text-decoration:none}
+html[data-catalog] .hero .nav .nav-action-button:focus-visible{outline-color:var(--hero-accent,var(--peach))}
+@media(max-width:425px){html[data-catalog] .hero .nav{gap:6px 8px}html[data-catalog] .hero .nav .nav-action-button{gap:5px;min-height:44px;padding-inline:8px}}
+
+@media(max-width:500px){html[data-catalog] .hero .top .nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 8px;max-width:100%}html[data-catalog] .hero .nav .nav-action-button{gap:5px;padding-inline:8px;min-height:44px}}
+
+@keyframes portfolio-entrance-fade{from{opacity:.28}to{opacity:1}}
+@media(prefers-reduced-motion:no-preference){
+  html[data-catalog][data-entrance-preview=fade] .catalog-hero-copy :is(h1,.role){animation:portfolio-entrance-fade 1.18s ease-out .22s both}
+  html[data-catalog][data-entrance-preview=fade] .resume-snapshot{animation:portfolio-entrance-fade 1.18s ease-out .85s both}
+}
+
+.portfolio-star-trails{display:none}
+html[data-catalog][data-hero-trails][data-portfolio-theme=midnight] body>.hero{position:relative;isolation:isolate}
+html[data-catalog][data-hero-trails][data-portfolio-theme=midnight] .portfolio-star-trails{position:absolute;inset:0;display:block;overflow:hidden;pointer-events:none;z-index:-1}
+.portfolio-star-trails svg{position:absolute;top:0;right:0;width:84%;height:100%;opacity:.20;transform-origin:92% 10%}
+@keyframes portfolio-trail-drift{from{transform:translateX(0) rotate(-.4deg)}to{transform:translateX(8px) rotate(.55deg)}}
+@media(prefers-reduced-motion:no-preference) and (min-width:741px){html[data-hero-trails] .portfolio-star-trails svg{animation:portfolio-trail-drift 15s ease-out both}}
+@media(max-width:740px){.portfolio-star-trails svg{width:97%;opacity:.12}}
+
+html[data-catalog][data-hero-trails] .portfolio-star-trails .portfolio-starfield{inset:0;width:100%;height:100%;opacity:.78;animation:none;transform:none}
+.sky-shine{opacity:.56}
+@keyframes portfolio-star-shine{0%,100%{opacity:.56}50%{opacity:.96}}
+@media(prefers-reduced-motion:no-preference) and (min-width:741px){html[data-hero-trails] .sky-shine{animation:portfolio-star-shine var(--shine-duration,6s) ease-in-out var(--shine-delay,0s) 2}}
+@media(max-width:740px){html[data-hero-trails] .portfolio-star-trails .portfolio-starfield{opacity:.53}}
+
+html[data-star-color=gold] .portfolio-starfield>g:first-child{fill:#e2ba73}
+html[data-star-color=gold] .portfolio-starfield>g:nth-child(2){fill:#ffda8b}
+html[data-star-color=gold] .portfolio-starfield .sky-shine circle{fill:#fff4cb}
+
+body:has(>.portfolio-share-dialog[open]){overflow:hidden}
+.portfolio-share-dialog{width:min(500px,calc(100% - 24px));max-height:calc(100dvh - 24px);box-sizing:border-box;padding:clamp(15px,5vw,25px);border:1px solid var(--line);border-radius:16px;background:var(--white);color:var(--ink);box-shadow:0 25px 75px #11203966;overflow:auto}
+.portfolio-share-dialog::backdrop{background:#081427ba}
+.portfolio-share-dialog .share-head{display:flex;align-items:start;justify-content:space-between;gap:10px}
+.portfolio-share-dialog .kicker{margin:0 0 5px}
+.portfolio-share-dialog h2{font-size:clamp(1.55rem,5vw,2.02rem);line-height:1.12;margin:0}
+.portfolio-share-dialog .share-description{margin:11px 0 15px}
+.portfolio-share-dialog .share-choices{display:grid;gap:7px;margin:0;padding:0;border:0;min-width:0}
+.portfolio-share-dialog .share-choice{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;min-height:58px;box-sizing:border-box;padding:8px 10px;border:1px solid var(--line);border-radius:9px;cursor:pointer}
+.portfolio-share-dialog .share-choice input{margin:0;accent-color:var(--accent)}
+.portfolio-share-dialog .share-choice:has(:checked){border-color:var(--accent);background:var(--paper)}
+.portfolio-share-dialog .share-choice strong,.portfolio-share-dialog .share-choice small{display:block}
+.portfolio-share-dialog .share-choice small{margin-top:2px;font-size:.8rem;line-height:1.28}
+.portfolio-share-dialog .share-type{font-size:.72rem;font-weight:700;white-space:nowrap}
+.portfolio-share-dialog .share-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.portfolio-share-dialog button{min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);font:700 .86rem/1.2 system-ui,sans-serif;cursor:pointer}
+.portfolio-share-dialog .share-primary{background:var(--accent);color:white;border-color:var(--accent)}
+.portfolio-share-dialog .share-status{margin:9px 0 0;font-size:.86rem}
+.portfolio-share-dialog .share-status:empty{display:none}
+.portfolio-share-dialog .share-manual{display:block;margin-top:11px;font-size:.86rem}
+.portfolio-share-dialog [hidden]{display:none!important}
+.portfolio-share-dialog .share-manual input{display:block;width:100%;box-sizing:border-box;margin-top:4px;padding:8px;font-size:16px}
+
+html[data-catalog] .hero .nav .portfolio-share-trigger{font-family:inherit;font-size:inherit;cursor:pointer}html:not([data-catalog]) .portfolio-share-trigger,html[data-catalog] .hero .nav .portfolio-share-trigger[hidden]{display:none}@media(max-width:500px){html[data-catalog] .hero .nav .portfolio-share-trigger{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<aside class="preview-bar"><div class="wrap preview-controls"><strong>Azure card preview</strong><a id="preview-one" href="?layout=1#work">1 · Stacked card</a><a id="preview-two" href="?layout=2#work">2 · Shared heading</a><a href="?layout=2&view=logos">Logo options</a><a id="preview-catalog" href="?layout=2&view=catalog#work">All projects preview</a><a href="./#work">Current homepage</a></div>
+<div class="wrap theme-picker" role="group" aria-label="Choose a portfolio theme"><strong>Theme options</strong>
+<button type="button" data-theme-choice="plum" aria-pressed="true"><span class="theme-swatch" aria-hidden="true"></span>Plum &amp; cream</button>
+<button type="button" data-theme-choice="midnight" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Midnight blue</button>
+<button type="button" data-theme-choice="evergreen" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Evergreen</button>
+<button type="button" data-theme-choice="editorial" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>Warm editorial</button>
+</div>
+<div class="wrap start-placement" role="group" aria-label="Preview Start here placement"><strong>Start here placement</strong>
+<button type="button" data-start-placement="hero" aria-pressed="true">A · Under intro</button>
+<button type="button" data-start-placement="work" aria-pressed="false">B · Near Selected work</button>
+<a href="#portfolio-start">See placement ↓</a>
+</div></aside>
+<section id="logo-review" aria-labelledby="logo-review-title">
+<div class="wrap logo-review-wrap">
+<div class="logo-review-head"><h2 id="logo-review-title">Portfolio logo options</h2><a id="logo-back" href="?layout=2#work">Back to Azure preview</a></div>
+<p class="note">Pick an option, then look for the mark in the dark area below.</p>
+<h3 class="logo-group-label">Layer fusion comparisons</h3><div class="logo-options etl-options fusion-options" role="group" aria-label="Layer fusion comparisons"><button class="logo-option" type="button" data-mark="factoryStack" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Layer fusion</button><button class="logo-option" type="button" data-mark="fusionAligned" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Aligned stack</button>
+<button class="logo-option" type="button" data-mark="fusionGuided" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Guided merge</button>
+<button class="logo-option" type="button" data-mark="fusionPressed" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Lamination press</button>
+<button class="logo-option" type="button" data-mark="fusionSystem" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Stack into system</button></div><h3 class="logo-group-label">Data mark</h3><div class="logo-options etl-options" role="group" aria-label="Data mark"><button class="logo-option" type="button" data-mark="tableChart" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Table to chart</button></div><h3 class="logo-group-label">3D factory marks</h3><div class="logo-options etl-options" role="group" aria-label="3D factory marks"><button class="logo-option" type="button" data-mark="factoryPress" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Precision press</button>
+<button class="logo-option" type="button" data-mark="factoryFacet" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Facet cut</button>
+
+<button class="logo-option" type="button" data-mark="factorySort" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Sorted modules</button>
+<button class="logo-option" type="button" data-mark="factoryWeave" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Woven tile</button></div><h3 class="logo-group-label">ETL concepts</h3><div class="logo-options etl-options" role="group" aria-label="ETL concepts"><button class="logo-option" type="button" data-mark="etlEditorial" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Editorial layers</button>
+<button class="logo-option" type="button" data-mark="etlIso" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Isometric assembly</button>
+<button class="logo-option" type="button" data-mark="etlRibbon" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Braided streams</button>
+<button class="logo-option" type="button" data-mark="etlBlueprint" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Technical blueprint</button>
+<button class="logo-option" type="button" data-mark="etlSignature" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>AA data signature</button></div><h3 class="logo-group-label">Earlier options</h3><div class="logo-options" role="group" aria-label="Earlier logo options">
+<button class="logo-option" type="button" data-mark="insightCube" aria-pressed="true"><span class="logo-tile" aria-hidden="true"></span>Insight Cube</button><button class="logo-option" type="button" data-mark="current" aria-pressed="false"><span class="logo-tile" aria-hidden="true"><span class="monogram">AA</span></span>Original AA</button>
+<button class="logo-option" type="button" data-mark="monogram" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Plum and coral AA</button>
+<button class="logo-option" type="button" data-mark="pipeline" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Connected nodes</button>
+<button class="logo-option" type="button" data-mark="split" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Split AA</button>
+<button class="logo-option" type="button" data-mark="story" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Data storytelling</button>
+<button class="logo-option" type="button" data-mark="notebook" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Illustrated data notebook</button>
+<button class="logo-option" type="button" data-mark="consolidation" aria-pressed="false"><span class="logo-tile" aria-hidden="true"></span>Data consolidation</button>
+</div>
+<p class="logo-status" role="status">Showing: Insight Cube</p>
+</div></section>
+<a class="skip" href="#work">Skip to projects</a>
+<header class="hero" id="top">
+<div class="portfolio-star-trails" aria-hidden="true"><svg viewBox="0 0 920 520" preserveAspectRatio="xMaxYMid slice" focusable="false">
+<defs><linearGradient id="hero-trail-fade" x1="0" x2="1" y1="0" y2="0" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#000"/><stop offset=".43" stop-color="#505050"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="hero-trail-mask"><rect width="920" height="520" fill="url(#hero-trail-fade)"/></mask></defs>
+<g mask="url(#hero-trail-mask)" fill="none" stroke="#a5d7fa" stroke-linecap="round">
+<path d="M881 61C864 179 754 291 603 337M912 110C875 251 753 357 599 405M927 167C881 311 760 424 613 473M923 245C882 376 777 474 680 510" stroke-width="1.15" opacity=".72"/>
+<path d="M765 17C743 144 643 228 529 264M891 30C886 100 839 173 790 212M862 390C815 442 759 480 698 507M895 286C859 345 819 382 769 417" stroke-width=".85" stroke-dasharray="3 10" opacity=".47"/>
+</g><g fill="#bde5ff" opacity=".78"><circle cx="878" cy="73" r="1.55"/><circle cx="827" cy="184" r="1.1"/><circle cx="781" cy="290" r="1.5"/><circle cx="686" cy="378" r="1.3"/><circle cx="868" cy="320" r="1.6"/><circle cx="752" cy="472" r="1.2"/></g></svg><svg class="portfolio-starfield" viewBox="0 0 1240 600" preserveAspectRatio="xMidYMid slice" focusable="false"><g fill="#a8d1f3"><circle cx="18" cy="36" r="0.84" opacity="0.39"/><circle cx="153" cy="17" r="0.79" opacity="0.47"/><circle cx="275" cy="54" r="1.46" opacity="0.59"/><circle cx="397" cy="69" r="1.05" opacity="0.58"/><circle cx="533" cy="55" r="1.44" opacity="0.62"/><circle cx="590" cy="88" r="0.84" opacity="0.56"/><circle cx="726" cy="29" r="1.49" opacity="0.54"/><circle cx="870" cy="68" r="1.63" opacity="0.47"/><circle cx="944" cy="24" r="1.12" opacity="0.38"/><circle cx="1062" cy="34" r="1.06" opacity="0.41"/><circle cx="1172" cy="70" r="1.59" opacity="0.56"/><circle cx="25" cy="210" r="1.06" opacity="0.63"/><circle cx="158" cy="196" r="1.56" opacity="0.37"/><circle cx="386" cy="158" r="1.39" opacity="0.56"/><circle cx="520" cy="203" r="1.03" opacity="0.34"/><circle cx="644" cy="137" r="1.22" opacity="0.66"/><circle cx="702" cy="140" r="1.60" opacity="0.43"/><circle cx="837" cy="189" r="0.94" opacity="0.57"/><circle cx="962" cy="146" r="1.73" opacity="0.65"/><circle cx="1031" cy="132" r="0.96" opacity="0.58"/><circle cx="1206" cy="159" r="1.06" opacity="0.64"/><circle cx="65" cy="309" r="1.66" opacity="0.49"/><circle cx="173" cy="284" r="0.88" opacity="0.36"/><circle cx="297" cy="307" r="1.69" opacity="0.29"/><circle cx="727" cy="244" r="1.84" opacity="0.57"/><circle cx="855" cy="315" r="1.00" opacity="0.38"/><circle cx="951" cy="304" r="1.40" opacity="0.53"/><circle cx="1038" cy="267" r="0.84" opacity="0.39"/><circle cx="1195" cy="325" r="1.09" opacity="0.43"/><circle cx="85" cy="426" r="0.84" opacity="0.50"/><circle cx="269" cy="382" r="1.62" opacity="0.34"/><circle cx="416" cy="398" r="1.27" opacity="0.34"/><circle cx="593" cy="386" r="1.67" opacity="0.32"/><circle cx="693" cy="386" r="0.96" opacity="0.55"/><circle cx="839" cy="420" r="0.78" opacity="0.50"/><circle cx="923" cy="432" r="1.05" opacity="0.65"/><circle cx="1087" cy="372" r="0.80" opacity="0.58"/><circle cx="1149" cy="411" r="0.91" opacity="0.55"/><circle cx="91" cy="501" r="1.22" opacity="0.40"/><circle cx="196" cy="497" r="1.74" opacity="0.40"/><circle cx="268" cy="511" r="1.32" opacity="0.38"/><circle cx="376" cy="511" r="0.91" opacity="0.45"/><circle cx="542" cy="480" r="1.59" opacity="0.57"/><circle cx="616" cy="500" r="1.13" opacity="0.46"/><circle cx="754" cy="516" r="1.03" opacity="0.50"/><circle cx="845" cy="486" r="1.61" opacity="0.63"/><circle cx="952" cy="533" r="1.09" opacity="0.52"/><circle cx="1035" cy="547" r="1.20" opacity="0.59"/><circle cx="1189" cy="505" r="1.50" opacity="0.41"/></g><g fill="#dcf0ff"><g class="sky-shine" style="--shine-delay:0.00s;--shine-duration:4.4s" transform="translate(106 102)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:0.43s;--shine-duration:5.2s" transform="translate(308 70)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:0.86s;--shine-duration:6.0s" transform="translate(517 132)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:1.29s;--shine-duration:6.8s" transform="translate(783 98)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:1.72s;--shine-duration:4.4s" transform="translate(901 146)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:2.15s;--shine-duration:5.2s" transform="translate(1109 116)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:2.58s;--shine-duration:6.0s" transform="translate(64 451)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:3.01s;--shine-duration:6.8s" transform="translate(720 498)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:3.44s;--shine-duration:4.4s" transform="translate(1137 487)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g><g class="sky-shine" style="--shine-delay:3.87s;--shine-duration:5.2s" transform="translate(1199 315)"><path d="M0 -5 Q.8 -.8 5 0 Q.8 .8 0 5 Q-.8 .8 -5 0 Q-.8 -.8 0 -5Z"/><circle r="1.2" fill="#f9fdff"/></g></g></svg></div>
+<div class="wrap">
+<div class="top">
+<a class="brand" href="#top" aria-label="Ahmad Ahmad, portfolio top"><span class="monogram" aria-hidden="true">AA</span> <span class="brand-name">Ahmad Ahmad</span><svg class="insight-brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><g stroke-width="2" stroke-linejoin="round"><path d="m48 7 35 20-35 20-35-20Z" fill="#deefff" stroke="#deefff"/><path d="m13 32 32 18v37L13 69Z" fill="#85acd9" stroke="#85acd9"/><path d="m52 51 32-19v37L52 88Z" fill="#315978" stroke="#315978"/><path d="m58 67 5-3v10l-5 3Zm8-10 5-3v15l-5 3Zm8-10 5-3v21l-5 3Z" fill="#75ddf1"/><path d="m20 44 17 10m-17-2 17 10m-17-2 17 10" stroke="#243e64" stroke-width="3" stroke-linecap="round"/></g></svg></a>
+<nav class="nav" aria-label="Portfolio"><a class="nav-action-button" href="#work"><svg class="catalog-only" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="7" height="7" rx="1.3"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.3"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.3"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.3"/></svg><span>Projects</span></a><a class="catalog-only nav-action-button" href="./resume-motion-preview.html?theme=light&amp;v=resume-downloads-1"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.5h7l4 4V20H7zM14 3.5v4h4M10 11h5m-5 4h5"/></svg><span>Résumé</span></a><button type="button" class="nav-action-button portfolio-share-trigger" id="portfolio-share-open" aria-haspopup="dialog" aria-controls="portfolio-share" hidden><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m-4 4 4-4 4 4M8 10H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2"/></svg><span>Share résumé</span></button><a class="catalog-only nav-action-button" href="#contact"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2.4"/><path d="m4 7 8 6 8-6"/></svg><span>Contact</span></a><a class="nav-action-button" href="https://github.com/ahmadaahmad"><svg class="catalog-only" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="7" cy="5" r="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="7" r="2"/><path d="M7 7v10m0-3c0-3 2.2-4 5.5-4 2.2 0 3.9-.8 4.4-1.2"/></svg><span>GitHub</span></a></nav>
+</div>
+<div class="hero-copy catalog-hero">
+<div class="catalog-hero-copy">
+<p class="kicker">Portfolio</p>
+<h1>Ahmad Ahmad</h1>
+<p class="role">Data Engineering &amp; Power BI</p>
+<p class="intro">I build Azure data pipelines and Power BI reports. These projects show how I approach moving data efficiently and making it easier to explore.</p>
+<nav class="portfolio-start" id="portfolio-start" aria-label="Start here" hidden>
+<p class="start-label">Start here</p>
+<a id="start-azure" href="#catalog-pipeline-steps">See a data pipeline <span aria-hidden="true">↓</span></a>
+<a id="start-report" href="#portfolio-report">Try a Power BI report <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+</nav>
+<div class="hero-links">
+<a class="btn" href="./resume-motion-preview.html?theme=light&amp;v=resume-downloads-1">View résumé <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+<a href="https://linkedin.com/in/ahmadahmad1">LinkedIn <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+</div>
+</div>
+<div class="catalog-hero-right">
+<aside class="resume-snapshot" aria-labelledby="resume-snapshot-title">
+<p class="kicker">Career snapshot</p>
+<h2 id="resume-snapshot-title">Résumé at a glance</h2>
+<p class="resume-role">Data Engineer &amp; BI Solutions Consultant</p>
+<dl>
+<div><dt>Experience</dt><dd>10+ years in Microsoft BI</dd></div>
+<div><dt>Data engineering</dt><dd>Microsoft Azure, ETL, and data integration</dd></div>
+<div><dt>Business intelligence</dt><dd>Power BI dashboards, DAX and star-schema modeling</dd></div>
+</dl>
+<a href="./resume-motion-preview.html?theme=light&amp;v=resume-downloads-1">View full résumé <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+</aside>
+</div>
+</div>
+</div>
+</header>
+<main id="work" class="wrap">
+<section class="portfolio-report" id="portfolio-report" aria-labelledby="portfolio-report-title">
+<div class="report-section-head">
+<p class="kicker">Interactive portfolio demos</p>
+<h2 id="portfolio-report-title">Power BI reports</h2>
+<div class="report-carousel">
+<div class="report-swipe" tabindex="0" role="group" aria-label="Swipe report selection" aria-describedby="report-swipe-help">
+<span class="report-slide-count" aria-hidden="true">01 / 02</span>
+<strong class="report-slide-title" aria-live="polite">Bakery waste</strong>
+<span class="report-swipe-help" id="report-swipe-help">Swipe or drag here to switch</span>
+</div>
+<div class="report-carousel-nav" role="group" aria-label="Report navigation">
+<button type="button" class="report-arrow" data-report-step="-1" aria-label="Previous report"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12 5-5 5 5 5"/></svg></button>
+<div class="report-dots">
+<button type="button" class="report-dot" data-report-index="0" aria-pressed="true" aria-label="Bakery waste"><span></span></button>
+<button type="button" class="report-dot" data-report-index="1" aria-pressed="false" aria-label="Claims denials"><span></span></button>
+</div>
+<button type="button" class="report-arrow" data-report-step="1" aria-label="Next report"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 5 5 5-5 5"/></svg></button>
+</div></div>
+<p class="report-intro" aria-live="polite">Explore waste and sell-through by bakery item.</p>
+<a class="report-full-link" href="https://app.powerbi.com/view?r=eyJrIjoiNDExZmNlYjgtZWUwNi00MzQ4LWFjYjktZDBkYzJhNzUwMjM5IiwidCI6IjEyMjE5NjdiLTA3ZDgtNDU4NS1hMzAyLTMwMTUzYzk0ZDdkZCJ9" target="_blank" rel="noopener">Open full-size report <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg><span class="report-sr-only"> (opens in a new tab)</span></a></div>
+<div class="report-embed" id="report-viewer"></div>
+</section>
+<div id="project-list" class="section-head selected-work-head"><h2>Selected work</h2><figure class="catalog-work-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="35 56 422 163" role="img" aria-labelledby="catalog-logo-title" focusable="false"><title id="catalog-logo-title">Selected work logo: Different source layers merge into one finished module that fits into a larger data warehouse.</title><ellipse cx="251" cy="203" rx="196" ry="11" fill="var(--warehouse-191726,#191726)"/><path d="M48 153l35 -15 35 15 -35 15z" fill="var(--warehouse-f0b8bc,#f0b8bc)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M48 153l35 15v7l-35 -15z" fill="var(--warehouse-bd7893,#bd7893)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M83 168l35 -15v7l-35 15z" fill="var(--warehouse-925873,#925873)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M59 122l35 -15 35 15 -35 15z" fill="var(--warehouse-a8d9e7,#a8d9e7)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M59 122l35 15v7l-35 -15z" fill="var(--warehouse-6eaec4,#6eaec4)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M94 137l35 -15v7l-35 15z" fill="var(--warehouse-4d7f9c,#4d7f9c)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M48 91l35 -15 35 15 -35 15z" fill="var(--warehouse-ffe1a3,#ffe1a3)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M48 91l35 15v7l-35 -15z" fill="var(--warehouse-d1a46f,#d1a46f)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M83 106l35 -15v7l-35 15z" fill="var(--warehouse-a36e54,#a36e54)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M143 132h17m-5-5 5 5-5 5" fill="none" stroke="var(--warehouse-bfacc5,#bfacc5)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 153l39 -17 39 17 -39 17z" fill="var(--warehouse-f0b8bc,#f0b8bc)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 153l39 17v7l-39 -17z" fill="var(--warehouse-bd7893,#bd7893)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M227 170l39 -17v7l-39 17z" fill="var(--warehouse-925873,#925873)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 136l39 -17 39 17 -39 17z" fill="var(--warehouse-a8d9e7,#a8d9e7)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 136l39 17v7l-39 -17z" fill="var(--warehouse-6eaec4,#6eaec4)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M227 153l39 -17v7l-39 17z" fill="var(--warehouse-4d7f9c,#4d7f9c)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 119l39 -17 39 17 -39 17z" fill="var(--warehouse-ffe1a3,#ffe1a3)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M188 119l39 17v7l-39 -17z" fill="var(--warehouse-d1a46f,#d1a46f)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M227 136l39 -17v7l-39 17z" fill="var(--warehouse-a36e54,#a36e54)" stroke="none" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M207 85v14m-4-5 4 5 4-5m35-9v14m-4-5 4 5 4-5" fill="none" stroke="var(--warehouse-f7c99e,#f7c99e)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /><path d="M280 132h17m-5-5 5 5-5 5" fill="none" stroke="var(--warehouse-bfacc5,#bfacc5)" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 142l26 -13 26 13 -26 13z" fill="var(--warehouse-8b829b,#8b829b)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 142l26 13v26l-26 -13z" fill="var(--warehouse-625978,#625978)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 155l26 -13v26l-26 13z" fill="var(--warehouse-4b4664,#4b4664)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 155l26 -13 26 13 -26 13z" fill="var(--warehouse-8b829b,#8b829b)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 155l26 13v26l-26 -13z" fill="var(--warehouse-625978,#625978)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M405 168l26 -13v26l-26 13z" fill="var(--warehouse-4b4664,#4b4664)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M327 155l26 -13 26 13 -26 13z" fill="var(--warehouse-8b829b,#8b829b)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M327 155l26 13v26l-26 -13z" fill="var(--warehouse-625978,#625978)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 168l26 -13v26l-26 13z" fill="var(--warehouse-4b4664,#4b4664)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 168l26 -13 26 13 -26 13z" fill="var(--warehouse-8b829b,#8b829b)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 168l26 13v26l-26 -13z" fill="var(--warehouse-625978,#625978)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 181l26 -13v26l-26 13z" fill="var(--warehouse-4b4664,#4b4664)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 116l26 -13 26 13 -26 13z" fill="var(--warehouse-8b829b,#8b829b)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 116l26 13v26l-26 -13z" fill="var(--warehouse-625978,#625978)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 129l26 -13v26l-26 13z" fill="var(--warehouse-4b4664,#4b4664)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 129l26 -13 26 13 -26 13z" fill="var(--warehouse-8b829b,#8b829b)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 129l26 13v26l-26 -13z" fill="var(--warehouse-625978,#625978)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M405 142l26 -13v26l-26 13z" fill="var(--warehouse-4b4664,#4b4664)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M327 129l26 -13 26 13 -26 13z" fill="var(--warehouse-8b829b,#8b829b)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M327 129l26 13v26l-26 -13z" fill="var(--warehouse-625978,#625978)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 142l26 -13v26l-26 13z" fill="var(--warehouse-4b4664,#4b4664)" stroke="var(--warehouse-312d43,#312d43)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 168l26-13 26 13-26 13Z" fill="var(--warehouse-3d5962,#3d5962)" stroke="var(--warehouse-a7d9c8,#a7d9c8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"/><path d="M353 128v38m52-38v38m-26-27v40" fill="none" stroke="var(--warehouse-a3d1c2,#a3d1c2)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4" opacity=".65"/><path d="M353 100l26 -13 26 13 -26 13z" fill="var(--warehouse-cbf0dc,#cbf0dc)" stroke="var(--warehouse-345c5d,#345c5d)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 100l26 13v26l-26 -13z" fill="var(--warehouse-80beaa,#80beaa)" stroke="var(--warehouse-345c5d,#345c5d)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M379 113l26 -13v26l-26 13z" fill="var(--warehouse-498d81,#498d81)" stroke="var(--warehouse-345c5d,#345c5d)" stroke-width="0.95" stroke-linecap="round" stroke-linejoin="round" /><path d="M353 109l26 13 26-13m-52 9l26 13 26-13" fill="none" stroke="var(--warehouse-d2ead5,#d2ead5)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" /></svg></figure><p class="meta" id="selected-work-meta">Azure &amp; Power BI</p></div>
+<article class="feature preview-feature" aria-labelledby="azure" data-layout="stacked"><div class="preview-art"><svg class="project-art art-pipeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="art-azure-title art-azure-desc" focusable="false">
+<title id="art-azure-title">Incremental data flow</title><desc id="art-azure-desc">Source streams converge through a processing stage, then changed records flow into a database.</desc>
+<defs><pattern id="art-azure-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#594866" stroke-opacity=".55"/></pattern></defs>
+<rect width="600" height="180" fill="#29233a"/><rect width="600" height="180" fill="url(#art-azure-grid)"/>
+<g fill="none" stroke="#e4bfd4" stroke-opacity=".37"><path d="M22 50V22h28m500 0h28v28M22 130v28h28m500 0h28v-28"/><path d="M34 88h16m-8-8v16m509-8h16m-8-8v16"/></g>
+
+<g fill="none" stroke-linecap="round" stroke-width="2">
+<path d="M112 51h59c44 0 43 39 92 39m-151 0h151m-151 39h59c44 0 43-39 92-39" stroke="#bc9ec8"/>
+<path d="M335 90h102" stroke="#f4a78c" stroke-width="3"/><path d="m421 83 9 7-9 7" stroke="#f4a78c"/>
+<path d="M341 70h45m-45 40h45" stroke="#bc9ec8" stroke-dasharray="3 6"/>
+</g>
+<g fill="#f4a78c"><circle cx="205" cy="61" r="4"/><circle cx="157" cy="90" r="4"/><circle cx="224" cy="106" r="4"/><circle cx="389" cy="90" r="4"/></g>
+<g fill="#3b304c" stroke="#c5a8d0" stroke-width="1.5">
+<rect x="79" y="38" width="41" height="26" rx="5"/><rect x="79" y="77" width="41" height="26" rx="5"/><rect x="79" y="116" width="41" height="26" rx="5"/>
+<rect x="261" y="54" width="76" height="72" rx="13"/>
+</g>
+<g stroke="#dfc6e8" fill="none" stroke-width="2" stroke-linecap="round"><path d="M88 48h19m-19 7h11m-11 32h19m-19 7h11m-11 32h19m-19 7h11"/><path d="M280 77h36l-13 14v13l-10 5V91z"/></g>
+<path d="M443 66v44c0 8 17 14 38 14s38-6 38-14V66" fill="#423247" stroke="#f4a78c" stroke-width="2"/>
+<ellipse cx="481" cy="66" rx="38" ry="14" fill="#573a4e" stroke="#f4a78c" stroke-width="2"/>
+<path d="M443 88c0 8 17 14 38 14s38-6 38-14" fill="none" stroke="#f4a78c" stroke-width="2"/>
+
+</svg></div><div class="shared-title"><p class="kicker">01 / Featured project</p><h3 id="azure">Azure incremental-load pipeline</h3></div><div class="preview-body">
+<div class="project-text">
+<p class="desc">I built a pipeline that processes new and changed records from daily extracts instead of reloading the entire dataset. It stages each batch, merges changes into Azure SQL, and saves the latest processed timestamp for the next run.</p>
+<ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Data Lake Storage</li><li>Azure SQL</li></ul>
+<a class="action" href="https://github.com/ahmadaahmad/azure-incremental-load-adf-architecture">See the pipeline and screenshots <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+</div>
+<figure class="diagram" id="catalog-pipeline-steps" aria-label="How the pipeline works" tabindex="-1">
+<p class="diagram-label">How the pipeline works</p>
+<ol class="steps">
+<li><b aria-hidden="true">01</b> Land the daily extract</li>
+<li><b aria-hidden="true">02</b> Stage the batch in Azure SQL</li>
+<li><b aria-hidden="true">03</b> Merge new and changed records</li>
+<li><b aria-hidden="true">04</b> Save the latest processed timestamp</li>
+</ol>
+<figcaption>Each successful run sets the starting point for the next one.</figcaption>
+</figure>
+</div></article>
+<section class="catalog-only" aria-labelledby="github-projects"><div class="section-head catalog-title"><h2 id="github-projects">More projects</h2><p class="meta">4 repositories</p></div><div class="catalog-grid"><article class="card catalog-card" aria-labelledby="catalog-1"><p class="kicker">Data transformation</p><h3 id="catalog-1">Azure data modernization</h3><p class="desc">Cleans sales CSVs in Azure Data Factory, adds cost and unit-price fields, and writes separate category files back to Blob Storage.</p><ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Blob Storage</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-data-modernization" aria-label="View Azure data modernization on GitHub">View on GitHub <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a></article>
+<article class="card catalog-card" aria-labelledby="catalog-2"><p class="kicker">Analytics pipeline</p><h3 id="catalog-2">Azure Databricks analytics</h3><p class="desc">Spark notebooks copy raw CSVs to Data Lake Storage Gen2, verify and clean the data, and save the results as Parquet.</p><ul class="tags" aria-label="Technologies"><li>Databricks</li><li>Apache Spark</li><li>ADLS Gen2</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-databricks-analytics" aria-label="View Azure Databricks analytics on GitHub">View on GitHub <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a></article>
+<article class="card catalog-card" aria-labelledby="catalog-3"><p class="kicker">Load comparison</p><h3 id="catalog-3">Hierarchical migration pipelines</h3><p class="desc">Compares two ways to load date-partitioned Parquet into Azure Synapse: ADF loops and the native COPY INTO command.</p><ul class="tags" aria-label="Technologies"><li>Azure Data Factory</li><li>Azure Synapse</li></ul><a class="action" href="https://github.com/ahmadaahmad/azure-hierarchical-migration-pipelines" aria-label="View Hierarchical migration pipelines on GitHub">View on GitHub <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a></article>
+<article class="card catalog-card" aria-labelledby="catalog-4"><p class="kicker">Version control workflow</p><h3 id="catalog-4">Fabric Sync Bridge</h3><p class="desc">Pairs a Power BI project with GitHub Actions workflows for syncing changes between GitHub and Bitbucket.</p><ul class="tags" aria-label="Technologies"><li>Power BI project</li><li>GitHub Actions</li><li>Bitbucket</li></ul><a class="action" href="https://github.com/ahmadaahmad/fabric-sync-bridge" aria-label="View Fabric Sync Bridge on GitHub">View on GitHub <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a></article></div></section>
+<div class="section-head catalog-title catalog-only" id="catalog-note-label"><h2>Technical note</h2></div>
+<div class="secondary">
+<article class="card" aria-labelledby="powerbi">
+<svg class="project-art art-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="art-bi-title art-bi-desc" focusable="false">
+<title id="art-bi-title">Illustrated analytics dashboard</title><desc id="art-bi-desc">An abstract dashboard with bars, a line chart, and a ring chart. It is not a screenshot or actual report data.</desc>
+<defs><pattern id="art-bi-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#e4bfaf" stroke-opacity=".55"/></pattern></defs>
+<rect width="600" height="180" fill="#fae6dc"/><rect width="600" height="180" fill="url(#art-bi-grid)"/>
+<g fill="none" stroke="#9a534a" stroke-opacity=".37"><path d="M22 50V22h28m500 0h28v28M22 130v28h28m500 0h28v-28"/><path d="M34 88h16m-8-8v16m509-8h16m-8-8v16"/></g>
+
+<rect x="123" y="26" width="354" height="128" rx="11" fill="#a7636a" opacity=".12" transform="translate(5 5)"/>
+<rect x="123" y="26" width="354" height="128" rx="11" fill="#fff8f3" stroke="#9b625e" stroke-width="1.6"/>
+<path d="M123 53h354" stroke="#e2bcb2"/>
+<g fill="#99534a"><circle cx="139" cy="40" r="2.5"/><circle cx="149" cy="40" r="2.5"/><circle cx="159" cy="40" r="2.5"/></g>
+<rect x="140" y="66" width="137" height="70" rx="5" fill="#f6e7e7"/><rect x="289" y="66" width="105" height="70" rx="5" fill="#f6e7e7"/><rect x="406" y="66" width="54" height="70" rx="5" fill="#f6e7e7"/>
+<path d="M152 122h111m38 0h81" stroke="#cbaab1"/>
+<g><rect x="160" y="102" width="15" height="20" rx="2" fill="#bc655c"/><rect x="182" y="91" width="15" height="31" rx="2" fill="#a66d98"/><rect x="204" y="96" width="15" height="26" rx="2" fill="#bc655c"/><rect x="226" y="79" width="15" height="43" rx="2" fill="#694765"/><rect x="248" y="88" width="15" height="34" rx="2" fill="#a66d98"/></g>
+<path d="m303 112 18-15 18 6 18-18 22-5" fill="none" stroke="#773f67" stroke-width="2.4" stroke-linejoin="round"/><g fill="#773f67"><circle cx="303" cy="112" r="3"/><circle cx="321" cy="97" r="3"/><circle cx="339" cy="103" r="3"/><circle cx="357" cy="85" r="3"/><circle cx="379" cy="80" r="3"/></g>
+<circle cx="433" cy="101" r="14" fill="none" stroke="#dbb7c4" stroke-width="5"/><path d="M433 87a14 14 0 1 1-13 19" fill="none" stroke="#98526f" stroke-width="5" stroke-linecap="round"/>
+
+</svg>
+<p class="kicker">02 / Interactive demo</p>
+<h3 id="powerbi">Power BI report</h3>
+<p class="desc">Open the public demo to explore the report in Power BI. This demo is separate from the secure embedding design described alongside it.</p>
+<a class="action" href="https://app.powerbi.com/view?r=eyJrIjoiNjc1MjRkZmItODI1Yy00YTExLWIxMzctMmUzMGMxNGNiYTI0IiwidCI6ImE2YTIwYzIzLTliNmEtNGU2ZC1iYTBiLTlmMjFlM2M3ZWYzNiJ9">Open the Power BI demo <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+</article>
+<article class="card" aria-labelledby="rls">
+<svg class="project-art art-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="art-rls-title art-rls-desc" focusable="false">
+<title id="art-rls-title">Role-based access concept</title><desc id="art-rls-desc">A user’s identity passes through a security check. Only the permitted data path is highlighted.</desc>
+<defs><pattern id="art-rls-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#cbbbd8" stroke-opacity=".55"/></pattern></defs>
+<rect width="600" height="180" fill="#eae3f3"/><rect width="600" height="180" fill="url(#art-rls-grid)"/>
+<g fill="none" stroke="#765581" stroke-opacity=".37"><path d="M22 50V22h28m500 0h28v28M22 130v28h28m500 0h28v-28"/><path d="M34 88h16m-8-8v16m509-8h16m-8-8v16"/></g>
+
+<path d="M152 90h104m85 0h64m-64 0c23 0 23-44 64-44m-64 44c23 0 23 44 64 44" fill="none" stroke="#ab91b9" stroke-width="2" stroke-dasharray="4 5"/>
+<path d="M152 90h105m84 0h62" fill="none" stroke="#775083" stroke-width="3"/>
+<path d="m390 84 9 6-9 6" fill="none" stroke="#775083" stroke-width="2"/>
+<circle cx="122" cy="90" r="33" fill="#fdf9fe" stroke="#9975aa" stroke-width="1.7"/>
+<g stroke="#795583" stroke-width="2" fill="none"><circle cx="122" cy="82" r="7"/><path d="M110 104v-2a12 12 0 0 1 24 0v2"/></g>
+<path d="M299 47c13 8 25 10 41 12v28c0 23-18 38-41 48-23-10-41-25-41-48V59c16-2 28-4 41-12z" fill="#684a77" stroke="#9a72ad" stroke-width="2"/>
+<path d="M290 88v-7a9 9 0 0 1 18 0v7" fill="none" stroke="#f5d3d1" stroke-width="2.5"/><rect x="286" y="87" width="26" height="20" rx="4" fill="#f5d3d1"/><circle cx="299" cy="97" r="2" fill="#684a77"/>
+<g fill="#f7f1fa" stroke="#bba7c9"><rect x="406" y="33" width="89" height="26" rx="5"/><rect x="406" y="121" width="89" height="26" rx="5"/></g>
+<rect x="406" y="76" width="89" height="28" rx="5" fill="#fff5ee" stroke="#a56d86" stroke-width="2"/>
+<path d="M418 46h45m-45 88h45m-45-44h37m14 0 5 5 8-10" stroke="#8c6495" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>
+<p class="kicker">Technical note</p>
+<h3 id="rls">Secure embedding with .NET</h3>
+<p class="desc">In a secure app, a signed-in user should see only their assigned regions. The .NET backend requests a Power BI embed token with the user identity and role. Power BI applies the model’s row-level security when it loads the report.</p>
+<p class="note">Architecture note only. The public demo does not enforce this access model.</p>
+</article>
+</div>
+
+<section class="catalog-only contact-preview" id="contact" aria-labelledby="contact-title">
+  <div class="contact-panel">
+    <div class="contact-intro">
+      <p class="kicker">Contact</p>
+      <h2 id="contact-title">Get in touch</h2>
+      <p class="desc">Have a role in mind or a question about a project? I’d like to hear from you.</p>
+      <a class="action" href="https://linkedin.com/in/ahmadahmad1">Connect on LinkedIn <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+    </div>
+    <form class="contact-form" id="contact-form" method="post" data-formspree-endpoint="https://formspree.io/f/myewlqda" aria-describedby="contact-note">
+      <fieldset disabled>
+        <div class="contact-fields">
+          <label>Name<input name="name" maxlength="100" required></label>
+          <label>Email<input type="email" name="email" maxlength="254" required></label>
+        </div>
+        <label>Message<textarea name="message" maxlength="2000" rows="4" required></textarea></label>
+        <p class="contact-note" id="contact-note">Preview only. Use sample details. Nothing will be sent.</p>
+        <button type="submit" id="contact-submit">Test message</button>
+        <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
+      </fieldset>
+    </form>
+  </div>
+</section>
+</main>
+<dialog class="report-modal" id="report-modal" aria-labelledby="report-modal-title">
+  <div class="report-modal-head">
+    <div><p class="kicker">Interactive portfolio demos</p><h2 id="report-modal-title">Try a Power BI report</h2></div>
+    <button type="button" id="report-modal-close" aria-label="Close report viewer" autofocus>Close <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="report-modal-toolbar">
+    <div class="report-modal-tabs" role="group" aria-label="Choose a report">
+      <button type="button" data-modal-report="0" aria-pressed="true">Bakery waste</button>
+      <button type="button" data-modal-report="1" aria-pressed="false">Claims denials</button>
+    </div>
+    <a class="report-modal-full" target="_blank" rel="noopener noreferrer">Open in new tab <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+  </div>
+  <div class="report-modal-stage">
+    <div class="report-modal-frame"></div>
+    <div class="report-modal-loader" role="status" hidden><span class="report-modal-spinner" aria-hidden="true"></span><span>Opening report…</span></div>
+  </div>
+</dialog>
+
+<dialog class="portfolio-share-dialog" id="portfolio-share" aria-labelledby="portfolio-share-title">
+  <div class="share-head"><div><p class="kicker">Send to a colleague</p><h2 id="portfolio-share-title">Share Ahmad’s work</h2></div><button type="button" data-share-close aria-label="Close share options">Close</button></div>
+  <p class="share-description">Pick what you’d like to share. Your colleague will get a link.</p>
+  <fieldset class="share-choices">
+    <legend class="report-sr-only">Choose what to share</legend>
+    <label class="share-choice"><input type="radio" name="portfolio-share-type" value="page" checked autofocus><span><strong>Portfolio page</strong><small>Projects, demos and résumé in one place</small></span><span class="share-type">WEB</span></label>
+    <label class="share-choice"><input type="radio" name="portfolio-share-type" value="pdf"><span><strong>Résumé PDF</strong><small>Best for forwarding or printing</small></span><span class="share-type">PDF</span></label>
+    <label class="share-choice"><input type="radio" name="portfolio-share-type" value="word"><span><strong>Résumé Word document</strong><small>For teams that prefer a Word file</small></span><span class="share-type">DOCX</span></label>
+  </fieldset>
+  <div class="share-actions"><button type="button" class="share-primary" data-share-native hidden>Share link</button><button type="button" class="share-primary" data-share-copy>Copy link</button></div>
+  <p class="share-status" role="status"></p>
+  <label class="share-manual" hidden>Copy this link manually<input readonly></label>
+</dialog>
+<script>
+(() => {
+  const trigger=document.getElementById("portfolio-share-open"), dialog=document.getElementById("portfolio-share");
+  if (!trigger || typeof dialog?.showModal !== "function") return;
+  const native=dialog.querySelector("[data-share-native]"), copy=dialog.querySelector("[data-share-copy]");
+  const status=dialog.querySelector(".share-status"), manual=dialog.querySelector(".share-manual"), field=manual.querySelector("input");
+  const page=new URL("./azure-card-preview.html",location.href);
+  const current=new URLSearchParams(location.search);
+  page.searchParams.set("layout",current.get("layout")==="1"?"1":"2");
+  page.searchParams.set("view","catalog");
+  for (const key of ["theme","brand","entrance","background","stars"]){
+    const value=current.get(key);
+    if (value && /^[a-z0-9-]{1,30}$/i.test(value)) page.searchParams.set(key,value);
+  }
+  page.hash="top";
+  const targets={
+    page:{label:"Portfolio page",title:"Ahmad Ahmad | Portfolio",url:page.href},
+    pdf:{label:"Résumé PDF",title:"Ahmad Ahmad | Résumé PDF",url:new URL("./downloads/ahmad-ahmad-resume.pdf",location.href).href},
+    word:{label:"Résumé Word document",title:"Ahmad Ahmad | Résumé Word document",url:new URL("./downloads/ahmad-ahmad-resume.docx",location.href).href}
+  };
+  const selected=()=>targets[dialog.querySelector('input[name="portfolio-share-type"]:checked').value];
+  const reset=()=>{
+    const {title,url}=selected();
+    const supported=typeof navigator.share==="function" && (typeof navigator.canShare!=="function" || navigator.canShare({title,url}));
+    native.hidden=!supported;
+    copy.classList.toggle("share-primary",!supported);
+    manual.hidden=true; status.textContent="";
+  };
+  const fallback=url=>{field.value=url;manual.hidden=false;field.focus();field.select();status.textContent="Copy the selected link to share it.";};
+  trigger.hidden=false;
+  trigger.addEventListener("click",()=>{reset();dialog.showModal();});
+  dialog.querySelector("[data-share-close]").addEventListener("click",()=>dialog.close());
+  dialog.addEventListener("close",()=>trigger.focus({preventScroll:true}));
+  dialog.addEventListener("change",reset);
+  dialog.addEventListener("click",e=>{
+    if(e.target!==dialog)return;
+    const r=dialog.getBoundingClientRect();
+    if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();
+  });
+  copy.addEventListener("click",async()=>{
+    const {label,url}=selected();
+    try { await navigator.clipboard.writeText(url); status.textContent=label+" link copied.";manual.hidden=true; }
+    catch { fallback(url); }
+  });
+  native.addEventListener("click",async()=>{
+    const {title,url}=selected();
+    try { await navigator.share({title,url}); }
+    catch (error) { if(error.name!=="AbortError") fallback(url); }
+  });
+})();
+</script>
+<footer><div class="wrap footer-row"><p class="foot-label">Ahmad Ahmad · Portfolio</p><p><a href="https://linkedin.com/in/ahmadahmad1">Connect on LinkedIn <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a></p></div></footer>
+<template id="azure-step-icons"><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4h4M9 12h6m-6 4h6"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="6" rx="6" ry="2.7"/><path d="M6 6v11.5c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7V6M6 12c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h3l6 6h7M4 18h3l6-6m3-4 4 4-4 4"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7.5v4.8l3 2"/></svg></template>
+<script>
+const previewParams = new URLSearchParams(location.search);
+const optionTwo = previewParams.get("layout") === "2" || portfolioPreviewView === "catalog";
+if (portfolioPreviewView === "catalog") document.getElementById("selected-work-meta").textContent = "6 projects";
+const catalogParams = new URLSearchParams({layout:"2",view:"catalog"});
+if (previewParams.has("v")) catalogParams.set("v",previewParams.get("v"));
+document.getElementById("preview-catalog").href = "?" + catalogParams.toString() + "#work";
+const trialSequence = previewParams.get("sequence") === "trial";
+if (portfolioPreviewView === "logos") {
+  const portfolioHero = document.querySelector("body > .hero");
+  const brandLink = portfolioHero.querySelector(".brand");
+  const heroLogoArt = document.createElement("div");
+  heroLogoArt.className = "hero-logo-art";
+  heroLogoArt.setAttribute("aria-hidden", "true");
+  portfolioHero.querySelector(".hero-links").before(heroLogoArt);
+  const brandMark = brandLink.querySelector(".monogram");
+  const logoButtons = [...document.querySelectorAll(".logo-option")];
+  const marks = {
+    insightCube: '<g stroke-width="2" stroke-linejoin="round"><path d="m48 7 35 20-35 20-35-20Z" fill="#deefff" stroke="#deefff"/><path d="m13 32 32 18v37L13 69Z" fill="#85acd9" stroke="#85acd9"/><path d="m52 51 32-19v37L52 88Z" fill="#315978" stroke="#315978"/><path d="m58 67 5-3v10l-5 3Zm8-10 5-3v15l-5 3Zm8-10 5-3v21l-5 3Z" fill="#75ddf1"/><path d="m20 44 17 10m-17-2 17 10m-17-2 17 10" stroke="#243e64" stroke-width="3" stroke-linecap="round"/></g>',
+    monogram: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#543655"/><path d="m6 25 6.5-14L19 25m-11-4.5h9M17 25l6.5-14L30 25m-11-4.5h9" fill="none" stroke="#ffb59e" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>',
+    pipeline: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#49334f"/><path d="M9 11h4l6 7h8M9 25h4l6-7" fill="none" stroke="#ffb59e" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="11" r="2.3" fill="#f0daee"/><circle cx="9" cy="25" r="2.3" fill="#f0daee"/><circle cx="19" cy="18" r="2.5" fill="#ffb59e"/><circle cx="27" cy="18" r="2.6" fill="#f0daee"/>',
+    consolidation: '<rect x="1" y="1" width="62" height="48" rx="10" fill="#103637" stroke="#529a91" stroke-width=".55"/><path d="M21 12h4c5 0 5 13 12 13h8M21 25h24M21 38h4c5 0 5-13 12-13" fill="none" stroke="#7fd1bd" stroke-width="1.35" stroke-linecap="round"/><circle cx="36" cy="25" r="2.05" fill="#ffca84"/><path d="m41.5 22.8 2.2 2.2-2.2 2.2" fill="none" stroke="#7fd1bd" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="7.3" width="12" height="9.4" rx="1.2" fill="#d6f6e7" stroke="#73c6aa" stroke-width=".65"/><path d="M8.4 10.2h11.2m-10.9 3h10.9m-8.3-2.8v5.7m4.6-5.7v5.7" stroke="#297767" stroke-width=".72"/><path d="M9.1 19.5h7.4l3.1 3v8h-10.5z" fill="#fff1d4" stroke="#edb774" stroke-width=".65" stroke-linejoin="round"/><path d="M16.3 19.8v3h2.9" fill="none" stroke="#b9733e" stroke-width=".68"/><text x="14.1" y="27.5" font-family="system-ui,sans-serif" font-size="3.35" text-anchor="middle" font-weight="750" fill="#663b28">CSV</text><rect x="8" y="33.4" width="12" height="9.2" rx="2.25" fill="#244e58" stroke="#87c7d5" stroke-width=".76"/><path d="M9.7 37.2c1.35-.9 2.9-.9 4.25 0 1.35.85 2.95.85 4.42-.12m-8.67 2.14c1.35-.9 2.9-.9 4.25 0 1.35.85 2.95.85 4.42-.12" fill="none" stroke="#a4e4e9" stroke-width=".82" stroke-linecap="round"/><path d="M46 18.7v10.9c0 1.65 3 3 6.7 3s6.7-1.35 6.7-3V18.7" fill="#d6f6e7" stroke="#6cc5a7" stroke-width=".78"/><ellipse cx="52.7" cy="18.7" rx="6.7" ry="3" fill="#f0f9de" stroke="#6cc5a7" stroke-width=".78"/><text x="52.7" y="27.8" font-family="system-ui,sans-serif" font-size="4.05" text-anchor="middle" font-weight="750" fill="#225044">SQL</text>',
+    notebook: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#183e3b"/><path d="M5.3 9.5c4.8-1.5 9-1 12.7 1.1 3.7-2.1 7.9-2.6 12.7-1.1v16c-4.7-.9-8.9-.4-12.7 1.7-3.8-2.1-8-2.6-12.7-1.7z" fill="#fff4d6" stroke="#c9a979" stroke-width="1.35" stroke-linejoin="round"/><path d="M18 11v15M8.7 14.2l5.7.1m-5.7 3.1 5.7.1m-5.7 3.2 4.3.1" fill="none" stroke="#9f7e57" stroke-width="1.05" stroke-linecap="round"/><path d="M21 22.1h7.2m-6-1.9v-2.5m2.3 2.5v-4.2m2.3 4.2v-6.1" fill="none" stroke="#267970" stroke-width="1.3" stroke-linecap="round"/><path d="m20.7 16.1 2.9-2.7 3.7-1.2" fill="none" stroke="#c57543" stroke-width="1.05" stroke-linecap="round"/><path d="m26.2 24.5 3.7-5.7 1.5 1-3.8 5.7-1.9 1z" fill="#eeae58" stroke="#74482e" stroke-width=".72" stroke-linejoin="round"/>',
+    story: '<rect x="1" y="1" width="34" height="34" rx="8" fill="#51384f"/><path d="M8 26h20M11 24v-5m7 5v-8m7 8V11" stroke="#dbb6d5" stroke-width="2.2" stroke-linecap="round"/><path d="m10 15 7-3.5 7-4" stroke="#ffc1a9" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="7.5" r="2.15" fill="#ffc1a9"/>',
+    split: '<rect x="1" y="1" width="34" height="34" rx="17" fill="#f4a78c"/><path d="m8.5 23.8 4.8-12 4.7 12m-8-3.9h6.6m1.5 3.9 4.8-12 4.7 12m-8-3.9h6.6" fill="none" stroke="#342138" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"/>'
+  };
+  const etlKeys = new Set(["etlEditorial","etlIso","etlRibbon","etlBlueprint","etlSignature"]);
+  Object.assign(marks, {"etlEditorial":"<defs><linearGradient id=\"edsurface-SCOPE\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#392b46\"/><stop offset=\"100%\" stop-color=\"#251f31\"/></linearGradient><linearGradient id=\"edmatrix-SCOPE\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f8b59b\"/><stop offset=\"100%\" stop-color=\"#c98dac\"/></linearGradient></defs><rect x=\"1\" y=\"1\" width=\"438\" height=\"268\" rx=\"22\" fill=\"url(#edsurface-SCOPE)\" stroke=\"#7e647c\"/><text x=\"29\" y=\"43\" fill=\"#f3dedf\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"20\" font-weight=\"650\">The shape of clean data</text><rect x=\"28\" y=\"67\" width=\"66\" height=\"30\" rx=\"6\" fill=\"#30243c\" stroke=\"#f4b29b\"/><text x=\"61\" y=\"87\" fill=\"#f4b29b\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"700\">CSV</text><rect x=\"33\" y=\"107\" width=\"66\" height=\"30\" rx=\"6\" fill=\"#30243c\" stroke=\"#dab3d9\"/><text x=\"66\" y=\"127\" fill=\"#dab3d9\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"700\">API</text><rect x=\"38\" y=\"147\" width=\"66\" height=\"30\" rx=\"6\" fill=\"#30243c\" stroke=\"#a2d7ca\"/><text x=\"71\" y=\"167\" fill=\"#a2d7ca\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"700\">SHEET</text><path d=\"M103 82c34 0 32 39 63 39m-66 1h66m-64 40c34 0 31-40 64-40\" fill=\"none\" stroke=\"#bd8ca8\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M160 117l6 5-6 5\" fill=\"none\" stroke=\"#f5ba9d\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"179\" y=\"74\" width=\"86\" height=\"93\" rx=\"12\" fill=\"url(#edmatrix-SCOPE)\" stroke=\"none\"/><rect x=\"192\" y=\"88\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#703751\" stroke=\"none\"/><rect x=\"207\" y=\"88\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"222\" y=\"88\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"237\" y=\"88\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#703751\" stroke=\"none\"/><rect x=\"192\" y=\"103\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"207\" y=\"103\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"222\" y=\"103\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#703751\" stroke=\"none\"/><rect x=\"237\" y=\"103\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"192\" y=\"118\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"207\" y=\"118\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#703751\" stroke=\"none\"/><rect x=\"222\" y=\"118\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"237\" y=\"118\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"192\" y=\"133\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#703751\" stroke=\"none\"/><rect x=\"207\" y=\"133\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"222\" y=\"133\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#ffe0cf\" stroke=\"none\"/><rect x=\"237\" y=\"133\" width=\"10\" height=\"10\" rx=\"2\" fill=\"#703751\" stroke=\"none\"/><path d=\"M265 120h41m-14 0 15-24m-15 24 15 24\" fill=\"none\" stroke=\"#f4ae99\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"310\" y=\"74\" width=\"102\" height=\"45\" rx=\"7\" fill=\"#493348\" stroke=\"#b683a8\"/><text x=\"361\" y=\"102\" fill=\"#f5d3df\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"14\" font-weight=\"700\">TABLE</text><rect x=\"310\" y=\"129\" width=\"102\" height=\"45\" rx=\"7\" fill=\"#3e3547\" stroke=\"#89b8a8\"/><text x=\"361\" y=\"157\" fill=\"#bfe7d6\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"14\" font-weight=\"700\">MODEL</text><path d=\"M28 222H412\" fill=\"none\" stroke=\"#80607b\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"29\" y=\"245\" fill=\"#f0c6d6\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">01  EXTRACT</text><text x=\"160\" y=\"245\" fill=\"#f0c6d6\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">02  TRANSFORM</text><text x=\"320\" y=\"245\" fill=\"#f0c6d6\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">03  LOAD</text>","etlIso":"<rect x=\"1\" y=\"1\" width=\"438\" height=\"268\" rx=\"22\" fill=\"#142b32\" stroke=\"#3e6570\"/><text x=\"29\" y=\"43\" fill=\"#e2f4e8\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"20\" font-weight=\"650\">Data assembly</text><path d=\"M35 177 218 80l187 95M73 184l145-76 153 76M116 190l102-55 105 55M41 130l113 58m245-59-114 59\" fill=\"none\" stroke=\"#345761\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M105 121l68 1m99 0 55-1\" fill=\"none\" stroke=\"#91dbc4\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M169 117l6 5-6 5\" fill=\"none\" stroke=\"#91dbc4\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M324 116l6 5-6 5\" fill=\"none\" stroke=\"#91dbc4\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M29 105l35-17 35 17-35 17Z\" fill=\"#b9e4ca\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M29 105l35 17v20l-35-17Z\" fill=\"#73ad9e\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M64 122l35-17v20l-35 17Z\" fill=\"#457a78\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M29 93l35-17 35 17-35 17Z\" fill=\"#d8e9cc\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M29 93l35 17v20l-35-17Z\" fill=\"#97baa3\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M64 110l35-17v20l-35 17Z\" fill=\"#679890\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M184 120l35-17 35 17-35 17Z\" fill=\"#dfb887\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M184 120l35 17v20l-35-17Z\" fill=\"#a37453\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M219 137l35-17v20l-35 17Z\" fill=\"#8d5449\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M184 101l35-17 35 17-35 17Z\" fill=\"#ffe0a7\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M184 101l35 17v20l-35-17Z\" fill=\"#d39d70\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M219 118l35-17v20l-35 17Z\" fill=\"#ae7858\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M199 100l21-10\" fill=\"none\" stroke=\"#805e56\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M209 105l21-10\" fill=\"none\" stroke=\"#805e56\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M219 110l21-10\" fill=\"none\" stroke=\"#805e56\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M336 120l35-17 35 17-35 17Z\" fill=\"#7cd6ba\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M336 120l35 17v20l-35-17Z\" fill=\"#4d9a91\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M371 137l35-17v20l-35 17Z\" fill=\"#336e75\" stroke=\"none\" stroke-width=\"0\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M344 108l26-13 27 13-27 13Z\" fill=\"#c1ebc3\" stroke=\"#e6f5c8\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M28 222H412\" fill=\"none\" stroke=\"#426573\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"29\" y=\"245\" fill=\"#b6e0d5\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">01  EXTRACT</text><text x=\"160\" y=\"245\" fill=\"#b6e0d5\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">02  TRANSFORM</text><text x=\"320\" y=\"245\" fill=\"#b6e0d5\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">03  LOAD</text>","etlRibbon":"<defs><linearGradient id=\"rib-SCOPE\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#211f3f\"/><stop offset=\"100%\" stop-color=\"#302245\"/></linearGradient></defs><rect x=\"1\" y=\"1\" width=\"438\" height=\"268\" rx=\"22\" fill=\"url(#rib-SCOPE)\" stroke=\"#655b8c\"/><text x=\"29\" y=\"43\" fill=\"#f1e6fb\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"20\" font-weight=\"650\">Many streams, one signal</text><path d=\"M36 75C116 75 138 143 205 117s81 -27 106 90h80\" fill=\"none\" stroke=\"#96cbed\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"36\" cy=\"75\" r=\"5\" fill=\"#96cbed\"/><circle cx=\"395\" cy=\"90\" r=\"5\" fill=\"#96cbed\"/><path d=\"M36 111C116 111 138 86 205 117s81 6 106 123h80\" fill=\"none\" stroke=\"#e8a2c5\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"36\" cy=\"111\" r=\"5\" fill=\"#e8a2c5\"/><circle cx=\"395\" cy=\"123\" r=\"5\" fill=\"#e8a2c5\"/><path d=\"M36 147C116 147 138 133 205 117s81 40 106 157h80\" fill=\"none\" stroke=\"#f6cf9b\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"36\" cy=\"147\" r=\"5\" fill=\"#f6cf9b\"/><circle cx=\"395\" cy=\"157\" r=\"5\" fill=\"#f6cf9b\"/><rect x=\"185\" y=\"97\" width=\"41\" height=\"41\" rx=\"9\" fill=\"#201c39\" stroke=\"#d8b8e9\"/><path d=\"M193 112h25m-22 10h19m-14 7h9\" fill=\"none\" stroke=\"#e5c9ef\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"406\" y=\"93\" fill=\"#f4e1f5\" text-anchor=\"end\" font-family=\"system-ui,sans-serif\" font-size=\"10\" font-weight=\"700\">TABLE</text><text x=\"406\" y=\"126\" fill=\"#f4e1f5\" text-anchor=\"end\" font-family=\"system-ui,sans-serif\" font-size=\"10\" font-weight=\"700\">MODEL</text><text x=\"406\" y=\"160\" fill=\"#f4e1f5\" text-anchor=\"end\" font-family=\"system-ui,sans-serif\" font-size=\"10\" font-weight=\"700\">FILES</text><path d=\"M28 222H412\" fill=\"none\" stroke=\"#5e5487\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"29\" y=\"245\" fill=\"#ded2fb\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">01  EXTRACT</text><text x=\"160\" y=\"245\" fill=\"#ded2fb\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">02  TRANSFORM</text><text x=\"320\" y=\"245\" fill=\"#ded2fb\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">03  LOAD</text>","etlBlueprint":"<defs><pattern id=\"grid-SCOPE\" width=\"16\" height=\"16\" patternUnits=\"userSpaceOnUse\"><path d=\"M16 0H0V16\" fill=\"none\" stroke=\"#315569\" stroke-width=\"0.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></pattern></defs><rect x=\"1\" y=\"1\" width=\"438\" height=\"268\" rx=\"22\" fill=\"#112837\" stroke=\"#5490a4\"/><rect x=\"2\" y=\"2\" width=\"436\" height=\"266\" rx=\"22\" fill=\"url(#grid-SCOPE)\" stroke=\"none\"/><text x=\"29\" y=\"43\" fill=\"#ddf1f4\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"20\" font-weight=\"650\">Transformation schematic</text><rect x=\"28\" y=\"74\" width=\"66\" height=\"30\" rx=\"6\" fill=\"#183c4d\" stroke=\"#a8dfed\"/><text x=\"61\" y=\"94\" fill=\"#a8dfed\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"700\">API</text><rect x=\"28\" y=\"112\" width=\"66\" height=\"30\" rx=\"6\" fill=\"#183c4d\" stroke=\"#a8dfed\"/><text x=\"61\" y=\"132\" fill=\"#a8dfed\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"700\">CSV</text><rect x=\"28\" y=\"150\" width=\"66\" height=\"30\" rx=\"6\" fill=\"#183c4d\" stroke=\"#a8dfed\"/><text x=\"61\" y=\"170\" fill=\"#a8dfed\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"700\">GRID</text><path d=\"M95 89h26v36h29m-55 2h55m-55 38h26v-38\" fill=\"none\" stroke=\"#6cb7ca\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"151\" y=\"77\" width=\"128\" height=\"98\" rx=\"10\" fill=\"#13394a\" stroke=\"#8dcfde\"/><text x=\"167\" y=\"104\" fill=\"#c3edf0\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"14\" font-weight=\"710\">FILTER</text><text x=\"167\" y=\"131\" fill=\"#c3edf0\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"14\" font-weight=\"710\">STANDARDIZE</text><text x=\"167\" y=\"158\" fill=\"#ffe0a7\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"14\" font-weight=\"710\">JOIN</text><path d=\"M279 126h28m-5-5 5 5-5 5\" fill=\"none\" stroke=\"#ffd89b\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"319\" y=\"79\" width=\"91\" height=\"94\" rx=\"8\" fill=\"#193b4b\" stroke=\"#85c6d5\"/><path d=\"M329 101h72m-72 21h72m-72 21h72m-50-41v55m25-55v55\" fill=\"none\" stroke=\"#8fc6cf\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M28 222H412\" fill=\"none\" stroke=\"#5893a8\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"29\" y=\"245\" fill=\"#caecf0\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">01  EXTRACT</text><text x=\"160\" y=\"245\" fill=\"#caecf0\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">02  TRANSFORM</text><text x=\"320\" y=\"245\" fill=\"#caecf0\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">03  LOAD</text>","etlSignature":"<rect x=\"1\" y=\"1\" width=\"438\" height=\"268\" rx=\"22\" fill=\"#292337\" stroke=\"#80647f\"/><text x=\"29\" y=\"43\" fill=\"#f2dce4\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"20\" font-weight=\"650\">A data signature</text><rect x=\"30\" y=\"81\" width=\"14\" height=\"14\" rx=\"3\" fill=\"#9fd5cd\" stroke=\"none\"/><path d=\"M50 88h34c35 0 39 37 71 37\" fill=\"none\" stroke=\"#9fd5cd\" stroke-width=\"2.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"35\" y=\"119\" width=\"14\" height=\"14\" rx=\"3\" fill=\"#dfb4d3\" stroke=\"none\"/><path d=\"M55 126h34c35 0 39 -1 71 -1\" fill=\"none\" stroke=\"#dfb4d3\" stroke-width=\"2.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"40\" y=\"156\" width=\"14\" height=\"14\" rx=\"3\" fill=\"#f3c490\" stroke=\"none\"/><path d=\"M60 163h34c35 0 39 -38 71 -38\" fill=\"none\" stroke=\"#f3c490\" stroke-width=\"2.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"m164 167 28-71h6l28 71m-52-21h43m-9 21 28-71h6l28 71m-52-21h43\" fill=\"none\" stroke=\"#f2beac\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M269 127h40m-1 0 21-23m-21 23 21 23\" fill=\"none\" stroke=\"#b78aa7\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"333\" y=\"86\" width=\"73\" height=\"38\" rx=\"6\" fill=\"#533e56\" stroke=\"#ae819f\"/><text x=\"369\" y=\"111\" fill=\"#f6d5de\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"740\">FILES</text><rect x=\"333\" y=\"133\" width=\"73\" height=\"38\" rx=\"6\" fill=\"#3f4a50\" stroke=\"#8cbfad\"/><text x=\"369\" y=\"158\" fill=\"#d9f1e4\" text-anchor=\"middle\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"740\">TABLES</text><path d=\"M28 222H412\" fill=\"none\" stroke=\"#765770\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"29\" y=\"245\" fill=\"#eac8d7\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">01  EXTRACT</text><text x=\"160\" y=\"245\" fill=\"#eac8d7\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">02  TRANSFORM</text><text x=\"320\" y=\"245\" fill=\"#eac8d7\" text-anchor=\"start\" font-family=\"system-ui,sans-serif\" font-size=\"13\" font-weight=\"760\">03  LOAD</text>"});
+  const factoryDescriptions = {"factoryPress":"Loose blocks enter a press and emerge as one precise tile.","factoryFacet":"A rough piece passes through a cutting ring and emerges as a faceted gem.","factoryStack":"Separate layers are compressed into a single laminated cube.","factorySort":"Mixed shapes enter a sorter and emerge as matching modules.","factoryWeave":"Loose strands pass through a loom and emerge as an orderly woven tile."};
+  Object.assign(marks, {"factoryPress":"<ellipse cx=\"260\" cy=\"188\" rx=\"188\" ry=\"12\" fill=\"#32293c\"/><path d=\"M70 133l20 -9 20 9 -20 9z\" fill=\"#d5efce\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M70 133l20 9v11l-20 -9z\" fill=\"#72ad95\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M90 142l20 -9v11l-20 9z\" fill=\"#377d71\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M100 146l17 -8 17 8 -17 8z\" fill=\"#ffe6a8\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M100 146l17 8v11l-17 -8z\" fill=\"#d19459\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M117 154l17 -8v11l-17 8z\" fill=\"#a9644e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M52 154l17 -8 17 8 -17 8z\" fill=\"#ebc8ea\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M52 154l17 8v13l-17 -8z\" fill=\"#b581bd\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M69 162l17 -8v13l-17 8z\" fill=\"#7b598c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M143 142h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#c7aabe\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M189 159l57 -19 57 19 -57 19z\" fill=\"#d4b7d6\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M189 159l57 19v16l-57 -19z\" fill=\"#89688f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M246 178l57 -19v16l-57 19z\" fill=\"#62486f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M200 147V91l11-5v55zm81 18V89l11-5v74z\" fill=\"#a886a9\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M189 86l57 -19 57 19 -57 19z\" fill=\"#ebc8ea\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M189 86l57 19v20l-57 -19z\" fill=\"#b581bd\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M246 105l57 -19v20l-57 19z\" fill=\"#7b598c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M220 132l27 -11 27 11 -27 11z\" fill=\"#ffe6a8\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M220 132l27 11v8l-27 -11z\" fill=\"#d19459\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M247 143l27 -11v8l-27 11z\" fill=\"#a9644e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M237 109v18m11-14v15m10-19v16\" fill=\"none\" stroke=\"#f6ca8e\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M317 142h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#c7aabe\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M363 136l42 -17 42 17 -42 17z\" fill=\"#d5efce\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M363 136l42 17v12l-42 -17z\" fill=\"#72ad95\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M405 153l42 -17v12l-42 17z\" fill=\"#377d71\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"m384 135 15 6 23-12\" fill=\"none\" stroke=\"#2e695f\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>","factoryFacet":"<ellipse cx=\"260\" cy=\"188\" rx=\"188\" ry=\"12\" fill=\"#282d43\"/><path d=\"M60 146 51 117 75 96 102 100 128 124 118 153 86 168Z\" fill=\"#597893\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M51 117 80 117 75 96 102 100 112 123 86 168 60 146Z\" fill=\"#83abc1\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"m80 117 32 6 16 1-10 29-32 15Z\" fill=\"#405a83\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M143 134h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#93b9d0\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse cx=\"238\" cy=\"127\" rx=\"53\" ry=\"55\" fill=\"#2d3d62\"/><ellipse cx=\"238\" cy=\"127\" rx=\"43\" ry=\"45\" fill=\"#5479a0\"/><ellipse cx=\"238\" cy=\"127\" rx=\"38\" ry=\"40\" fill=\"#1d233c\"/><path d=\"M214 143l15-35 10 13 14-5 13 24-22 17Z\" fill=\"#91bccf\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"m218 138 19-9 17 6m-8-27 7-8m-36 14-8-7\" fill=\"none\" stroke=\"#f0ca9c\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M305 134h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#93b9d0\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><g transform=\"translate(403 133) scale(1.18)\"><path d=\"M-35-9-16-29 19-29 35-9 0 32Z\" fill=\"#8bd4e8\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M-35-9-12-4 0 32Z\" fill=\"#5489b1\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M35-9 10-4 0 32Z\" fill=\"#75b6cc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M-12-4 0-29 10-4 0 32Z\" fill=\"#d3f3e8\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M-16-29 0-29-12-4-35-9Z\" fill=\"#b7dde2\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M19-29 35-9 10-4 0-29Z\" fill=\"#9cc5da\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g>","factoryStack":"<ellipse cx=\"260\" cy=\"188\" rx=\"188\" ry=\"12\" fill=\"#362d42\"/><path d=\"M51 145l44 -15 44 15 -44 15z\" fill=\"#f7bec5\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M51 145l44 15v5l-44 -15z\" fill=\"#c4819f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M95 160l44 -15v5l-44 15z\" fill=\"#8f5d86\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M46 131l45 -15 45 15 -45 15z\" fill=\"#b7e7f0\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M46 131l45 15v5l-45 -15z\" fill=\"#76adcc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M91 146l45 -15v5l-45 15z\" fill=\"#416c9b\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M54 117l44 -15 44 15 -44 15z\" fill=\"#ffe6a8\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M54 117l44 15v5l-44 -15z\" fill=\"#d19459\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M98 132l44 -15v5l-44 15z\" fill=\"#a9644e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M143 136h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#c7aabe\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 151l50 -18 50 18 -50 18z\" fill=\"#ebc8ea\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 151l50 18v10l-50 -18z\" fill=\"#b581bd\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M243 169l50 -18v10l-50 18z\" fill=\"#7b598c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 138l50 -18 50 18 -50 18z\" fill=\"#f7bec5\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 138l50 18v5l-50 -18z\" fill=\"#c4819f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M243 156l50 -18v5l-50 18z\" fill=\"#8f5d86\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 127l50 -18 50 18 -50 18z\" fill=\"#b7e7f0\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 127l50 18v4l-50 -18z\" fill=\"#76adcc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M243 145l50 -18v4l-50 18z\" fill=\"#416c9b\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 112l50 -18 50 18 -50 18z\" fill=\"#ffe6a8\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 112l50 18v4l-50 -18z\" fill=\"#d19459\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M243 130l50 -18v4l-50 18z\" fill=\"#a9644e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M218 69v22m-6-6 6 6 6-6m44-16v22m-6-6 6 6 6-6\" fill=\"none\" stroke=\"#ffd2a2\" stroke-width=\"3.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M307 136h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#c7aabe\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M361 122l44 -17 44 17 -44 17z\" fill=\"#ffe8da\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M361 122l44 17v42l-44 -17z\" fill=\"#c8a4b1\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M405 139l44 -17v42l-44 17z\" fill=\"#926d92\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M361 138l44 17 44-17m-88 14 44 17 44-17\" fill=\"none\" stroke=\"#9a6f92\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>","factorySort":"<ellipse cx=\"260\" cy=\"188\" rx=\"188\" ry=\"12\" fill=\"#292a3b\"/><circle cx=\"68\" cy=\"119\" r=\"12\" fill=\"#fac18c\"/><path d=\"M104 102l18 19-18 19-18-19z\" fill=\"#cfa6cf\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"57\" y=\"143\" width=\"22\" height=\"16\" rx=\"4\" fill=\"#9adfc0\"/><path d=\"M88 151l15 -7 15 7 -15 7z\" fill=\"#b7e7f0\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M88 151l15 7v9l-15 -7z\" fill=\"#76adcc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M103 158l15 -7v9l-15 7z\" fill=\"#416c9b\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M138 136h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#a6a9bf\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M191 149l48 -18 48 18 -48 18z\" fill=\"#d7b6e8\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M191 149l48 18v12l-48 -18z\" fill=\"#815d9e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 167l48 -18v12l-48 18z\" fill=\"#61497d\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M191 114l48 -18 48 18 -48 18z\" fill=\"#ebc8ea\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M191 114l48 18v18l-48 -18z\" fill=\"#b581bd\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 132l48 -18v18l-48 18z\" fill=\"#7b598c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M191 120l48 18 48-18\" fill=\"none\" stroke=\"#efe0ee\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M210 115l29-11 28 11-28 10Z\" fill=\"#543b71\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M224 115h30m-23-5 15 10\" fill=\"none\" stroke=\"#d6b1eb\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M303 136h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#a6a9bf\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M360 104l17 -7 17 7 -17 7z\" fill=\"#d5efce\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M360 104l17 7v10l-17 -7z\" fill=\"#72ad95\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M377 111l17 -7v10l-17 7z\" fill=\"#377d71\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M394 117l17 -7 17 7 -17 7z\" fill=\"#d5efce\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M394 117l17 7v10l-17 -7z\" fill=\"#72ad95\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M411 124l17 -7v10l-17 7z\" fill=\"#377d71\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M360 133l17 -7 17 7 -17 7z\" fill=\"#d5efce\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M360 133l17 7v10l-17 -7z\" fill=\"#72ad95\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M377 140l17 -7v10l-17 7z\" fill=\"#377d71\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M394 146l17 -7 17 7 -17 7z\" fill=\"#d5efce\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M394 146l17 7v10l-17 -7z\" fill=\"#72ad95\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M411 153l17 -7v10l-17 7z\" fill=\"#377d71\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>","factoryWeave":"<ellipse cx=\"260\" cy=\"188\" rx=\"188\" ry=\"12\" fill=\"#30243e\"/><path d=\"M45 117c24-19 47 19 80 11\" fill=\"none\" stroke=\"#f6ae94\" stroke-width=\"3.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M45 129c24-19 47 19 80 10\" fill=\"none\" stroke=\"#a6d7df\" stroke-width=\"3.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M45 143c24-19 47 19 80 -6\" fill=\"none\" stroke=\"#dec1e7\" stroke-width=\"3.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M45 154c24-19 47 19 80 -4\" fill=\"none\" stroke=\"#f5ce98\" stroke-width=\"3.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M138 135h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#c7aabe\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M186 153l54 -21 54 21 -54 21z\" fill=\"#ebc8ea\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M186 153l54 21v10l-54 -21z\" fill=\"#b581bd\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M240 174l54 -21v10l-54 21z\" fill=\"#7b598c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M203 143V98l10-4v43zm65 17v-48l10-3v49z\" fill=\"#dda7c8\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M191 99l49 -20 49 20 -49 20z\" fill=\"#f7bec5\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M191 99l49 20v11l-49 -20z\" fill=\"#c4819f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M240 119l49 -20v11l-49 20z\" fill=\"#8f5d86\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M211 126l31-13\" fill=\"none\" stroke=\"#f6ae94\" stroke-width=\"2.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M222 130l31-13\" fill=\"none\" stroke=\"#a6d7df\" stroke-width=\"2.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M233 134l31-13\" fill=\"none\" stroke=\"#dec1e7\" stroke-width=\"2.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M244 138l31-13\" fill=\"none\" stroke=\"#f5ce98\" stroke-width=\"2.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M306 135h20m-6-6 6 6-6 6\" fill=\"none\" stroke=\"#c7aabe\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M359 139l45 -23 45 23 -45 23z\" fill=\"#62476e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M359 139l45 23v11l-45 -23z\" fill=\"#634b6c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M404 162l45 -23v11l-45 23z\" fill=\"#453d5e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M372 135l47 24\" fill=\"none\" stroke=\"#f6ae94\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M382 130l47 24\" fill=\"none\" stroke=\"#a6d7df\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M392 125l47 24\" fill=\"none\" stroke=\"#dec1e7\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M402 120l47 24\" fill=\"none\" stroke=\"#f5ce98\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M382 150l41-21\" fill=\"none\" stroke=\"#dec1e7\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M395 156l41-21\" fill=\"none\" stroke=\"#f5ce98\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M408 162l41-21\" fill=\"none\" stroke=\"#a6d7df\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"});
+  Object.assign(factoryDescriptions, {"fusionAligned":"Three separated coloured sheets line up vertically and become a compact, single-colour layered stack.","fusionGuided":"Three coloured source sheets converge along guide lines, align, and become a single-colour layered stack.","fusionPressed":"Three separated coloured sheets line up under a press and become one compressed, gold layered stack."});
+  Object.assign(marks, {"fusionAligned":"<ellipse cx=\"250\" cy=\"196\" rx=\"202\" ry=\"12\" fill=\"#191726\"/><path d=\"M53 155l35 -15 35 15 -35 15z\" fill=\"#f0b8bc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M53 155l35 15v7l-35 -15z\" fill=\"#bd7893\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M88 170l35 -15v7l-35 15z\" fill=\"#925873\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M62 123l37 -16 37 16 -37 16z\" fill=\"#a8d9e7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M62 123l37 16v7l-37 -16z\" fill=\"#6eaec4\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M99 139l37 -16v7l-37 16z\" fill=\"#4d7f9c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M45 90l36 -16 36 16 -36 16z\" fill=\"#ffe1a3\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M45 90l36 16v7l-36 -16z\" fill=\"#d1a46f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M81 106l36 -16v7l-36 16z\" fill=\"#a36e54\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M150 125h18m-6-5 6 5-6 5\" fill=\"none\" stroke=\"#b9a6c3\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M198 145l41 -17 41 17 -41 17z\" fill=\"#f0b8bc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M198 145l41 17v7l-41 -17z\" fill=\"#bd7893\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 162l41 -17v7l-41 17z\" fill=\"#925873\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M198 126l41 -17 41 17 -41 17z\" fill=\"#a8d9e7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M198 126l41 17v7l-41 -17z\" fill=\"#6eaec4\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 143l41 -17v7l-41 17z\" fill=\"#4d7f9c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M198 107l41 -17 41 17 -41 17z\" fill=\"#ffe1a3\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M198 107l41 17v7l-41 -17z\" fill=\"#d1a46f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 124l41 -17v7l-41 17z\" fill=\"#a36e54\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M213 74v15m-4-5 4 5 4-5m48-10v15m-4-5 4 5 4-5\" fill=\"none\" stroke=\"#f6c3a1\" stroke-width=\"2.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M313 125h18m-6-5 6 5-6 5\" fill=\"none\" stroke=\"#b9a6c3\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 132l43 -19 43 19 -43 19z\" fill=\"#c7ecdb\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 132l43 19v10.5l-43 -19z\" fill=\"#76b7a7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M399 151l43 -19v10.5l-43 19z\" fill=\"#41897e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 121l43 -19 43 19 -43 19z\" fill=\"#c7ecdb\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 121l43 19v10.5l-43 -19z\" fill=\"#76b7a7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M399 140l43 -19v10.5l-43 19z\" fill=\"#41897e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 110l43 -19 43 19 -43 19z\" fill=\"#c7ecdb\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 110l43 19v10.5l-43 -19z\" fill=\"#76b7a7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M399 129l43 -19v10.5l-43 19z\" fill=\"#41897e\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 121l43 19 43 -19m-86 11l43 19 43 -19\" fill=\"none\" stroke=\"#c7ecdb\" stroke-width=\"0.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>","fusionGuided":"<ellipse cx=\"250\" cy=\"196\" rx=\"202\" ry=\"12\" fill=\"#191726\"/><path d=\"M52 153l32 -19 32 19 -32 19z\" fill=\"#f0b8bc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M52 153l32 19v6l-32 -19z\" fill=\"#bd7893\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M84 172l32 -19v6l-32 19z\" fill=\"#925873\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M56 122l32 -19 32 19 -32 19z\" fill=\"#a8d9e7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M56 122l32 19v6l-32 -19z\" fill=\"#6eaec4\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M88 141l32 -19v6l-32 19z\" fill=\"#4d7f9c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M52 91l32 -19 32 19 -32 19z\" fill=\"#ffe1a3\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M52 91l32 19v6l-32 -19z\" fill=\"#d1a46f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M84 110l32 -19v6l-32 19z\" fill=\"#a36e54\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M118 91c37 0 39 30 68 30m-68 1h68m-68 31c37 0 39-31 68-31\" fill=\"none\" stroke=\"#9d809f\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 147l49 -21 49 21 -49 21z\" fill=\"#f0b8bc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M193 147l49 21v7l-49 -21z\" fill=\"#bd7893\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M242 168l49 -21v7l-49 21z\" fill=\"#925873\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M185 128l49 -21 49 21 -49 21z\" fill=\"#a8d9e7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M185 128l49 21v7l-49 -21z\" fill=\"#6eaec4\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M234 149l49 -21v7l-49 21z\" fill=\"#4d7f9c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M177 109l49 -21 49 21 -49 21z\" fill=\"#ffe1a3\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M177 109l49 21v7l-49 -21z\" fill=\"#d1a46f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M226 130l49 -21v7l-49 21z\" fill=\"#a36e54\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M233 81v12m-4-4 4 4 4-4m15-8v12m-4-4 4 4 4-4\" fill=\"none\" stroke=\"#f5c89f\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M308 128h18m-6-5 6 5-6 5\" fill=\"none\" stroke=\"#b8a4bb\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M350 139l47 -24 47 24 -47 24z\" fill=\"#e9d0ec\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M350 139l47 24v10.5l-47 -24z\" fill=\"#ac8dbb\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M397 163l47 -24v10.5l-47 24z\" fill=\"#795c98\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M350 128l47 -24 47 24 -47 24z\" fill=\"#e9d0ec\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M350 128l47 24v10.5l-47 -24z\" fill=\"#ac8dbb\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M397 152l47 -24v10.5l-47 24z\" fill=\"#795c98\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M350 117l47 -24 47 24 -47 24z\" fill=\"#e9d0ec\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M350 117l47 24v10.5l-47 -24z\" fill=\"#ac8dbb\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M397 141l47 -24v10.5l-47 24z\" fill=\"#795c98\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M350 128l47 24 47 -24m-94 11l47 24 47 -24\" fill=\"none\" stroke=\"#e9d0ec\" stroke-width=\"0.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>","fusionPressed":"<ellipse cx=\"250\" cy=\"196\" rx=\"202\" ry=\"12\" fill=\"#191726\"/><path d=\"M60 150l35 -17 35 17 -35 17z\" fill=\"#f0b8bc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M60 150l35 17v7l-35 -17z\" fill=\"#bd7893\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M95 167l35 -17v7l-35 17z\" fill=\"#925873\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M49 121l35 -17 35 17 -35 17z\" fill=\"#a8d9e7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M49 121l35 17v7l-35 -17z\" fill=\"#6eaec4\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M84 138l35 -17v7l-35 17z\" fill=\"#4d7f9c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M60 91l35 -17 35 17 -35 17z\" fill=\"#ffe1a3\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M60 91l35 17v7l-35 -17z\" fill=\"#d1a46f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M95 108l35 -17v7l-35 17z\" fill=\"#a36e54\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M143 125h18m-6-5 6 5-6 5\" fill=\"none\" stroke=\"#baa7c0\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M190 158l49 -18 49 18 -49 18z\" fill=\"#ad8da9\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M190 158l49 18v11l-49 -18z\" fill=\"#7b5b87\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 176l49 -18v11l-49 18z\" fill=\"#644b72\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M194 143V88l9-4v55zM274 165v-57l9-4v57z\" fill=\"#9c779c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M203 140l36 -14 36 14 -36 14z\" fill=\"#f0b8bc\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M203 140l36 14v6l-36 -14z\" fill=\"#bd7893\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 154l36 -14v6l-36 14z\" fill=\"#925873\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M203 128l36 -14 36 14 -36 14z\" fill=\"#a8d9e7\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M203 128l36 14v6l-36 -14z\" fill=\"#6eaec4\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 142l36 -14v6l-36 14z\" fill=\"#4d7f9c\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M203 116l36 -14 36 14 -36 14z\" fill=\"#ffe1a3\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M203 116l36 14v6l-36 -14z\" fill=\"#d1a46f\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 130l36 -14v6l-36 14z\" fill=\"#a36e54\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M190 77l49 -18 49 18 -49 18z\" fill=\"#e9d0ec\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M190 77l49 18v16l-49 -18z\" fill=\"#ac8dbb\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M239 95l49 -18v16l-49 18z\" fill=\"#795c98\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M230 98v9m18-9v9\" fill=\"none\" stroke=\"#ffdaaa\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M311 125h18m-6-5 6 5-6 5\" fill=\"none\" stroke=\"#baa7c0\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 142l45 -18 45 18 -45 18z\" fill=\"#f2dbaf\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 142l45 18v10.5l-45 -18z\" fill=\"#c8a675\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M401 160l45 -18v10.5l-45 18z\" fill=\"#956f51\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 131l45 -18 45 18 -45 18z\" fill=\"#f2dbaf\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 131l45 18v10.5l-45 -18z\" fill=\"#c8a675\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M401 149l45 -18v10.5l-45 18z\" fill=\"#956f51\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 120l45 -18 45 18 -45 18z\" fill=\"#f2dbaf\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 120l45 18v10.5l-45 -18z\" fill=\"#c8a675\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M401 138l45 -18v10.5l-45 18z\" fill=\"#956f51\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M356 131l45 18 45 -18m-90 11l45 18 45 -18\" fill=\"none\" stroke=\"#f2dbaf\" stroke-width=\"0.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"});
+  factoryDescriptions.fusionSystem = "Three different source layers align and become a green layered module that fits into a matching open corner of a larger cube.";
+  marks.fusionSystem = "<ellipse cx=\"251\" cy=\"203\" rx=\"196\" ry=\"11\" fill=\"#191726\"/><path d=\"M48 153l35 -15 35 15 -35 15z\" fill=\"#f0b8bc\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M48 153l35 15v7l-35 -15z\" fill=\"#bd7893\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M83 168l35 -15v7l-35 15z\" fill=\"#925873\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M59 122l35 -15 35 15 -35 15z\" fill=\"#a8d9e7\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M59 122l35 15v7l-35 -15z\" fill=\"#6eaec4\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M94 137l35 -15v7l-35 15z\" fill=\"#4d7f9c\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M48 91l35 -15 35 15 -35 15z\" fill=\"#ffe1a3\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M48 91l35 15v7l-35 -15z\" fill=\"#d1a46f\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M83 106l35 -15v7l-35 15z\" fill=\"#a36e54\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M143 132h17m-5-5 5 5-5 5\" fill=\"none\" stroke=\"#bfacc5\" stroke-width=\"2.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M188 153l39 -17 39 17 -39 17z\" fill=\"#f0b8bc\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M188 153l39 17v7l-39 -17z\" fill=\"#bd7893\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M227 170l39 -17v7l-39 17z\" fill=\"#925873\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M188 136l39 -17 39 17 -39 17z\" fill=\"#a8d9e7\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M188 136l39 17v7l-39 -17z\" fill=\"#6eaec4\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M227 153l39 -17v7l-39 17z\" fill=\"#4d7f9c\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M188 119l39 -17 39 17 -39 17z\" fill=\"#ffe1a3\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M188 119l39 17v7l-39 -17z\" fill=\"#d1a46f\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M227 136l39 -17v7l-39 17z\" fill=\"#a36e54\" stroke=\"none\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M207 85v14m-4-5 4 5 4-5m35-9v14m-4-5 4 5 4-5\" fill=\"none\" stroke=\"#f7c99e\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M280 132h17m-5-5 5 5-5 5\" fill=\"none\" stroke=\"#bfacc5\" stroke-width=\"2.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 142l26 -13 26 13 -26 13z\" fill=\"#8b829b\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 142l26 13v26l-26 -13z\" fill=\"#625978\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M379 155l26 -13v26l-26 13z\" fill=\"#4b4664\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M379 155l26 -13 26 13 -26 13z\" fill=\"#8b829b\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M379 155l26 13v26l-26 -13z\" fill=\"#625978\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M405 168l26 -13v26l-26 13z\" fill=\"#4b4664\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M327 155l26 -13 26 13 -26 13z\" fill=\"#8b829b\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M327 155l26 13v26l-26 -13z\" fill=\"#625978\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 168l26 -13v26l-26 13z\" fill=\"#4b4664\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 168l26 -13 26 13 -26 13z\" fill=\"#8b829b\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 168l26 13v26l-26 -13z\" fill=\"#625978\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M379 181l26 -13v26l-26 13z\" fill=\"#4b4664\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 116l26 -13 26 13 -26 13z\" fill=\"#8b829b\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 116l26 13v26l-26 -13z\" fill=\"#625978\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M379 129l26 -13v26l-26 13z\" fill=\"#4b4664\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M379 129l26 -13 26 13 -26 13z\" fill=\"#8b829b\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M379 129l26 13v26l-26 -13z\" fill=\"#625978\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M405 142l26 -13v26l-26 13z\" fill=\"#4b4664\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M327 129l26 -13 26 13 -26 13z\" fill=\"#8b829b\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M327 129l26 13v26l-26 -13z\" fill=\"#625978\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 142l26 -13v26l-26 13z\" fill=\"#4b4664\" stroke=\"#312d43\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 168l26-13 26 13-26 13Z\" fill=\"#3d5962\" stroke=\"#a7d9c8\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"4 3\"/><path d=\"M353 128v38m52-38v38m-26-27v40\" fill=\"none\" stroke=\"#a3d1c2\" stroke-width=\"1.35\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"4 4\" opacity=\".65\"/><path d=\"M353 100l26 -13 26 13 -26 13z\" fill=\"#cbf0dc\" stroke=\"#345c5d\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 100l26 13v26l-26 -13z\" fill=\"#80beaa\" stroke=\"#345c5d\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M379 113l26 -13v26l-26 13z\" fill=\"#498d81\" stroke=\"#345c5d\" stroke-width=\"0.95\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><path d=\"M353 109l26 13 26-13m-52 9l26 13 26-13\" fill=\"none\" stroke=\"#d2ead5\" stroke-width=\"1.35\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />";
+  marks.tableChart = "<defs><linearGradient id=\"tablefold-SCOPE\" x2=\"100%\" y2=\"100%\"><stop stop-color=\"#b9eadb\"/><stop offset=\"1\" stop-color=\"#4f978c\"/></linearGradient><linearGradient id=\"chartfold-SCOPE\" x2=\"100%\" y2=\"100%\"><stop stop-color=\"#595073\"/><stop offset=\"1\" stop-color=\"#342d4e\"/></linearGradient><linearGradient id=\"barfold-SCOPE\" x2=\"0%\" y2=\"100%\"><stop stop-color=\"#f7ccb3\"/><stop offset=\"1\" stop-color=\"#cd88a6\"/></linearGradient></defs>\n<ellipse cx=\"218\" cy=\"191\" rx=\"187\" ry=\"19\" fill=\"#171522\" opacity=\".8\"/>\n<path d=\"M42 135v9l182 46 169-31v-9l-169 30z\" fill=\"#2d5f61\"/>\n<path d=\"M42 135 92 85l132 28v67Z\" fill=\"url(#tablefold-SCOPE)\" stroke=\"#b2e4d7\" stroke-width=\"1.7\" stroke-linejoin=\"round\"/>\n<path d=\"m92 85 132 28v15L81 96Z\" fill=\"#d4f3dd\" opacity=\".7\"/>\n<g stroke=\"#276b67\" stroke-width=\"1.7\" fill=\"none\" opacity=\".89\"><path d=\"M78.4 144.0L118.4 90.6\"/><path d=\"M114.8 153.0L144.8 96.2\"/><path d=\"M151.2 162.0L171.2 101.8\"/><path d=\"M187.6 171.0L197.6 107.4\"/><path d=\"M54.5 122.5L224.0 163.3\"/><path d=\"M67.0 110.0L224.0 146.5\"/><path d=\"M79.5 97.5L224.0 129.8\"/></g>\n<path d=\"M224 65 385 40l8 6v113L224 190Z\" fill=\"#231d3a\"/>\n<path d=\"M224 65 385 40v110l-161 30z\" fill=\"url(#chartfold-SCOPE)\" stroke=\"#bf9bc4\" stroke-width=\"1.7\" stroke-linejoin=\"round\"/>\n<g transform=\"matrix(1 -.166 0 1 224 65)\">\n<path d=\"M21 23v65h119m-117-44h116m-116 20h116\" fill=\"none\" stroke=\"#a095b8\" stroke-width=\"1.6\" opacity=\".8\" stroke-linecap=\"round\"/>\n<rect x=\"34\" y=\"59\" width=\"21\" height=\"28\" rx=\"3\" fill=\"#81c6b6\"/>\n<rect x=\"66\" y=\"46\" width=\"21\" height=\"41\" rx=\"3\" fill=\"#b8b2e2\"/>\n<rect x=\"98\" y=\"25\" width=\"21\" height=\"62\" rx=\"3\" fill=\"url(#barfold-SCOPE)\"/>\n<path d=\"m44 50 31-14 34-20\" fill=\"none\" stroke=\"#ffdeaa\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<circle cx=\"109\" cy=\"16\" r=\"3.8\" fill=\"#ffdeaa\"/>\n</g>\n<path d=\"M224 66v113\" fill=\"none\" stroke=\"#ffdaac\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n<path d=\"m193 156 12 3-7-8\" fill=\"none\" stroke=\"#fce2b4\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>";
+  const svg = (key, scope = "sample") => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="' + (key === "insightCube" ? "0 0 96 96" : key === "fusionSystem" ? "35 56 422 163" : key === "tableChart" ? "26 26 386 190" : factoryDescriptions[key] ? "32 56 430 150" : etlKeys.has(key) ? "0 0 440 270" : key === "consolidation" ? "0 0 64 50" : "0 0 36 36") + '" aria-hidden="true" focusable="false">' + marks[key].replaceAll('SCOPE', scope) + '</svg>';
+  for (const btn of logoButtons) {
+    const key = btn.dataset.mark;
+    if (marks[key]) btn.querySelector(".logo-tile").innerHTML = svg(key);
+    btn.addEventListener("click", () => {
+      for (const candidate of logoButtons) candidate.setAttribute("aria-pressed", String(candidate === btn));
+      brandMark.classList.toggle("custom-logo", !!marks[key]);
+      brandMark.classList.toggle("insight-sample", key === "insightCube");
+      const standalone = key === "notebook";
+      const factoryDescription = key === "tableChart" ? "A data grid folds up into a three-bar chart." : factoryDescriptions[key];
+      const isETL = etlKeys.has(key) || !!factoryDescription;
+      const showHeroMark = key === "story" || key === "consolidation" || isETL;
+      portfolioHero.classList.toggle("etl-hero", isETL);
+      portfolioHero.classList.toggle("story-hero", showHeroMark);
+      heroLogoArt.innerHTML = showHeroMark ? svg(key, "hero") : "";
+      heroLogoArt.toggleAttribute("aria-hidden", !isETL);
+      if (isETL) {
+        heroLogoArt.setAttribute("role", "img");
+        heroLogoArt.setAttribute("aria-label", factoryDescription || "Extract from several sources, transform the data, and load it into usable outputs");
+      } else {
+        heroLogoArt.removeAttribute("role");
+        heroLogoArt.removeAttribute("aria-label");
+      }
+      brandLink.classList.toggle("story-brand", standalone);
+      if (standalone) brandLink.setAttribute("aria-label", "Ahmad Ahmad");
+      else brandLink.removeAttribute("aria-label");
+      brandMark.innerHTML = marks[key] && !showHeroMark ? svg(key, "brand") : "AA";
+      document.querySelector(".logo-status").textContent = "Showing: " + btn.lastChild.textContent.trim();
+    });
+  }
+  logoButtons.find(btn => btn.dataset.mark === "insightCube").click();
+  const backParams = new URLSearchParams({layout:"2"});
+  if (previewParams.has("v")) backParams.set("v",previewParams.get("v"));
+  document.getElementById("logo-back").href = "?" + backParams.toString() + "#work";
+}
+const logoLink = document.querySelector('.preview-controls a[href*="view=logos"]');
+if (previewParams.has("v")) logoLink.href = "?layout=2&view=logos&v=" + encodeURIComponent(previewParams.get("v"));
+const card = document.querySelector(".preview-feature");
+const image = card.querySelector(".preview-art");
+if (optionTwo) {
+  card.dataset.layout = "split";
+  card.querySelector(".project-text").prepend(image);
+  const caseLink = document.createElement("a");
+  caseLink.className = "btn case-preview-btn";
+  const caseParams = new URLSearchParams({layout: "2", view: "project"});
+  if (previewParams.has("v")) caseParams.set("v", previewParams.get("v"));
+  caseLink.href = "?" + caseParams.toString();
+  caseLink.textContent = "View project overview";
+  const repoLink = card.querySelector(".project-text .action");
+  const externalIndicator = repoLink.querySelector("[aria-hidden]");
+  repoLink.replaceChildren(document.createTextNode("View code on GitHub "), externalIndicator);
+  const actions = document.createElement("div");
+  actions.className = "case-card-actions";
+  repoLink.before(actions);
+  actions.append(caseLink, repoLink);
+  const walkthrough = ["The pipeline picks up the daily extract.","It stages the batch in Azure SQL.","It merges new and updated records into the target table.","It saves the latest timestamp from the batch so the next run can find records that changed after that point."];
+  const comparison = document.createElement("a");
+  comparison.className = "walkthrough-choice";
+  const comparisonParams = new URLSearchParams(previewParams);
+  comparisonParams.delete("view");
+  if (trialSequence) comparisonParams.delete("sequence");
+  else comparisonParams.set("sequence", "trial");
+  comparison.href = "?" + comparisonParams.toString() + "#work";
+  comparison.textContent = trialSequence ? "Back to original sequence" : "Try alternate sequence";
+  card.querySelector(".diagram-label").after(comparison);
+  if (trialSequence) {
+    const revised = [
+      walkthrough[0],
+      "It uses the saved modification date to find changed rows, writes them to Data Lake Storage, and saves the latest modification date.",
+      walkthrough[1],
+      walkthrough[2]
+    ];
+    walkthrough.splice(0, walkthrough.length, ...revised);
+    card.querySelector(".project-text .desc").textContent = "I built a pipeline that processes new and changed records from daily extracts instead of reloading the entire dataset. It uses a saved modification date to find changes and merges them into Azure SQL.";
+    card.querySelector(".diagram figcaption").textContent = "The saved date tells the next extract where to start.";
+  }
+  const iconOrder = trialSequence ? [0,3,1,2] : [0,1,2,3];
+  card.querySelectorAll(".diagram .steps li").forEach((step, i) => {
+    if (!walkthrough[i]) return;
+    const badge = step.querySelector("b");
+    const icon = document.getElementById("azure-step-icons").content.children[iconOrder[i]];
+    if (icon) badge.replaceChildren(icon.cloneNode(true));
+    step.replaceChildren(badge, document.createTextNode(" " + walkthrough[i]));
+  });
+}
+document.getElementById(portfolioPreviewView === "catalog" ? "preview-catalog" : optionTwo ? "preview-two" : "preview-one").setAttribute("aria-current", "page");
+if (portfolioPreviewView === "catalog") {
+  document.querySelector('.hero .nav a[href="#work"]').href = "#project-list";
+  const themeButtons = [...document.querySelectorAll(".theme-picker button")];
+  const themeKeys = new Set(themeButtons.map(b => b.dataset.themeChoice));
+  function setPortfolioTheme(key, updateUrl) {
+    if (!themeKeys.has(key)) key = "plum";
+    if (key === "plum") delete document.documentElement.dataset.portfolioTheme;
+    else document.documentElement.dataset.portfolioTheme = key;
+    for (const b of themeButtons) b.setAttribute("aria-pressed",String(b.dataset.themeChoice===key));
+    if (updateUrl) {
+      const url = new URL(location.href);
+      if (key === "plum") url.searchParams.delete("theme");
+      else url.searchParams.set("theme",key);
+      history.replaceState(history.state,"",url);
+    }
+  }
+  for (const b of themeButtons) b.addEventListener("click",() => setPortfolioTheme(b.dataset.themeChoice,true));
+  setPortfolioTheme(previewParams.get("theme"),false);
+  const startLinks = document.getElementById("portfolio-start");
+  const startButtons = [...document.querySelectorAll("[data-start-placement]")];
+  function setStartPlacement(value,updateUrl=false) {
+    const placement = value === "work" ? "work" : "hero";
+    if (placement === "work") document.getElementById("project-list").after(startLinks);
+    else document.querySelector(".catalog-hero-copy > .hero-links").before(startLinks);
+    startLinks.hidden = false;
+    for (const b of startButtons) b.setAttribute("aria-pressed",String(b.dataset.startPlacement===placement));
+    if (updateUrl) {
+      const url = new URL(location.href);
+      url.searchParams.set("start",placement);
+      history.replaceState(history.state,"",url);
+    }
+  }
+  for (const b of startButtons) b.addEventListener("click",()=>setStartPlacement(b.dataset.startPlacement,true));
+  setStartPlacement(previewParams.get("start"));
+  const reportFrame = document.createElement("iframe");
+  const viewer = document.getElementById("report-viewer");
+  const reportLink = document.querySelector(".report-full-link");
+  const intro = document.querySelector(".report-intro");
+  const rail = document.querySelector(".report-swipe");
+  const slideTitle = rail.querySelector(".report-slide-title");
+  const slideCount = rail.querySelector(".report-slide-count");
+  const carousel = document.querySelector(".report-carousel");
+  const dots = [...carousel.querySelectorAll("[data-report-index]")];
+  const reports = [
+    {label:"Bakery waste",title:"Bakery waste and sell-through",description:"Explore waste and sell-through by bakery item.",url:reportLink.href},
+    {label:"Claims denials",title:"Claims denials by payer",description:"Compare denial reasons across payers.",url:"https://app.powerbi.com/view?r=eyJrIjoiM2I2Yzc2NDItYjc3Yy00YjgzLTgxOTctYmQwNTVlYzI0NjliIiwidCI6IjEyMjE5NjdiLTA3ZDgtNDU4NS1hMzAyLTMwMTUzYzk0ZDdkZCJ9"}
+  ];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let activeReport = -1, changeTimer, revealTimer;
+  const reportDialog = document.getElementById("report-modal");
+  const modalTrigger = document.getElementById("start-report");
+  const modalClose = document.getElementById("report-modal-close");
+  const modalFrameSlot = reportDialog.querySelector(".report-modal-frame");
+  const modalFull = reportDialog.querySelector(".report-modal-full");
+  const modalChoices = [...reportDialog.querySelectorAll("[data-modal-report]")];
+  const modalStage = reportDialog.querySelector(".report-modal-stage");
+  const modalLoader = reportDialog.querySelector(".report-modal-loader");
+  let modalReport = -1, modalRevealTimer;
+  function setModalLoading(loading) {
+    modalStage.classList.toggle("is-loading",loading);
+    modalFrameSlot.inert = loading;
+    modalFrameSlot.setAttribute("aria-busy",String(loading));
+    modalLoader.hidden = !loading;
+  }
+  function showModalReport(i) {
+    const report = reports[i];
+    if (!report || modalReport === i) return;
+    modalReport = i;
+    for (const b of modalChoices) b.setAttribute("aria-pressed",String(Number(b.dataset.modalReport)===i));
+    const frame = document.createElement("iframe");
+    frame.title = "Interactive Power BI report: " + report.title;
+    frame.src = report.url;
+    frame.allowFullscreen = true;
+    modalFrameSlot.replaceChildren(frame);
+    modalFull.href = report.url;
+    modalFull.setAttribute("aria-label","Open in new tab: " + report.title);
+  }
+  if (typeof reportDialog.showModal === "function") {
+    modalTrigger.setAttribute("aria-haspopup","dialog");
+    modalTrigger.setAttribute("aria-controls","report-modal");
+    modalTrigger.addEventListener("click",(e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      reportDialog.showModal();
+      window.clearTimeout(modalRevealTimer);
+      setModalLoading(true);
+      showModalReport(activeReport < 0 ? 0 : activeReport);
+      modalRevealTimer = window.setTimeout(() => { if (reportDialog.open) setModalLoading(false); }, 3000);
+    });
+    modalClose.addEventListener("click",() => reportDialog.close());
+    for (const b of modalChoices) b.addEventListener("click",() => showModalReport(Number(b.dataset.modalReport)));
+    reportDialog.addEventListener("close",() => {
+      window.clearTimeout(modalRevealTimer);
+      setModalLoading(false);
+      modalFrameSlot.replaceChildren();
+      modalReport = -1;
+      modalTrigger.focus({preventScroll:true});
+    });
+  }
+  reportFrame.allowFullscreen = true;
+  reportFrame.loading = "lazy";
+  reportFrame.addEventListener("load", () => {
+    if (!changeTimer) {
+      window.clearTimeout(revealTimer);
+      viewer.classList.remove("is-changing");
+    }
+  });
+  function selectReport(i) {
+    const report = reports[i];
+    if (!report || i === activeReport) return;
+    const useFade = activeReport !== -1 && !reducedMotion.matches;
+    activeReport = i;
+    dots.forEach((button,index) => button.setAttribute("aria-pressed",String(index===i)));
+    slideCount.textContent = String(i+1).padStart(2,"0") + " / " + String(reports.length).padStart(2,"0");
+    slideTitle.textContent = report.label;
+    reportLink.href = report.url;
+    reportLink.setAttribute("aria-label","Open full-size report: " + report.title + " (opens in a new tab)");
+    intro.textContent = report.description;
+    window.clearTimeout(changeTimer);
+    window.clearTimeout(revealTimer);
+    const navigate = () => {
+      changeTimer = null;
+      reportFrame.title = "Interactive Power BI report: " + report.title;
+      if (reportFrame.getAttribute("src") === report.url) {
+        viewer.classList.remove("is-changing");
+        return;
+      }
+      reportFrame.src = report.url;
+      if (useFade) revealTimer = window.setTimeout(() => viewer.classList.remove("is-changing"),4000);
+    };
+    viewer.classList.toggle("is-changing",useFade);
+    if (useFade) changeTimer = window.setTimeout(navigate,180);
+    else navigate();
+  }
+  const stepReport = direction => selectReport((activeReport+direction+reports.length)%reports.length);
+  for (const button of carousel.querySelectorAll("button")) {
+    button.setAttribute("aria-controls","report-viewer");
+    button.addEventListener("click", () => button.hasAttribute("data-report-index") ? selectReport(Number(button.dataset.reportIndex)) : stepReport(Number(button.dataset.reportStep)));
+  }
+  carousel.addEventListener("keydown", event => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    stepReport(event.key === "ArrowRight" ? 1 : -1);
+  });
+  let start = null;
+  rail.addEventListener("pointerdown", event => {
+    if (!event.isPrimary || event.button !== 0) return;
+    start = {id:event.pointerId,x:event.clientX,y:event.clientY};
+    rail.setPointerCapture(event.pointerId);
+  });
+  rail.addEventListener("pointerup", event => {
+    if (!start || event.pointerId !== start.id) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    start = null;
+    if (Math.abs(dx) >= 30 && Math.abs(dx)>Math.abs(dy)*1.45) stepReport(dx < 0 ? 1 : -1);
+  });
+  rail.addEventListener("pointercancel", () => { start = null; });
+  selectReport(0);
+  viewer.append(reportFrame);
+  const work = document.getElementById("work");
+  const featured = work.querySelector(".preview-feature");
+  const more = work.querySelector('section[aria-labelledby="github-projects"]');
+  const embedding = work.querySelector('article[aria-labelledby="rls"]');
+  embedding.classList.add("catalog-card","net-catalog-card");
+  embedding.querySelector(".kicker").textContent = "Secure embedding design";
+  const netTags = document.createElement("ul");
+  netTags.className = "tags";
+  netTags.setAttribute("aria-label","Technologies");
+  for (const label of [".NET","Power BI","Row-level security"]) {
+    const item = document.createElement("li");
+    item.textContent = label;
+    netTags.append(item);
+  }
+  embedding.querySelector(".note").before(netTags);
+  more.querySelector(".catalog-grid").append(embedding);
+  document.getElementById("catalog-note-label").remove();
+  work.querySelector(".secondary").hidden = true;
+  const cards = [featured, ...more.querySelectorAll(".catalog-card")];
+  const keyFor = label => label === "ADLS Gen2" ? "Data Lake Storage" : label === "Power BI project" ? "Power BI" : label.trim();
+  const tagCounts = new Map();
+  const selectedTags = new Map();
+  const projectTags = cards.map(project => {
+    const buttons = [];
+    const keys = new Set();
+    for (const item of project.querySelectorAll(".tags li")) {
+      const label = item.textContent.trim();
+      const key = keyFor(label);
+      keys.add(key);
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "catalog-chip";
+      button.textContent = label;
+      button.setAttribute("aria-label", "Filter projects by " + label);
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        setFilter(activeTag === key ? "" : key);
+        (selectedTags.get(activeTag) || selectedTags.get("")).focus({preventScroll:true});
+        filter.scrollIntoView({block:"nearest"});
+      });
+      item.replaceChildren(button);
+      buttons.push({button,key});
+    }
+    for (const key of keys) tagCounts.set(key, (tagCounts.get(key) || 0) + 1);
+    return {project,keys,buttons};
+  });
+  const filter = document.createElement("section");
+  filter.className = "catalog-filter";
+  filter.setAttribute("aria-labelledby","catalog-filter-title");
+  filter.innerHTML = '<div class="catalog-filter-heading"><h3 id="catalog-filter-title">Filter projects by technology</h3><p class="catalog-filter-status" role="status"></p></div><div class="catalog-filter-controls" role="group" aria-label="Project filters"></div>';
+  const status = filter.querySelector("[role=status]");
+  const controls = filter.querySelector(".catalog-filter-controls");
+  for (const [key,label] of [["","All projects"],...[...tagCounts.keys()].sort((a,b)=>a.localeCompare(b)).map(key=>[key,key])]) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "catalog-chip";
+    button.textContent = label;
+    button.addEventListener("click", () => setFilter(activeTag === key ? "" : key));
+    controls.append(button);
+    selectedTags.set(key,button);
+  }
+  featured.before(filter);
+  const workLayout = document.createElement("div");
+  workLayout.className = "catalog-work-layout";
+  const projectColumn = document.createElement("div");
+  projectColumn.className = "catalog-project-column";
+  featured.before(workLayout);
+  workLayout.append(projectColumn,document.getElementById("portfolio-report"));
+  projectColumn.append(featured,more);
+  let activeTag = "";
+  function setFilter(key) {
+    activeTag = key;
+    let matches = 0;
+    let moreMatches = 0;
+    for (const {project,keys,buttons} of projectTags) {
+      const visible = !key || keys.has(key);
+      project.hidden = !visible;
+      if (visible) {
+        matches++;
+        if (project !== featured) moreMatches++;
+      }
+      for (const pair of buttons) pair.button.setAttribute("aria-pressed",String(pair.key === key));
+    }
+    more.hidden = moreMatches === 0;
+    more.querySelector(".catalog-title .meta").textContent = moreMatches + (moreMatches === 1 ? " project" : " projects");
+    for (const [tag,btn] of selectedTags) btn.setAttribute("aria-pressed",String(tag === key));
+    status.textContent = key ? ("Showing " + matches + " of " + cards.length + " projects · " + key) : ("Showing all " + cards.length + " projects");
+  }
+  setFilter("");
+  document.getElementById("start-azure").addEventListener("click", () => {
+    if (featured.hidden) setFilter("");
+  });
+}
+
+if (portfolioPreviewView === "catalog") {
+  const form = document.getElementById("contact-form");
+  const fields = form.querySelector("fieldset");
+  const button = document.getElementById("contact-submit");
+  const status = document.getElementById("contact-status");
+  const endpoint = form.dataset.formspreeEndpoint;
+  const live = /^https:\/\/formspree\.io\/f\/[a-z0-9]+$/.test(endpoint);
+  form.addEventListener("input", () => {
+    if (!button.disabled) status.textContent = "";
+  });
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (button.disabled) return;
+    const data = new FormData(form);
+    if (!String(data.get("name") || "").trim() || !String(data.get("message") || "").trim()) {
+      status.textContent = "Please enter your name and a message.";
+      return;
+    }
+    if (!live) {
+      status.textContent = "Preview test passed. Nothing was sent.";
+      return;
+    }
+    button.disabled = true;
+    status.textContent = "Sending…";
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(endpoint, {method:"POST",body:data,headers:{Accept:"application/json"},signal:controller.signal});
+      if (!response.ok) throw new Error("The form service did not accept the message.");
+      form.reset();
+      status.textContent = "Message sent. Thanks for reaching out.";
+    } catch {
+      status.textContent = "Couldn’t confirm delivery. Your message is still here. Try again or use LinkedIn.";
+    } finally {
+      clearTimeout(timeout);
+      button.disabled = false;
+    }
+  });
+  if (live) {
+    form.action = endpoint;
+    form.elements.name.autocomplete = "name";
+    form.elements.email.autocomplete = "email";
+    document.getElementById("contact-note").textContent = "Formspree processes your message. Please don’t include sensitive information.";
+    button.textContent = "Send message";
+  } else {
+    form.autocomplete = "off";
+  }
+  fields.disabled = false;
+}
+</script><div id="case-study">
+<header class="hero case-hero"><div class="wrap"><div class="top"><a class="case-back" href="?layout=2#work"><svg class="insight-brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><g stroke-width="2" stroke-linejoin="round"><path d="m48 7 35 20-35 20-35-20Z" fill="#deefff" stroke="#deefff"/><path d="m13 32 32 18v37L13 69Z" fill="#85acd9" stroke="#85acd9"/><path d="m52 51 32-19v37L52 88Z" fill="#315978" stroke="#315978"/><path d="m58 67 5-3v10l-5 3Zm8-10 5-3v15l-5 3Zm8-10 5-3v21l-5 3Z" fill="#75ddf1"/><path d="m20 44 17 10m-17-2 17 10m-17-2 17 10" stroke="#243e64" stroke-width="3" stroke-linecap="round"/></g></svg><span>← Back to portfolio preview</span></a><span class="meta case-preview-label">Case study preview</span></div>
+<div class="hero-copy"><p class="kicker">Azure data engineering</p><h1>Azure incremental-load pipeline</h1><p class="intro">A daily pipeline that processes new and changed records without reloading the entire dataset.</p></div></div></header>
+<main class="wrap case-main">
+<div class="case-grid">
+<section class="card"><p class="kicker">The problem</p><h2>Most records don’t change</h2><p class="desc">Daily extracts can contain many of the same records. A full reload would process the entire dataset each time, even when only a small share has changed.</p></section>
+<section class="card"><p class="kicker">Load only new or changed records</p><h2>Merge just the changes</h2><p class="desc">I built a pipeline with Azure Data Factory, Data Lake Storage, and Azure SQL. It stages each batch and merges new or updated records into the target table without rebuilding it.</p></section>
+</div>
+<section class="card" id="pipeline-steps" aria-labelledby="pipeline-steps-title"><p class="kicker">The daily run</p><h2 id="pipeline-steps-title">How the pipeline works</h2><ol class="case-steps"><li><span class="case-num" aria-hidden="true">01</span><div><span class="case-step-title">The pipeline picks up the daily extract.</span><p class="case-step-detail">Azure Data Factory reads the daily CSV and writes the changed rows to Data Lake Storage as Parquet files.</p></div></li><li><span class="case-num" aria-hidden="true">02</span><div><span class="case-step-title">It stages the batch in Azure SQL.</span><p class="case-step-detail">It loads those files into a staging table before updating the target table.</p></div></li><li><span class="case-num" aria-hidden="true">03</span><div><span class="case-step-title">It merges new and updated records into the target table.</span><p class="case-step-detail">The merge inserts new records and updates matching ones without reloading the whole table.</p></div></li><li><span class="case-num" aria-hidden="true">04</span><div><span class="case-step-title">It saves the latest timestamp from the batch so the next run can find records that changed after that point.</span><p class="case-step-detail">During extraction, the pipeline records the latest modification date as the starting point for the next extract.</p></div></li></ol></section>
+<div class="case-cta"><a class="btn case-link" href="https://github.com/ahmadaahmad/azure-incremental-load-adf-architecture#readme">View the code and technical walkthrough on GitHub <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a></div>
+</main></div>
+</body>
+</html>
