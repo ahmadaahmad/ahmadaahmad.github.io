@@ -320,7 +320,11 @@ body:has(>.report-modal[open]){overflow:hidden}
 .report-modal-loader[hidden]{display:none}
 .report-modal-spinner{width:33px;height:33px;box-sizing:border-box;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:report-preview-spin .85s linear infinite}
 @keyframes report-preview-spin{to{transform:rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){.report-modal-spinner{animation:none}}
+.report-loader-credit{display:grid;justify-items:center;gap:2px;margin:10px 0 0;padding-top:12px;border-top:1px solid var(--line)}
+.report-loader-credit span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;animation:report-credit-in .42s ease-out .16s both}
+.report-loader-credit strong{font-size:clamp(1rem,3vw,1.25rem);font-weight:750;letter-spacing:.015em;animation:report-credit-in .55s ease-out .52s both}
+@keyframes report-credit-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.report-modal-spinner,.report-loader-credit span,.report-loader-credit strong{animation:none}}
 .report-modal-frame iframe{display:block;width:100%;border:0;height:clamp(235px,60vh,660px);height:clamp(235px,60dvh,660px)}
 @media(max-width:540px){.report-modal{width:calc(100% - 16px);max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px);padding:13px}.report-modal button{min-height:44px}.report-modal-toolbar{margin-top:10px}.report-modal-frame iframe{height:clamp(235px,58dvh,440px)}}
 
@@ -621,7 +625,7 @@ html[data-catalog] .hero .nav .portfolio-share-trigger{font-family:inherit;font-
   </div>
   <div class="report-modal-stage">
     <div class="report-modal-frame"></div>
-    <div class="report-modal-loader" role="status" hidden><span class="report-modal-spinner" aria-hidden="true"></span><span>Opening report…</span></div>
+    <div class="report-modal-loader" role="status" hidden><span class="report-modal-spinner" aria-hidden="true"></span><span>Opening report…</span><p class="report-loader-credit"><span>Created by</span><strong>Ahmad Ahmad</strong></p></div>
   </div>
 </dialog>
 
