@@ -592,6 +592,7 @@ html[data-catalog] .hero .nav .portfolio-share-trigger{font-family:inherit;font-
         </div>
         <label>Message<textarea name="message" maxlength="2000" rows="4" required></textarea></label>
         <p class="contact-note" id="contact-note">Preview only. Use sample details. Nothing will be sent.</p>
+        <div id="contact-captcha" hidden></div>
         <button type="submit" id="contact-submit">Test message</button>
         <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
       </fieldset>
@@ -1048,7 +1049,8 @@ if (portfolioPreviewView === "catalog") {
   const button = document.getElementById("contact-submit");
   const status = document.getElementById("contact-status");
   const endpoint = form.dataset.formspreeEndpoint;
-  const live = /^https:\/\/formspree\.io\/f\/[a-z0-9]+$/.test(endpoint);
+  const captchaPreview = portfolioPreviewParams.get("captcha") === "preview";
+  const live = !captchaPreview && /^https:\/\/formspree\.io\/f\/[a-z0-9]+$/.test(endpoint);
   form.addEventListener("input", () => {
     if (!button.disabled) status.textContent = "";
   });
@@ -1058,6 +1060,12 @@ if (portfolioPreviewView === "catalog") {
     const data = new FormData(form);
     if (!String(data.get("name") || "").trim() || !String(data.get("message") || "").trim()) {
       status.textContent = "Please enter your name and a message.";
+      return;
+    }
+    if (captchaPreview) {
+      status.textContent = data.get("g-recaptcha-response")
+        ? "Checkbox completed. No message was sent."
+        : "Complete the reCAPTCHA checkbox first.";
       return;
     }
     if (!live) {
@@ -1088,6 +1096,38 @@ if (portfolioPreviewView === "catalog") {
     button.textContent = "Send message";
   } else {
     form.autocomplete = "off";
+  }
+  if (captchaPreview) {
+    const widget = document.getElementById("contact-captcha");
+    widget.hidden = false;
+    document.getElementById("contact-note").textContent = "Checkbox preview only. Use sample details. Nothing is sent.";
+    button.textContent = "Test checkbox";
+    button.disabled = true;
+    const unavailable = () => {
+      button.disabled = true;
+      status.textContent = "Couldn’t load reCAPTCHA. Check your connection or refresh the page.";
+    };
+    window.renderPortfolioCaptcha = () => {
+      try {
+        grecaptcha.render(widget, {
+          sitekey: "6LfA-TUuAAAAAAS8C6od9Dcoa85NMqhIkiCo2eKg",
+          size: widget.clientWidth < 304 ? "compact" : "normal",
+          callback: () => { button.disabled = false; status.textContent = ""; },
+          "expired-callback": () => {
+            button.disabled = true;
+            status.textContent = "Verification expired. Check the box again.";
+          },
+          "error-callback": unavailable
+        });
+      } catch {
+        unavailable();
+      }
+    };
+    const script = document.createElement("script");
+    script.src = "https://www.google.com/recaptcha/api.js?onload=renderPortfolioCaptcha&render=explicit";
+    script.async = true;
+    script.onerror = unavailable;
+    document.head.appendChild(script);
   }
   fields.disabled = false;
 }
