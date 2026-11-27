@@ -609,7 +609,7 @@ html[data-catalog] .hero .nav .portfolio-share-trigger{font-family:inherit;font-
       <button type="button" data-modal-report="0" aria-pressed="true">Bakery waste</button>
       <button type="button" data-modal-report="1" aria-pressed="false">Claims denials</button>
     </div>
-    <a class="report-modal-full" target="_blank" rel="noopener noreferrer">Open full-size report <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+    <a class="report-modal-full" target="_blank" rel="noopener noreferrer">Open in new tab <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
   </div>
   <div class="report-modal-frame"></div>
 </dialog>
@@ -868,7 +868,7 @@ if (portfolioPreviewView === "catalog") {
     frame.allowFullscreen = true;
     modalFrameSlot.replaceChildren(frame);
     modalFull.href = report.url;
-    modalFull.setAttribute("aria-label","Open full-size report: " + report.title + " (opens in a new tab)");
+    modalFull.setAttribute("aria-label","Open in new tab: " + report.title);
   }
   if (typeof reportDialog.showModal === "function") {
     modalTrigger.setAttribute("aria-haspopup","dialog");
