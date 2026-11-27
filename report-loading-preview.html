@@ -320,11 +320,13 @@ body:has(>.report-modal[open]){overflow:hidden}
 .report-modal-loader[hidden]{display:none}
 .report-modal-spinner{width:33px;height:33px;box-sizing:border-box;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:report-preview-spin .85s linear infinite}
 @keyframes report-preview-spin{to{transform:rotate(360deg)}}
-.report-loader-credit{display:grid;justify-items:center;gap:2px;margin:10px 0 0;padding-top:12px;border-top:1px solid var(--line)}
-.report-loader-credit span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;animation:report-credit-in .42s ease-out .16s both}
-.report-loader-credit strong{font-size:clamp(1rem,3vw,1.25rem);font-weight:750;letter-spacing:.015em;animation:report-credit-in .55s ease-out .52s both}
+.report-loader-credit{display:grid;justify-items:center;gap:4px;min-width:158px;margin:7px 0 0;padding:12px 18px 13px;border:1px solid #294861;border-radius:8px;background:linear-gradient(145deg,#101e30,#111928);color:#f1f8ff;box-shadow:0 0 23px #56b9ed14}
+.report-loader-credit span{color:#9ce4fb;font:650 .7rem/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.13em;text-transform:uppercase;animation:report-credit-in .42s ease-out .16s both}
+.report-loader-credit strong{font:700 clamp(1rem,3vw,1.18rem)/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.025em;animation:report-credit-in .55s ease-out .52s both}
+.report-loader-credit::after{content:"";width:46px;height:2px;margin-top:5px;border-radius:2px;background:linear-gradient(90deg,#5fc9f9,#b7f1ff);transform-origin:left;animation:report-credit-signal .52s ease-out .65s both}
+@keyframes report-credit-signal{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
 @keyframes report-credit-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-@media(prefers-reduced-motion:reduce){.report-modal-spinner,.report-loader-credit span,.report-loader-credit strong{animation:none}}
+@media(prefers-reduced-motion:reduce){.report-modal-spinner,.report-loader-credit span,.report-loader-credit strong,.report-loader-credit::after{animation:none}}
 .report-modal-frame iframe{display:block;width:100%;border:0;height:clamp(235px,60vh,660px);height:clamp(235px,60dvh,660px)}
 @media(max-width:540px){.report-modal{width:calc(100% - 16px);max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px);padding:13px}.report-modal button{min-height:44px}.report-modal-toolbar{margin-top:10px}.report-modal-frame iframe{height:clamp(235px,58dvh,440px)}}
 
