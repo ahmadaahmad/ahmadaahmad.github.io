@@ -348,6 +348,35 @@ html[data-catalog][data-hero-trails] .portfolio-star-trails .portfolio-starfield
 html[data-star-color=gold] .portfolio-starfield>g:first-child{fill:#e2ba73}
 html[data-star-color=gold] .portfolio-starfield>g:nth-child(2){fill:#ffda8b}
 html[data-star-color=gold] .portfolio-starfield .sky-shine circle{fill:#fff4cb}
+
+.resume-share-actions{display:flex;align-items:center;flex-wrap:wrap;gap:7px 16px}
+.resume-share-actions>a{color:#f5b6a3;font-size:.91rem;font-weight:700}
+.resume-share-trigger{display:inline-flex;align-items:center;gap:7px;min-height:42px;padding:7px 12px;border:1px solid var(--hero-line,#806985);border-radius:8px;background:transparent;color:var(--hero-text,#f8eff8);font:700 .87rem/1.2 system-ui,sans-serif;cursor:pointer}
+.resume-share-trigger:hover{background:var(--hero-card,#463650);border-color:var(--hero-accent,#f5b6a3)}
+.resume-share-trigger:focus-visible{outline-color:var(--hero-accent,#f5b6a3)}
+body:has(>.portfolio-share-dialog[open]){overflow:hidden}
+.portfolio-share-dialog{width:min(500px,calc(100% - 24px));max-height:calc(100dvh - 24px);box-sizing:border-box;padding:clamp(15px,5vw,25px);border:1px solid var(--line);border-radius:16px;background:var(--white);color:var(--ink);box-shadow:0 25px 75px #11203966;overflow:auto}
+.portfolio-share-dialog::backdrop{background:#081427ba}
+.portfolio-share-dialog .share-head{display:flex;align-items:start;justify-content:space-between;gap:10px}
+.portfolio-share-dialog .kicker{margin:0 0 5px}
+.portfolio-share-dialog h2{font-size:clamp(1.55rem,5vw,2.02rem);line-height:1.12;margin:0}
+.portfolio-share-dialog .share-description{margin:11px 0 15px}
+.portfolio-share-dialog .share-choices{display:grid;gap:7px;margin:0;padding:0;border:0;min-width:0}
+.portfolio-share-dialog .share-choice{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;min-height:58px;box-sizing:border-box;padding:8px 10px;border:1px solid var(--line);border-radius:9px;cursor:pointer}
+.portfolio-share-dialog .share-choice input{margin:0;accent-color:var(--accent)}
+.portfolio-share-dialog .share-choice:has(:checked){border-color:var(--accent);background:var(--paper)}
+.portfolio-share-dialog .share-choice strong,.portfolio-share-dialog .share-choice small{display:block}
+.portfolio-share-dialog .share-choice small{margin-top:2px;font-size:.8rem;line-height:1.28}
+.portfolio-share-dialog .share-type{font-size:.72rem;font-weight:700;white-space:nowrap}
+.portfolio-share-dialog .share-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.portfolio-share-dialog button{min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);font:700 .86rem/1.2 system-ui,sans-serif;cursor:pointer}
+.portfolio-share-dialog .share-primary{background:var(--accent);color:white;border-color:var(--accent)}
+.portfolio-share-dialog .share-status{margin:9px 0 0;font-size:.86rem}
+.portfolio-share-dialog .share-status:empty{display:none}
+.portfolio-share-dialog .share-manual{display:block;margin-top:11px;font-size:.86rem}
+.portfolio-share-dialog [hidden]{display:none!important}
+.portfolio-share-dialog .share-manual input{display:block;width:100%;box-sizing:border-box;margin-top:4px;padding:8px;font-size:16px}
+.resume-share-trigger[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -428,7 +457,7 @@ html[data-star-color=gold] .portfolio-starfield .sky-shine circle{fill:#fff4cb}
 <div><dt>Data engineering</dt><dd>Microsoft Azure, ETL, and data integration</dd></div>
 <div><dt>Business intelligence</dt><dd>Power BI dashboards, DAX and star-schema modeling</dd></div>
 </dl>
-<a href="./resume-motion-preview.html?theme=light&amp;v=resume-downloads-1">View full résumé <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a>
+<div class="resume-share-actions"><a href="./resume-motion-preview.html?theme=light&amp;v=resume-downloads-1">View full résumé <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a><button type="button" class="resume-share-trigger" id="portfolio-share-open" aria-haspopup="dialog" aria-controls="portfolio-share" hidden><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m-4 4 4-4 4 4M8 10H6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2"/></svg>Share</button></div>
 </aside>
 </div>
 </div>
@@ -588,6 +617,71 @@ html[data-star-color=gold] .portfolio-starfield .sky-shine circle{fill:#fff4cb}
   </div>
   <div class="report-modal-frame"></div>
 </dialog>
+
+<dialog class="portfolio-share-dialog" id="portfolio-share" aria-labelledby="portfolio-share-title">
+  <div class="share-head"><div><p class="kicker">Send to a colleague</p><h2 id="portfolio-share-title">Share Ahmad’s work</h2></div><button type="button" data-share-close aria-label="Close share options">Close</button></div>
+  <p class="share-description">Pick what you’d like to share. Your colleague will get a link.</p>
+  <fieldset class="share-choices">
+    <legend class="report-sr-only">Choose what to share</legend>
+    <label class="share-choice"><input type="radio" name="portfolio-share-type" value="page" checked autofocus><span><strong>Portfolio page</strong><small>Projects, demos and résumé in one place</small></span><span class="share-type">WEB</span></label>
+    <label class="share-choice"><input type="radio" name="portfolio-share-type" value="pdf"><span><strong>Résumé PDF</strong><small>Best for forwarding or printing</small></span><span class="share-type">PDF</span></label>
+    <label class="share-choice"><input type="radio" name="portfolio-share-type" value="word"><span><strong>Résumé Word document</strong><small>For teams that prefer a Word file</small></span><span class="share-type">DOCX</span></label>
+  </fieldset>
+  <div class="share-actions"><button type="button" class="share-primary" data-share-native hidden>Share link</button><button type="button" class="share-primary" data-share-copy>Copy link</button></div>
+  <p class="share-status" role="status"></p>
+  <label class="share-manual" hidden>Copy this link manually<input readonly></label>
+</dialog>
+<script>
+(() => {
+  const trigger=document.getElementById("portfolio-share-open"), dialog=document.getElementById("portfolio-share");
+  if (!trigger || typeof dialog?.showModal !== "function") return;
+  const native=dialog.querySelector("[data-share-native]"), copy=dialog.querySelector("[data-share-copy]");
+  const status=dialog.querySelector(".share-status"), manual=dialog.querySelector(".share-manual"), field=manual.querySelector("input");
+  const page=new URL(location.pathname,location.origin);
+  const current=new URLSearchParams(location.search);
+  page.searchParams.set("layout",current.get("layout")==="1"?"1":"2");
+  page.searchParams.set("view","catalog");
+  for (const key of ["theme","brand","entrance","background","stars"]){
+    const value=current.get(key);
+    if (value && /^[a-z0-9-]{1,30}$/i.test(value)) page.searchParams.set(key,value);
+  }
+  page.hash="top";
+  const targets={
+    page:{label:"Portfolio page",title:"Ahmad Ahmad | Portfolio",url:page.href},
+    pdf:{label:"Résumé PDF",title:"Ahmad Ahmad | Résumé PDF",url:new URL("./downloads/ahmad-ahmad-resume.pdf",location.href).href},
+    word:{label:"Résumé Word document",title:"Ahmad Ahmad | Résumé Word document",url:new URL("./downloads/ahmad-ahmad-resume.docx",location.href).href}
+  };
+  const selected=()=>targets[dialog.querySelector('input[name="portfolio-share-type"]:checked').value];
+  const reset=()=>{
+    const {title,url}=selected();
+    const supported=typeof navigator.share==="function" && (typeof navigator.canShare!=="function" || navigator.canShare({title,url}));
+    native.hidden=!supported;
+    copy.classList.toggle("share-primary",!supported);
+    manual.hidden=true; status.textContent="";
+  };
+  const fallback=url=>{field.value=url;manual.hidden=false;field.focus();field.select();status.textContent="Copy the selected link to share it.";};
+  trigger.hidden=false;
+  trigger.addEventListener("click",()=>{reset();dialog.showModal();});
+  dialog.querySelector("[data-share-close]").addEventListener("click",()=>dialog.close());
+  dialog.addEventListener("close",()=>trigger.focus({preventScroll:true}));
+  dialog.addEventListener("change",reset);
+  dialog.addEventListener("click",e=>{
+    if(e.target!==dialog)return;
+    const r=dialog.getBoundingClientRect();
+    if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();
+  });
+  copy.addEventListener("click",async()=>{
+    const {label,url}=selected();
+    try { await navigator.clipboard.writeText(url); status.textContent=label+" link copied.";manual.hidden=true; }
+    catch { fallback(url); }
+  });
+  native.addEventListener("click",async()=>{
+    const {title,url}=selected();
+    try { await navigator.share({title,url}); }
+    catch (error) { if(error.name!=="AbortError") fallback(url); }
+  });
+})();
+</script>
 <footer><div class="wrap footer-row"><p class="foot-label">Ahmad Ahmad · Portfolio</p><p><a href="https://linkedin.com/in/ahmadahmad1">Connect on LinkedIn <svg style="vertical-align:-.12em" aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5m-4 0h4v4"/></svg></a></p></div></footer>
 <template id="azure-step-icons"><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3.5h8l4 4v13H6zM14 3.5v4h4M9 12h6m-6 4h6"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="6" rx="6" ry="2.7"/><path d="M6 6v11.5c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7V6M6 12c0 1.5 2.7 2.7 6 2.7s6-1.2 6-2.7"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h3l6 6h7M4 18h3l6-6m3-4 4 4-4 4"/></svg><svg class="preview-step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7.5v4.8l3 2"/></svg></template>
 <script>
